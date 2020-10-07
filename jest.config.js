@@ -11,5 +11,6 @@ module.exports = {
     '<rootDir>/libs/shared-material',
     '<rootDir>/libs/shared-fontawesome',
     '<rootDir>/libs/test',
+    '<rootDir>/libs/shared',
   ],
 };

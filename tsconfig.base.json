@@ -24,7 +24,8 @@
       "@slx/router": ["libs/router/src/index.ts"],
       "@slx/shared-material": ["libs/shared-material/src/index.ts"],
       "@slx/shared-fontawesome": ["libs/shared-fontawesome/src/index.ts"],
-      "@slx/test": ["libs/test/src/index.ts"]
+      "@slx/test": ["libs/test/src/index.ts"],
+      "@slx/shared": ["libs/shared/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

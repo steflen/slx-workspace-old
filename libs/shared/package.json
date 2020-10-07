@@ -1,5 +1,5 @@
 {
-  "name": "@slx/test",
+  "name": "@slx/shared",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^10.1.4",

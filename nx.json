@@ -1,5 +1,5 @@
 {
-  "npmScope": "slx-workspace",
+  "npmScope": "slx",
   "affected": {
     "defaultBase": "master"
   },
@@ -60,7 +60,8 @@
     "shared-fontawesome": {
       "tags": []
     },
-    "test": {
+
+    "shared": {
       "tags": []
     }
   }
