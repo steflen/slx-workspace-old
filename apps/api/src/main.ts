@@ -1,21 +1,58 @@
-/**
- * This is not a production server yet!
- * This is only a minimal backend to get started.
- */
-
-import { Logger } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
-
+import compression from 'compression';
+import * as dotenv from 'dotenv';
+import * as rateLimit from 'express-rate-limit';
+import * as helmet from 'helmet';
+import { Logger } from 'nestjs-pino';
+import { resolve } from 'path';
 import { AppModule } from './app/app.module';
 
+const bla = dotenv.config({ path: resolve(__dirname, 'assets', '.env') });
+console.log('bla');
+console.log(bla);
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  const globalPrefix = 'api';
-  app.setGlobalPrefix(globalPrefix);
-  const port = process.env.PORT || 3333;
-  await app.listen(port, () => {
-    Logger.log('Listening at http://localhost:' + port + '/' + globalPrefix);
+  const app = await NestFactory.create(AppModule, { logger: true });
+
+  const logger = app.get(Logger);
+  app.useLogger(logger);
+
+  const cfg = app.get(ConfigService);
+  //
+  // const globalPrefix = cfg.get('system.globalPrefix');
+  // const host = cfg.get('system.host');
+  // const port = cfg.get('system.port');
+  const systemConfig = cfg.get('system');
+  const corsConfig = cfg.get('cors');
+  const rateLimitConfig = cfg.get('rateLimit');
+
+  logger.log('Server root', __dirname);
+  logger.log('Process cwd', process.cwd());
+  logger.log('System Config', systemConfig);
+  logger.log('Cors Config', corsConfig);
+  logger.log('Rate Limit Config', rateLimitConfig);
+
+  app.enableCors(corsConfig);
+  app.use(compression());
+  app.use(helmet());
+  app.use(rateLimit(rateLimitConfig));
+  app.enableShutdownHooks();
+  app.setGlobalPrefix(systemConfig.globalPrefix);
+
+  await app.listen(systemConfig.port, systemConfig.host, () => {
+    logger.log(`Listening at http://${systemConfig.host}:${systemConfig.port}/${systemConfig.globalPrefix}`);
   });
+
+  process.on('SIGINT', function () {
+    // db.stop(function(err) {
+    //   process.exit(err ? 1 : 0);
+    // });
+    logger.log('graceful shutdown now');
+  });
+
+  return logger;
 }
 
-bootstrap();
+bootstrap()
+  .then((logger) => logger.log('App initialization successful'))
+  .catch((err) => console.error('ERROR ' + err));

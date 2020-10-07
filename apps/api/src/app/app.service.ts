@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Message } from '@slx-workspace/api-interfaces';
+import { Message } from '@slx/api-interfaces';
 
 @Injectable()
 export class AppService {

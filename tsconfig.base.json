@@ -16,7 +16,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@slx-api/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@slx/api-interfaces": ["libs/api-interfaces/src/index.ts"],
       "@slx/core": ["libs/core/src/index.ts"],
       "@slx/authentication": ["libs/authentication/src/index.ts"],
       "@slx/translation": ["libs/translation/src/index.ts"],

@@ -1,7 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-
-import { Message } from '@slx-workspace/api-interfaces';
-
+import { Message } from '@slx/api-interfaces';
 import { AppService } from './app.service';
 
 @Controller()
