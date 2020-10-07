@@ -3,5 +3,13 @@ module.exports = {
     '<rootDir>/apps/playground',
     '<rootDir>/apps/api',
     '<rootDir>/libs/api-interfaces',
+    '<rootDir>/libs/core',
+    '<rootDir>/libs/authentication',
+    '<rootDir>/libs/translation',
+    '<rootDir>/libs/error',
+    '<rootDir>/libs/router',
+    '<rootDir>/libs/shared-material',
+    '<rootDir>/libs/shared-fontawesome',
+    '<rootDir>/libs/test',
   ],
 };

@@ -16,7 +16,15 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@slx-workspace/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@slx-api/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@slx/core": ["libs/core/src/index.ts"],
+      "@slx/authentication": ["libs/authentication/src/index.ts"],
+      "@slx/translation": ["libs/translation/src/index.ts"],
+      "@slx/error": ["libs/error/src/index.ts"],
+      "@slx/router": ["libs/router/src/index.ts"],
+      "@slx/shared-material": ["libs/shared-material/src/index.ts"],
+      "@slx/shared-fontawesome": ["libs/shared-fontawesome/src/index.ts"],
+      "@slx/test": ["libs/test/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -23,6 +23,9 @@
     }
   },
   "projects": {
+    "storybook": {
+      "tags": []
+    },
     "playground": {
       "tags": []
     },
@@ -34,6 +37,30 @@
       "tags": []
     },
     "api-interfaces": {
+      "tags": []
+    },
+    "core": {
+      "tags": []
+    },
+    "authentication": {
+      "tags": []
+    },
+    "translation": {
+      "tags": []
+    },
+    "error": {
+      "tags": []
+    },
+    "router": {
+      "tags": []
+    },
+    "shared-material": {
+      "tags": []
+    },
+    "shared-fontawesome": {
+      "tags": []
+    },
+    "test": {
       "tags": []
     }
   }
