@@ -49,6 +49,10 @@
                 {
                   "replace": "apps/playground/src/environments/environment.ts",
                   "with": "apps/playground/src/environments/environment.prod.ts"
+                },
+                {
+                  "replace": "libs/core/src/lib/build-specifics/index.ts",
+                  "with": "libs/core/src/lib/build-specifics/index.prod.ts"
                 }
               ],
               "optimization": true,
@@ -213,7 +217,13 @@
           },
           "configurations": {
             "production": {
-              "tsConfig": "libs/core/tsconfig.lib.prod.json"
+              "tsConfig": "libs/core/tsconfig.lib.prod.json",
+              "fileReplacements": [
+                {
+                  "replace": "libs/core/src/lib/build-specifics/index.ts",
+                  "with": "libs/core/src/lib/build-specifics/index.prod.ts"
+                }
+              ]
             }
           }
         },
@@ -651,6 +661,46 @@
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/board/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "settings": {
+      "projectType": "library",
+      "root": "libs/settings",
+      "sourceRoot": "libs/settings/src",
+      "prefix": "slx",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/settings/tsconfig.lib.json",
+            "project": "libs/settings/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/settings/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "tsConfig": ["libs/settings/tsconfig.lib.json"],
+            "exclude": ["**/node_modules/**", "!libs/settings/**/*"],
+            "linter": "eslint"
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/settings/jest.config.js",
             "passWithNoTests": true
           }
         }

@@ -3754,11 +3754,6 @@
   resolved "http://ninja-npm-verdaccio.barco.com:4873/@types%2funist/-/unist-2.0.3.tgz#9c088679876f374eb5983f150d4787aa6fb32d7e"
   integrity sha512-FvUupuM3rlRsRtCN+fDudtmytGO6iHJuuRKS1Ss0pG5z8oX0diNEw94UEL7hgDbpN94rgaK5R7sWm6RrSkZuAQ==
 
-"@types/uuid@8.3.0":
-  version "8.3.0"
-  resolved "http://ninja-npm-verdaccio.barco.com:4873/@types%2fuuid/-/uuid-8.3.0.tgz#215c231dff736d5ba92410e6d602050cce7e273f"
-  integrity sha512-eQ9qFW/fhfGJF8WKHGEHZEyVWfZxrT+6CLIJGBcZPfxUh/+BnEj+UCGYMlr9qZuX/2AltsvwrGqp0LhEW8D0zQ==
-
 "@types/validator@*", "@types/validator@^13.1.0":
   version "13.1.0"
   resolved "http://ninja-npm-verdaccio.barco.com:4873/@types%2fvalidator/-/validator-13.1.0.tgz#3d776127dbce7dd31fc06f86d3428b072e631eba"
@@ -18122,23 +18117,15 @@ uuid@8.3.0:
   resolved "http://ninja-npm-verdaccio.barco.com:4873/uuid/-/uuid-8.3.0.tgz#ab738085ca22dc9a8c92725e459b1d507df5d6ea"
   integrity sha512-fX6Z5o4m6XsXBdli9g7DtWgAx+osMsRRZFKma1mIUsLCz6vRvv+pz5VNbyu9UEDzpMWulZfvpgb/cmDXVulYFQ==
 
-uuid@8.3.1, uuid@^8.0.0, uuid@^8.1.0, uuid@^8.3.0:
-  version "8.3.1"
-  resolved "http://ninja-npm-verdaccio.barco.com:4873/uuid/-/uuid-8.3.1.tgz#2ba2e6ca000da60fce5a196954ab241131e05a31"
-  integrity sha512-FOmRr+FmWEIG8uhZv6C2bTgEVXsHk08kE7mPlrBbEe+c3r9pjceVPgupIfNIhc4yx55H69OXANrUaSuu9eInKg==
-
 uuid@^3.0.0, uuid@^3.2.1, uuid@^3.3.2, uuid@^3.3.3, uuid@^3.4.0:
   version "3.4.0"
   resolved "http://ninja-npm-verdaccio.barco.com:4873/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
 
-uuidv4@^6.2.4:
-  version "6.2.4"
-  resolved "http://ninja-npm-verdaccio.barco.com:4873/uuidv4/-/uuidv4-6.2.4.tgz#8cd299e68c007c268f974d3fbe681902434f61a1"
-  integrity sha512-H6sXuVFXjI0YXX2ItB0ZTJF+qx/W138S0707p1dbrWeb5yzQJhJIfH0dgq0LNFcPaHYM8NSI3r+tlZbfABPNWQ==
-  dependencies:
-    "@types/uuid" "8.3.0"
-    uuid "8.3.1"
+uuid@^8.0.0, uuid@^8.1.0, uuid@^8.3.0, uuid@^8.3.1:
+  version "8.3.1"
+  resolved "http://ninja-npm-verdaccio.barco.com:4873/uuid/-/uuid-8.3.1.tgz#2ba2e6ca000da60fce5a196954ab241131e05a31"
+  integrity sha512-FOmRr+FmWEIG8uhZv6C2bTgEVXsHk08kE7mPlrBbEe+c3r9pjceVPgupIfNIhc4yx55H69OXANrUaSuu9eInKg==
 
 v8-compile-cache@^2.0.3, v8-compile-cache@^2.1.1:
   version "2.1.1"

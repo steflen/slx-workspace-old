@@ -100,7 +100,7 @@
     "sequelize-typescript": "^2.0.0-beta.0",
     "sqlite3": "^5.0.0",
     "tslib": "^2.0.2",
-    "uuidv4": "^6.2.4",
+    "uuid": "^8.3.1",
     "zone.js": "^0.11.1"
   },
   "devDependencies": {

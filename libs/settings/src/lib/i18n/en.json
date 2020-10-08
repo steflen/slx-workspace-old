@@ -1,0 +1,10 @@
+{
+  "sign-in": "Sign In",
+  "sign-out": "Sign Out",
+  "info": "Please use an OpSpace user account with user role admin.",
+  "description": "After signing in, you can do api v2 requests",
+  "username-placeholder": "Username",
+  "username-required": "Username is required",
+  "password-placeholder": "Password",
+  "password-required": "Password is required"
+}

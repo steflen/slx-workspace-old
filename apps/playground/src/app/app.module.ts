@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BoardModule } from '@slx/board';
 import { CoreModule } from '@slx/core';
+import { SettingsModule } from '@slx/settings';
 import { SharedModule } from '@slx/shared';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     SharedModule,
     CoreModule,
+    SettingsModule,
     BoardModule, // board-routing is done via @slx/shell
     AppRoutingModule,
   ],

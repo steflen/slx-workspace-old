@@ -28,7 +28,8 @@
       "@slx/error": ["libs/error/src/index.ts"],
       "@slx/router": ["libs/router/src/index.ts"],
       "@slx/shell": ["libs/shell/src/index.ts"],
-      "@slx/board": ["libs/board/src/index.ts"]
+      "@slx/board": ["libs/board/src/index.ts"],
+      "@slx/settings": ["libs/settings/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

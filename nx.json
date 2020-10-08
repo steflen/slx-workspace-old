@@ -74,6 +74,9 @@
     },
     "board": {
       "tags": []
+    },
+    "settings": {
+      "tags": []
     }
   }
 }

@@ -1,0 +1,15 @@
+<ng-container *transloco="let t; scope: 'translation'">
+    <mat-form-field appearance="fill" *ngIf="this.translation.activeLanguage$ | async as settings">
+        <mat-label>{{ t('translation.current-language') }}</mat-label>
+        <mat-select
+            [ngModel]="translation.getAvailableLanguages()"
+            (selectionChange)="onLanguageSelect($event)"
+            name="language"
+        >
+            <mat-option *ngFor="let language of translation.getAvailableLanguages()" [value]="language">
+                {{ language }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <!--    <p>{{ t('translation.active-language') }}: {{ i18n.activeLanguage$ | async }}</p>-->
+</ng-container>

@@ -17,5 +17,6 @@ module.exports = {
     '<rootDir>/libs/api/user2',
     '<rootDir>/libs/shell',
     '<rootDir>/libs/board',
+    '<rootDir>/libs/settings',
   ],
 };

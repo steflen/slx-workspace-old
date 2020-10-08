@@ -6,7 +6,7 @@ import { SharedFontawesomeModule } from '@slx/shared-fontawesome';
 import { SharedMaterialModule } from '@slx/shared-material';
 import { DateFnsModule } from 'ngx-date-fns';
 import { NgPipesModule } from 'ngx-pipes';
-import { HoverStyleDirective } from './directives/hover-style';
+import { HoverStyleDirective } from './directives/hover-style.directive';
 
 @NgModule({
   imports: [

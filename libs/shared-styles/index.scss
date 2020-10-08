@@ -4,15 +4,15 @@
 @import './themes/light-theme';
 @import './themes/dark-theme';
 
-@include mat-core($custom-typography);
-
-// the default theme
-@include angular-material-theme($slx-light-theme);
-
 @import '~libs/board/src/lib/components/board/board.component.theme';
 @import '~libs/board/src/lib/components/dynamic-grid/dynamic-grid.component.theme';
 @import '~libs/board/src/lib/components/controls/controls.component.theme';
 @import '~libs/board/src/lib/components/top-bar/top-bar.component.theme';
+
+@include mat-core($custom-typography);
+
+// the default theme
+@include angular-material-theme($slx-light-theme);
 
 @mixin custom-components-theme($theme) {
     @include slx-board-theme($theme);

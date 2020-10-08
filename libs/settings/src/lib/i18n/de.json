@@ -1,0 +1,10 @@
+{
+  "sign-in": "Anmelden",
+  "sign-out": "Abmelden",
+  "info": "Bitte einen OpSpace Benutzer-Account mit Rolle Admin oder höher auswählen.",
+  "description": "Nach dem Einloggen kannsch was machen .. z.B. Sach' ändern.",
+  "username-placeholder": "Benutzername",
+  "username-required": "Benutzername erforderlich",
+  "password-placeholder": "Passwort",
+  "password-required": "Passwort erforderlich"
+}

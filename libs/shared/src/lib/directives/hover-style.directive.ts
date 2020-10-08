@@ -1,5 +1,25 @@
 import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 
+/*
+ *  =========================================================
+ *  ==== USAGE ====
+ *
+ *  in any component, put a scss class
+ *
+ *  .fancy-hover-style{
+ *    background: #666666;  //
+ *  }
+ *
+ *  then, in the html-template link the style to the directive
+ *
+ *  <fancy-component
+ *    *ngFor="let item of displays | values"
+ *    trbHoverStyle="fancy-hover-style"
+ *  ></fancy-component>
+ *
+ *  =========================================================
+ * */
+
 @Directive({
   selector: '[slxHoverStyle]',
 })

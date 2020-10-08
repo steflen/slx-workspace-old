@@ -27,7 +27,7 @@ export class TopBarComponent {
         closeOnNavigation: true,
         restoreFocus: true,
         // direction: 'ltr', //"rtl"
-        // panelClass: 'control-panel',
+        // panelClass: 'slx-board-control-panel',
         data: {},
         disableClose: true,
       });
