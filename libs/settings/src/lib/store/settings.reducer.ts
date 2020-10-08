@@ -3,7 +3,6 @@ import {
   changeCurrentThemeAction,
   changeDayThemeAction,
   changeHourAction,
-  changeLanguageAction,
   changeNightThemeAction,
   changeStickyHeaderAction,
   loadSettingsAction,
@@ -14,9 +13,7 @@ import { SettingsState } from './settings.model';
 
 export const initialState: SettingsState = {
   pending: false,
-  availableLanguages: ['de', 'en'],
-  locale: 'de',
-  language: 'en',
+
   availableThemes: ['light-theme', 'dark-theme'],
   theme: 'light-theme',
   dayTheme: 'light-theme',
@@ -57,7 +54,6 @@ const settingsReducer = createReducer(
   ),
 
   on(
-    changeLanguageAction,
     changeCurrentThemeAction,
     changeNightThemeAction,
     changeDayThemeAction,

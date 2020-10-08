@@ -14,7 +14,7 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
  *
  *  <fancy-component
  *    *ngFor="let item of displays | values"
- *    trbHoverStyle="fancy-hover-style"
+ *    slxHoverStyle="fancy-hover-style"
  *  ></fancy-component>
  *
  *  =========================================================

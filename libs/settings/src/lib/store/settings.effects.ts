@@ -2,11 +2,11 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, createEffect } from '@ngrx/effects';
-import { select, Store } from '@ngrx/store';
+import { Store } from '@ngrx/store';
 import { interval } from 'rxjs';
-import { distinctUntilChanged, map, mapTo, tap } from 'rxjs/operators';
+import { distinctUntilChanged, map, mapTo } from 'rxjs/operators';
 import { TranslationFacade } from '../../../../translation/src/lib/store/translation.facade';
-import { changeHourAction, changeLanguageAction } from './settings.actions';
+import { changeHourAction } from './settings.actions';
 
 // https://ngrx.io/guide/effects
 @Injectable()
@@ -23,7 +23,7 @@ export class SettingsEffects {
     interval(60_000).pipe(
       mapTo(new Date().getHours()),
       distinctUntilChanged(),
-      map((hour) => changeHourAction({ hour })),
+      map((hour) => changeHourAction({ hour: hour })),
     ),
   );
 
@@ -36,15 +36,15 @@ export class SettingsEffects {
   //   { dispatch: false },
   // );
 
-  changeLanguage = createEffect(
-    () =>
-      this.store.pipe(
-        select(changeLanguageAction),
-        distinctUntilChanged(),
-        tap(({ language }) => this.translationFacade.setLanguage(language)),
-      ),
-    { dispatch: false },
-  );
+  // changeLanguage = createEffect(
+  //   () =>
+  //     this.store.pipe(
+  //       select(changeLanguageAction),
+  //       distinctUntilChanged(),
+  //       tap(({ language }) => this.translationFacade.setLanguage(language)),
+  //     ),
+  //   { dispatch: false },
+  // );
 
   // onLanguageSelect(x: any): void {
   //   if (x.value === 'de') {

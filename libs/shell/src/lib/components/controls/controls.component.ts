@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 
 @Component({
-  selector: 'slx-board-controls',
+  selector: 'slx-shell-controls',
   templateUrl: './controls.component.html',
   styleUrls: ['./controls.component.scss'],
 })

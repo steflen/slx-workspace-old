@@ -13,14 +13,14 @@ import { LanguageSelectComponent } from './components/language-select/language-s
 import { Language } from './interfaces/language.interface';
 import { TranslocoHttpLoader } from './services/transloco-loader';
 import { TranslationEffects } from './store/translation.effects';
-import { i18nInitialState, translationReducer } from './store/translation.reducer';
+import { reducer, translationInitialState } from './store/translation.reducer';
 import { TRANSLATION_FEATURE_KEY } from './translation.feature-key';
 
 @NgModule({
   imports: [
     SharedModule,
     TranslocoModule,
-    StoreModule.forFeature(TRANSLATION_FEATURE_KEY, translationReducer, { initialState: i18nInitialState }),
+    StoreModule.forFeature(TRANSLATION_FEATURE_KEY, reducer, { initialState: translationInitialState }),
     EffectsModule.forFeature([TranslationEffects]),
   ],
   declarations: [LanguageSelectComponent],

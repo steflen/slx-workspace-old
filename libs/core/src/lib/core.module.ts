@@ -18,8 +18,7 @@ import { WINDOW_PROVIDERS } from './services/window.provider';
     CommonModule,
     HttpClientModule,
     SharedModule,
-    RouterModule,
-    ErrorModule,
+
     StoreModule.forRoot(
       {},
       {
@@ -35,6 +34,8 @@ import { WINDOW_PROVIDERS } from './services/window.provider';
     ),
     buildSpecificModules,
     EffectsModule.forRoot([]),
+    RouterModule,
+    ErrorModule,
   ],
   exports: [SharedModule],
   providers: [

@@ -16,8 +16,8 @@ export class ErrorFacade {
 
   constructor(private store: Store) {}
 
-  public addNewError(error: ErrorEntity) {
-    this.store.dispatch(ErrorActions.addNewErrorAction({ error }));
+  public addNewError(error: ErrorEntity, severity: 'default' | 'high' = 'default') {
+    this.store.dispatch(ErrorActions.addNewErrorAction({ error, date: new Date(), severity }));
   }
 
   public resetAllErrors() {

@@ -1,4 +1,4 @@
-$slx-board-controls-toolbar-top-height: 2rem;
+$slx-shell-controls-toolbar-top-height: 2rem;
 
 // override bottom-sheet style
 ::ng-deep .mat-bottom-sheet-container {
@@ -16,12 +16,15 @@ $slx-board-controls-toolbar-top-height: 2rem;
 
 .toolbar-bottom {
 }
+
 .toolbar-mid {
 }
+
 .toolbar-top {
-    height: $slx-board-controls-toolbar-top-height;
+    height: $slx-shell-controls-toolbar-top-height;
     padding-right: 0;
 }
+
 .toolbar-top .buttons {
     position: absolute;
     right: 0;

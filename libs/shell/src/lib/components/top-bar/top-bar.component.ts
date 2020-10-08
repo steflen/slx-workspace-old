@@ -1,17 +1,27 @@
 import { Component } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { RouterFacade } from '@slx/router';
 import { ControlsComponent } from '../controls/controls.component';
 
 @Component({
-  selector: 'slx-board-top-bar',
+  selector: 'slx-shell-top-bar',
   templateUrl: './top-bar.component.html',
   styleUrls: ['./top-bar.component.scss'],
 })
 export class TopBarComponent {
   isControlsOpened: boolean; // << now qnd, later store!
 
-  constructor(private bottomSheet: MatBottomSheet) {}
+  constructor(private bottomSheet: MatBottomSheet, private routerFacade: RouterFacade) {}
 
+  gotoBoard() {
+    this.routerFacade.goto({ path: ['board'] });
+  }
+  gotoErrors() {
+    this.routerFacade.goto({ path: ['errors'] });
+  }
+  gotoSettings() {
+    this.routerFacade.goto({ path: ['settings'] });
+  }
   openControls(): void {
     // https://material.angular.io/components/bottom-sheet/api
 
@@ -24,7 +34,7 @@ export class TopBarComponent {
         ariaLabel: 'Control',
         autoFocus: true,
         hasBackdrop: false,
-        closeOnNavigation: true,
+        closeOnNavigation: false,
         restoreFocus: true,
         // direction: 'ltr', //"rtl"
         // panelClass: 'slx-board-control-panel',

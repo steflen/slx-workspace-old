@@ -7,6 +7,8 @@ import { BoardModule } from '@slx/board';
 import { CoreModule } from '@slx/core';
 import { SettingsModule } from '@slx/settings';
 import { SharedModule } from '@slx/shared';
+import { TranslationModule } from '@slx/translation';
+import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -17,7 +19,8 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     HttpClientModule,
     SharedModule,
-    CoreModule,
+    TranslationModule.forRoot(environment.production, environment.availableLanguages),
+    CoreModule.forRoot(environment),
     SettingsModule,
     BoardModule, // board-routing is done via @slx/shell
     AppRoutingModule,

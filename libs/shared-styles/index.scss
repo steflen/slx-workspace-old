@@ -4,10 +4,10 @@
 @import './themes/light-theme';
 @import './themes/dark-theme';
 
-@import '~libs/board/src/lib/components/board/board.component.theme';
-@import '~libs/board/src/lib/components/dynamic-grid/dynamic-grid.component.theme';
-@import '~libs/board/src/lib/components/controls/controls.component.theme';
-@import '~libs/board/src/lib/components/top-bar/top-bar.component.theme';
+@import '../board/src/lib/components/board/board.component.theme';
+@import '../board/src/lib/components/dynamic-grid/dynamic-grid.component.theme';
+@import '../shell/src/lib/components/controls/controls.component.theme';
+@import '../shell/src/lib/components/top-bar/top-bar.component.theme';
 
 @include mat-core($custom-typography);
 
@@ -17,8 +17,8 @@
 @mixin custom-components-theme($theme) {
     @include slx-board-theme($theme);
     @include slx-board-dynamic-grid-theme($theme);
-    @include slx-board-controls-theme($theme);
-    @include slx-board-top-bar-theme($theme);
+    @include slx-shell-controls-theme($theme);
+    @include slx-shell-top-bar-theme($theme);
 }
 
 .light-theme {

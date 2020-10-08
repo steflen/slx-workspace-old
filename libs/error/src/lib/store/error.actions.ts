@@ -1,7 +1,10 @@
 import { createAction, props } from '@ngrx/store';
 import { ERROR_FEATURE_KEY } from '../error.feature-key';
 
-export const addNewErrorAction = createAction(`[${ERROR_FEATURE_KEY}] Add New Error`, props<{ error: any }>());
+export const addNewErrorAction = createAction(
+  `[${ERROR_FEATURE_KEY}] Add New Error`,
+  props<{ error: any; date: number | Date; severity: 'default' | 'high' }>(),
+);
 export const resetAllErrorsAction = createAction(`[${ERROR_FEATURE_KEY}] Reset All Errors`);
 
 // export const showErrorPage = createAction(`[${ERROR_FEATURE_KEY}] SHOW_ERROR_PAGE`);

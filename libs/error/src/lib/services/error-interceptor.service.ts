@@ -36,6 +36,8 @@ export class ErrorInterceptorService {
           this.facade.addNewError({
             id: uuidV4(),
             error: error,
+            date: new Date(),
+            severity: 'default',
             code: error.code ? error.code : null,
             message: error.message ? error.message : null,
           });

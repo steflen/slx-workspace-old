@@ -7,9 +7,7 @@ export interface SettingsState {
   dayTheme: string;
   theme: string;
   availableThemes: Array<string>;
-  language: string;
-  locale: string;
-  availableLanguages: Array<string>;
+
   stickyHeader: boolean;
   hour: number;
 }

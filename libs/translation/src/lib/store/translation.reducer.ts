@@ -1,26 +1,26 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { setLanguageAction } from './translation.actions';
-
-export interface TranslationState {
-  language: string;
-}
+import { TranslationState } from './translation.model';
 
 export interface TranslationStore {
   readonly state: TranslationState;
 }
 
-export const i18nInitialState: TranslationState = {
-  language: 'en',
+export const translationInitialState: TranslationState = {
+  language: null,
+  defaultLanguage: null,
+  availableLanguages: null,
+  locale: 'de',
 };
 
-const reducer = createReducer(
-  i18nInitialState,
+const translationReducer = createReducer(
+  translationInitialState,
   on(setLanguageAction, (state, { language }) => ({
     ...state,
     language,
   })),
 );
 
-export function translationReducer(state: TranslationState | undefined, action: Action): TranslationState {
-  return reducer(state, action);
+export function reducer(state: TranslationState | undefined, action: Action): TranslationState {
+  return translationReducer(state, action);
 }
