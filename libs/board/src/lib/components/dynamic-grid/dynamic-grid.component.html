@@ -1,0 +1,14 @@
+<mat-grid-list #grid [cols]="columCount" [gutterSize]="'10px'" [rowHeight]="'fit'">
+    <mat-grid-tile
+        *ngFor="let tile of tiles"
+        (mouseover)="onDisplayHover($event, tile)"
+        (click)="onDisplayClick($event, tile)"
+        slxHoverStyle="tile-hovered"
+    >
+        <!--                      <mat-grid-tile-header class="display-header"></mat-grid-tile-header>-->
+        {{ tile.row }} x {{ tile.column }}
+
+        <!--    <mat-grid-tile-footer *nfIf="https://stackblitz.com/edit/angular-xqeflh?file=src%2Fapp%2Fhover-class.directive.ts"-->
+        <!--    ></mat-grid-tile-footer>-->
+    </mat-grid-tile>
+</mat-grid-list>

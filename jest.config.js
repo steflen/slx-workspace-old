@@ -15,5 +15,7 @@ module.exports = {
     '<rootDir>/libs/api/authentication',
     '<rootDir>/libs/api/user',
     '<rootDir>/libs/api/user2',
+    '<rootDir>/libs/shell',
+    '<rootDir>/libs/board',
   ],
 };

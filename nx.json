@@ -68,6 +68,12 @@
     },
     "api-user": {
       "tags": []
+    },
+    "shell": {
+      "tags": []
+    },
+    "board": {
+      "tags": []
     }
   }
 }

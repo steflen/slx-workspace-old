@@ -7071,6 +7071,11 @@ date-fns@^1.27.2:
   resolved "http://ninja-npm-verdaccio.barco.com:4873/date-fns/-/date-fns-1.30.1.tgz#2e71bf0b119153dbb4cc4e88d9ea5acfb50dc05c"
   integrity sha512-hBSVCvSmWC+QypYObzwGOd9wqdDpOt+0wl0KbU+R+uuZBS1jN8VsD1ss3irQDknRj5NvxiTF6oj/nDRnN/UQNw==
 
+date-fns@^2.16.1:
+  version "2.16.1"
+  resolved "http://ninja-npm-verdaccio.barco.com:4873/date-fns/-/date-fns-2.16.1.tgz#05775792c3f3331da812af253e1a935851d3834b"
+  integrity sha512-sAJVKx/FqrLYHAQeN7VpJrPhagZc9R4ImZIWYRFZaaohR3KzmuK88touwsSwSVT8Qcbd4zoDsnGfX4GFB4imyQ==
+
 dateformat@^3.0.3:
   version "3.0.3"
   resolved "http://ninja-npm-verdaccio.barco.com:4873/dateformat/-/dateformat-3.0.3.tgz#a6e37499a4d9a9cf85ef5872044d62901c9889ae"
@@ -9334,11 +9339,6 @@ gzip-size@5.1.1:
   dependencies:
     duplexer "^0.1.1"
     pify "^4.0.1"
-
-hammerjs@^2.0.8:
-  version "2.0.8"
-  resolved "http://ninja-npm-verdaccio.barco.com:4873/hammerjs/-/hammerjs-2.0.8.tgz#04ef77862cff2bb79d30f7692095930222bf60f1"
-  integrity sha1-BO93hiz/K7edMPdpIJWTAiK/YPE=
 
 handle-thing@^2.0.0:
   version "2.0.1"
@@ -12584,6 +12584,20 @@ ngx-build-plus@^10.1.1:
     rxjs "6.4.0"
     webpack-dev-server "^3.1.14"
     webpack-merge "^4.2.1"
+
+ngx-date-fns@^6.5.0:
+  version "6.5.0"
+  resolved "http://ninja-npm-verdaccio.barco.com:4873/ngx-date-fns/-/ngx-date-fns-6.5.0.tgz#f8d63d994a212e8512034082207579107653c8ea"
+  integrity sha512-bussCcjzmhir7tJPlEbMsbj+ICoI9Af5+15myhiywjxYP1eWs056xTKOXlcLtw1aeTsElwEzIwGTExWOsPL0Ww==
+  dependencies:
+    tslib "^2.0.0"
+
+ngx-pipes@^2.7.5:
+  version "2.7.5"
+  resolved "http://ninja-npm-verdaccio.barco.com:4873/ngx-pipes/-/ngx-pipes-2.7.5.tgz#22e2e4b7015ae9103210dfa2dacd6f4ae4411639"
+  integrity sha512-hlxHzu+snGJ038Z+HdkgEZRlZeE7suDTLWJD1yUP11eAM+xLPJAur1QtvvtZTHRHutOc7Wij1keBtuWIS9D0JQ==
+  dependencies:
+    tslib "^2.0.0"
 
 nice-try@^1.0.4:
   version "1.0.5"

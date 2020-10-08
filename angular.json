@@ -580,6 +580,86 @@
           }
         }
       }
+    },
+    "shell": {
+      "projectType": "library",
+      "root": "libs/shell",
+      "sourceRoot": "libs/shell/src",
+      "prefix": "slx",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/shell/tsconfig.lib.json",
+            "project": "libs/shell/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/shell/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "tsConfig": ["libs/shell/tsconfig.lib.json"],
+            "exclude": ["**/node_modules/**", "!libs/shell/**/*"],
+            "linter": "eslint"
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shell/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "board": {
+      "projectType": "library",
+      "root": "libs/board",
+      "sourceRoot": "libs/board/src",
+      "prefix": "slx",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/board/tsconfig.lib.json",
+            "project": "libs/board/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/board/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "tsConfig": ["libs/board/tsconfig.lib.json"],
+            "exclude": ["**/node_modules/**", "!libs/board/**/*"],
+            "linter": "eslint"
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/board/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {
