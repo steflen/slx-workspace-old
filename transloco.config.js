@@ -24,5 +24,9 @@ module.exports = {
       src: './libs/settings',
       dist: ['./libs/shared-assets/i18n'],
     },
+    {
+      src: './libs/board',
+      dist: ['./libs/shared-assets/i18n'],
+    },
   ],
 };

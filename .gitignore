@@ -123,3 +123,6 @@ fabric.properties
 /libs/shared-assets/i18n/translation
 /libs/shared-assets/i18n/router
 /libs/shared-assets/i18n/settings
+api-database.sqlite
+
+/tmp/
