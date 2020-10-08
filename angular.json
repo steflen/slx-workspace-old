@@ -518,6 +518,68 @@
           "style": "scss"
         }
       }
+    },
+    "api-authentication": {
+      "root": "libs/api/authentication",
+      "sourceRoot": "libs/api/authentication/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/api/authentication/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/api/authentication/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/api/authentication",
+            "tsConfig": "libs/api/authentication/tsconfig.lib.json",
+            "packageJson": "libs/api/authentication/package.json",
+            "main": "libs/api/authentication/src/index.ts",
+            "assets": ["libs/api/authentication/*.md"]
+          }
+        }
+      }
+    },
+    "api-user": {
+      "root": "libs/api/user",
+      "sourceRoot": "libs/api/user/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/api/user/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/api/user/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/api/user",
+            "tsConfig": "libs/api/user/tsconfig.lib.json",
+            "packageJson": "libs/api/user/package.json",
+            "main": "libs/api/user/src/index.ts",
+            "assets": ["libs/api/user/*.md"]
+          }
+        }
+      }
     }
   },
   "cli": {

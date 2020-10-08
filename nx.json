@@ -60,8 +60,13 @@
     "shared-fontawesome": {
       "tags": []
     },
-
     "shared": {
+      "tags": []
+    },
+    "api-authentication": {
+      "tags": []
+    },
+    "api-user": {
       "tags": []
     }
   }

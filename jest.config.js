@@ -12,5 +12,8 @@ module.exports = {
     '<rootDir>/libs/shared-fontawesome',
     '<rootDir>/libs/test',
     '<rootDir>/libs/shared',
+    '<rootDir>/libs/api/authentication',
+    '<rootDir>/libs/api/user',
+    '<rootDir>/libs/api/user2',
   ],
 };

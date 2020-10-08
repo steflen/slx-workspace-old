@@ -25,12 +25,14 @@ async function bootstrap() {
   const systemConfig = cfg.get('system');
   const corsConfig = cfg.get('cors');
   const rateLimitConfig = cfg.get('rateLimit');
+  const sequelizeConfig = cfg.get('sequelize');
 
   logger.log('Server root', __dirname);
   logger.log('Process cwd', process.cwd());
   logger.log('System Config', systemConfig);
   logger.log('Cors Config', corsConfig);
   logger.log('Rate Limit Config', rateLimitConfig);
+  logger.log('Sequelize Config', sequelizeConfig);
 
   app.enableCors(corsConfig);
   app.use(compression());
