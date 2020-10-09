@@ -19,14 +19,9 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     HttpClientModule,
     SharedModule,
-    TranslationModule.forRoot(
-      environment.production,
-      environment.availableLanguages,
-      environment.defaultLanguage,
-      environment.fallbackLanguage,
-    ),
+    TranslationModule.forRoot(environment),
     CoreModule.forRoot(environment),
-    SettingsModule,
+    SettingsModule.forRoot(environment),
     BoardModule, // board-routing is done via @slx/shell
     AppRoutingModule,
   ],

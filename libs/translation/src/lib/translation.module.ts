@@ -6,8 +6,8 @@ import {
   TRANSLOCO_LOADER,
   TRANSLOCO_SCOPE,
 } from '@ngneat/transloco';
+import { Environment } from '@slx/core';
 import { SharedModule } from '@slx/shared';
-import { Language } from './interfaces/language.interface';
 import { TranslocoHttpLoader } from './services/transloco-loader';
 
 @NgModule({
@@ -15,29 +15,20 @@ import { TranslocoHttpLoader } from './services/transloco-loader';
   exports: [TranslocoModule],
 })
 export class TranslationModule {
-  static forRoot(
-    // defaults if not provided
-    prodMode = true,
-    availableLangs: Language[] = [
-      { id: 'en', label: 'English' },
-      { id: 'de', label: 'Deutsch' },
-    ],
-    defaultLanguage = 'en',
-    fallbackLanguage = 'en',
-  ): ModuleWithProviders<any> {
+  static forRoot(environment: Environment): ModuleWithProviders<any> {
     return {
       ngModule: TranslationModule,
       providers: [
         {
           provide: TRANSLOCO_CONFIG,
           useValue: {
-            availableLangs: availableLangs,
-            defaultLang: defaultLanguage,
-            fallbackLang: fallbackLanguage,
-            prodMode: prodMode,
+            availableLangs: environment.availableLanguages,
+            defaultLang: environment.defaultLanguage,
+            fallbackLang: environment.fallbackLanguage,
+            prodMode: environment.production,
             reRenderOnLangChange: true, // set to true when dynamic language change is in place
             flatten: {
-              aot: prodMode,
+              aot: environment.production,
             },
           } as TranslocoConfig,
         },

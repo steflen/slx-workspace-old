@@ -1,65 +1,94 @@
 import { AvailableLangs } from '@ngneat/transloco';
 import { createAction, props } from '@ngrx/store';
+import { AvailableLocales, AvailableThemes, Theme } from '@slx/core';
 import { SETTINGS_FEATURE_KEY } from '../settings.feature-key';
 
-export const loadSettingsAction = createAction(`[${SETTINGS_FEATURE_KEY}] Load Settings From API`);
+////////////////////////////////////////////////////////////////////////////////
+//////////  API / PERSIST  /////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
-export const loadSettingsSuccessAction = createAction(
+export const loadSettings = createAction(`[${SETTINGS_FEATURE_KEY}] Load Settings From API`);
+
+export const loadSettingsSuccess = createAction(
   `[${SETTINGS_FEATURE_KEY}] Load Settings Successful`,
   /*  props<{ ... }>(),*/
 );
 
-export const loadSettingsFailureAction = createAction(
+export const loadSettingsFailure = createAction(
   `[${SETTINGS_FEATURE_KEY}] Load Settings Failure`,
   props<{ error: string; response?: string }>(),
 );
 
-export const changeCurrentThemeAction = createAction(
-  `[${SETTINGS_FEATURE_KEY}] Changing Current Theme`,
-  props<{ theme: string }>(),
-);
-export const changeNightThemeAction = createAction(
-  `[${SETTINGS_FEATURE_KEY}] Changing Night Theme`,
-  props<{ nightTheme: string }>(),
-);
-export const changeNightTimeFromAction = createAction(
-  `[${SETTINGS_FEATURE_KEY}] Changing Night Time From`,
-  props<{ nightTimeFrom: string }>(),
-);
-export const changeNightTimeToAction = createAction(
-  `[${SETTINGS_FEATURE_KEY}] Changing Night Time To`,
-  props<{ nightTimeTo: string }>(),
-);
+////////////////////////////////////////////////////////////////////////////////
+//////////  PAGE  /////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
-export const changeDayThemeAction = createAction(
-  `[${SETTINGS_FEATURE_KEY}] Changing Day Theme`,
-  props<{ dayTheme: string }>(),
-);
-
-export const changeStickyHeaderAction = createAction(
-  `[${SETTINGS_FEATURE_KEY}] Changing Sticky Header`,
+export const setStickyHeader = createAction(
+  `[${SETTINGS_FEATURE_KEY}] Setting Sticky Header`,
   props<{ stickyHeader: boolean }>(),
 );
 
-export const changeTimeAndDateAction = createAction(
-  `[${SETTINGS_FEATURE_KEY}] Changing Time And Date`,
-  props<{ date: Date }>(),
+////////////////////////////////////////////////////////////////////////////////
+//////////  TIME AND DATE  /////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+export const setTimeAndDate = createAction(`[${SETTINGS_FEATURE_KEY}] Setting Time And Date`, props<{ date: Date }>());
+
+////////////////////////////////////////////////////////////////////////////////
+//////////  THEME  /////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+export const setAvailableThemes = createAction(
+  `[${SETTINGS_FEATURE_KEY}] Setting Available Themes`,
+  props<{ availableThemes: AvailableThemes }>(),
 );
 
-export const changeActiveLanguageAction = createAction(
-  `[${SETTINGS_FEATURE_KEY}] Changing Active Language`,
-  props<{ activeLanguage: string }>(),
+export const setActiveTheme = createAction(
+  `[${SETTINGS_FEATURE_KEY}] Setting Active Theme`,
+  props<{ activeTheme: Theme }>(),
 );
-export const changeDefaultLanguage = createAction(
-  `[${SETTINGS_FEATURE_KEY}] Changing Default Language`,
-  props<{ defaultLanguage: string }>(),
+
+export const setDayTheme = createAction(`[${SETTINGS_FEATURE_KEY}] Setting Day Theme`, props<{ dayTheme: Theme }>());
+
+export const setNightTheme = createAction(
+  `[${SETTINGS_FEATURE_KEY}] Setting Night Theme`,
+  props<{ nightTheme: Theme }>(),
 );
-export const changeAvailableLanguages = createAction(
-  `[${SETTINGS_FEATURE_KEY}] Changing Available Language`,
+
+export const setNightTimeFrom = createAction(
+  `[${SETTINGS_FEATURE_KEY}] Setting Night Time From`,
+  props<{ nightTimeFrom: string }>(),
+);
+
+export const setNightTimeTo = createAction(
+  `[${SETTINGS_FEATURE_KEY}] Setting Night Time To`,
+  props<{ nightTimeTo: string }>(),
+);
+
+////////////////////////////////////////////////////////////////////////////////
+//////////  LANGUAGE  //////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+export const setAvailableLanguages = createAction(
+  `[${SETTINGS_FEATURE_KEY}] Setting Available Language`,
   props<{ availableLanguages: AvailableLangs }>(),
 );
 
-export const changeLocaleAction = createAction(
-  `[${SETTINGS_FEATURE_KEY}] Changing Locale`,
-  props<{ locale: string }>(),
+export const setActiveLanguage = createAction(
+  `[${SETTINGS_FEATURE_KEY}] Setting Active Language`,
+  props<{ activeLanguage: string }>(),
+);
+
+////////////////////////////////////////////////////////////////////////////////
+//////////  LOCALE  ////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+export const setAvailableLocales = createAction(
+  `[${SETTINGS_FEATURE_KEY}] Setting Available Locales`,
+  props<{ availableLocales: AvailableLocales }>(),
+);
+
+export const setActiveLocale = createAction(
+  `[${SETTINGS_FEATURE_KEY}] Setting Active Locale`,
+  props<{ activeLocale: Locale }>(),
 );

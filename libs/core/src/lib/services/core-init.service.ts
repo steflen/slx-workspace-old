@@ -10,7 +10,7 @@ import { CustomIconService } from '@slx/shared-material';
  * An `APP_INITIALIZER` provider is set in the `CoreModule` which call `init` method.
  */
 @Injectable()
-export class InitializerService {
+export class CoreInitializerService {
   constructor(private iconService: CustomIconService /*,private i18nFacade: I18nFacade*/) {}
 
   public init(): Promise<boolean> {
@@ -20,7 +20,7 @@ export class InitializerService {
   private async load(): Promise<boolean> {
     // this.i18nFacade.setLanguage('en');
     // await this.i18nFacade.setLanguage('en').toPromise()...
-    console.log('LOADING CUSTOM ICONS');
+
     this.iconService.registerIcons();
     return true;
   }
@@ -30,6 +30,6 @@ export class InitializerService {
  * This method is used as hook into Angular's init process.
  * @returns Take the service as dependencies and returns the init method.
  */
-export function init(service: InitializerService) {
+export function initCore(service: CoreInitializerService) {
   return () => service.init();
 }

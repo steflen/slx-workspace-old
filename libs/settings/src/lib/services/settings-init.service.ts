@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { TranslocoService } from '@ngneat/transloco';
+import { Inject, Injectable } from '@angular/core';
+import { Environment, ENVIRONMENT_TOKEN } from '@slx/core';
 // noinspection ES6PreferShortImport
 import { SettingsFacade } from '../store/settings.facade';
 
@@ -13,30 +13,44 @@ import { SettingsFacade } from '../store/settings.facade';
  */
 @Injectable()
 export class SettingsInitService {
-  constructor(private translocoService: TranslocoService, private settingsFacade: SettingsFacade) {}
+  constructor(
+    @Inject(ENVIRONMENT_TOKEN) private environment: Environment,
 
-  public init(): Promise<boolean> {
-    return this.load();
+    private settingsFacade: SettingsFacade,
+  ) {}
+
+  public async init(): Promise<boolean> {
+    this.initDateAndTime();
+    this.initLanguages();
+    this.initLocales();
+    this.initTheming();
+    return true;
   }
 
-  private async load(): Promise<boolean> {
-    this.settingsFacade.setDefaultLanguage(this.translocoService.getDefaultLang());
-    this.settingsFacade.setAvailableLanguages(this.translocoService.getAvailableLangs());
-    const activeLanguage: string = this.translocoService.getActiveLang();
-    this.settingsFacade.setActiveLanguage(activeLanguage);
-    // i dont know much about relation between locale and language yet
-    // locale => date-fnx & ngx-date-fns
-    // language => transloco
-    // todo: check best practise how both tools work together
-    if (activeLanguage === 'en') {
-      this.settingsFacade.setLocale('en-US');
-    } else if (activeLanguage === 'de') {
-      this.settingsFacade.setLocale('de-DE');
-    } else {
-      //fallback to en
-      this.settingsFacade.setLocale('en-US');
-    }
-    // asymc return is qnd'ish yet => todo
+  private async initDateAndTime(): Promise<boolean> {
+    this.settingsFacade.setTimeAndDate(new Date());
+    return true;
+  }
+
+  private async initLocales(): Promise<boolean> {
+    this.settingsFacade.setAvailableLocales(this.environment.availableLocales);
+    this.settingsFacade.setActiveLocale(this.environment.defaultLocale);
+    return true;
+  }
+
+  private async initLanguages(): Promise<boolean> {
+    this.settingsFacade.setDefaultLanguage(this.environment.defaultLanguage);
+    this.settingsFacade.setAvailableLanguages(this.environment.availableLanguages);
+    this.settingsFacade.setActiveLanguage(this.environment.defaultLanguage);
+    return true;
+  }
+
+  private async initTheming(): Promise<boolean> {
+    this.settingsFacade.setAvailableThemes(this.environment.availableThemes);
+    this.settingsFacade.setActiveTheme(this.environment.defaultTheme);
+    this.settingsFacade.setDayTheme(this.environment.defaultTheme);
+    this.settingsFacade.setNightTheme(this.environment.nightTheme);
+    this.settingsFacade.setNightTimeFrom(this.environment.nightTimeFrom);
     return true;
   }
 }

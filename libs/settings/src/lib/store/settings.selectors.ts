@@ -11,10 +11,12 @@ export const selectIsPending = createSelector(selectSettingsState, ({ pending })
 export const selectStickyHeader = createSelector(selectSettings, ({ stickyHeader }) => stickyHeader);
 
 // LANGUAGE & LOCALE
-export const selectLocale = createSelector(selectSettings, ({ locale }) => locale);
 export const selectActiveLanguage = createSelector(selectSettings, ({ activeLanguage }) => activeLanguage);
 export const selectAvailableLanguages = createSelector(selectSettings, ({ availableLanguages }) => availableLanguages);
-export const selectDefaultLanguage = createSelector(selectSettings, ({ defaultLanguage }) => defaultLanguage);
+
+// LOCALE
+export const selectActiveLocale = createSelector(selectSettings, ({ activeLocale }) => activeLocale);
+export const selectAvailableLocales = createSelector(selectSettings, ({ availableLocales }) => availableLocales);
 
 // DATE & TIME
 export const selectTimeHumanReadable = createSelector(selectSettings, ({ timeHumanReadable }) => timeHumanReadable);
@@ -24,14 +26,18 @@ export const selectDateTimeRFC = createSelector(selectSettings, ({ dateTimeRFC72
 export const selectTimePickerFormat = createSelector(selectSettings, ({ timePickerFormat }) => timePickerFormat);
 
 // THEMEING
-export const selectTheme = createSelector(selectSettings, ({ theme }) => theme);
-export const selectDayTheme = createSelector(selectSettings, ({ dayTheme }) => dayTheme);
 export const selectAvailableThemes = createSelector(selectSettings, ({ availableThemes }) => availableThemes);
+export const selectDayTheme = createSelector(selectSettings, ({ dayTheme }) => dayTheme);
 export const selectNightTheme = createSelector(selectSettings, ({ nightTheme }) => nightTheme);
 export const selectNightTimeFrom = createSelector(selectSettings, ({ nightTimeFrom }) => nightTimeFrom);
 export const selectNightTimeTo = createSelector(selectSettings, ({ nightTimeTo }) => nightTimeTo);
-export const selectIsNight = createSelector(selectDate, (date: Date) => getHours(date) >= 19 || getHours(date) <= 8);
-export const selectEffectiveTheme = createSelector(
+export const selectIsNight = createSelector(
+  selectDate,
+  selectNightTimeFrom,
+  selectNightTimeTo,
+  (date: Date, from, to) => getHours(date) >= from || getHours(date) <= to,
+);
+export const selectActiveTheme = createSelector(
   selectDayTheme,
   selectNightTheme,
   selectIsNight,

@@ -1,0 +1,10 @@
+<ng-container *ngIf="availableLocales$ | async as availableLocales">
+    <mat-form-field appearance="fill">
+        <mat-label>{{ 'locale' | transloco }}</mat-label>
+        <mat-select disableRipple (selectionChange)="onLocaleChanged($event)">
+            <mat-option *ngFor="let locale of availableLocales" [value]="locale">
+                {{ 'settings.' + locale | transloco }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</ng-container>

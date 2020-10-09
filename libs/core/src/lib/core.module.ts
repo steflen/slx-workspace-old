@@ -10,15 +10,14 @@ import { CustomIconService } from '@slx/shared-material';
 import { buildSpecificModules } from './build-specifics';
 import { metaReducers } from './helpers';
 import { Environment, ENVIRONMENT_TOKEN } from './interfaces/environment.interface';
-import { init, InitializerService } from './services/initializer.service';
-import { WINDOW_PROVIDERS } from './services/window.provider';
+import { WINDOW_PROVIDERS } from './interfaces/window.interface';
+import { CoreInitializerService, initCore } from './services/core-init.service';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
     SharedModule,
-
     StoreModule.forRoot(
       {},
       {
@@ -41,11 +40,11 @@ import { WINDOW_PROVIDERS } from './services/window.provider';
   providers: [
     // https://dzone.com/articles/how-to-use-the-app-initializer-token-to-hook-into
     WINDOW_PROVIDERS,
-    InitializerService,
+    CoreInitializerService,
     {
       provide: APP_INITIALIZER,
-      deps: [InitializerService],
-      useFactory: init,
+      deps: [CoreInitializerService],
+      useFactory: initCore,
       multi: true,
     },
     // mat custom icon service is not provided in shared module as shared modules are service-free

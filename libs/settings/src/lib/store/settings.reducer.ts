@@ -1,51 +1,41 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { format, formatRFC7231 } from 'date-fns';
-import {
-  changeActiveLanguageAction,
-  changeAvailableLanguages,
-  changeCurrentThemeAction,
-  changeDayThemeAction,
-  changeDefaultLanguage,
-  changeLocaleAction,
-  changeNightThemeAction,
-  changeNightTimeFromAction,
-  changeNightTimeToAction,
-  changeStickyHeaderAction,
-  changeTimeAndDateAction,
-  loadSettingsAction,
-  loadSettingsFailureAction,
-  loadSettingsSuccessAction,
-} from './settings.actions';
+import * as actions from './settings.actions';
 import { SettingsState } from './settings.model';
 
 export const initialState: SettingsState = {
   pending: false,
 
-  availableThemes: ['light-theme', 'dark-theme'],
-  theme: 'light-theme',
-  dayTheme: 'light-theme',
-  nightTheme: 'dark-theme',
-  nightTimeFrom: '19:00:00',
-  nightTimeTo: '08:00:00',
   stickyHeader: true,
-  dateHumanReadable: format(new Date(), 'MM/dd/yyyy'),
-  timeHumanReadable: format(new Date(), 'HH:mm:ss'),
-  dateFormatted: format(new Date(), "yyyy-MM-dd'T'HH:mm:ss.SSSxxx"),
-  dateTimeRFC7231: formatRFC7231(new Date()),
-  date: new Date(),
+
   lastResponse: null,
   lastError: null,
+  ///// THEME ////////////////////////////
+  availableThemes: null,
+  theme: null,
+  dayTheme: null,
+  nightTheme: null,
+  nightTimeFrom: null,
+  nightTimeTo: null,
+  ///// LANGUAGE ////////////////////////////
   availableLanguages: null,
-  defaultLanguage: null,
   activeLanguage: null,
-  locale: 'en-US',
-  timePickerFormat: 24,
+  ///// LOCALE ////////////////////////////
+  availableLocales: null,
+  activeLocale: null,
+  timePickerFormat: null,
+  ///// DATE & TIME ////////////////////////////
+  dateHumanReadable: null,
+  timeHumanReadable: null,
+  dateFormatted: null,
+  dateTimeRFC7231: null,
+  date: null,
 };
 
 const settingsReducer = createReducer(
   initialState,
   on(
-    loadSettingsAction,
+    actions.loadSettings,
     (state, action): SettingsState => ({
       pending: true,
       ...state,
@@ -53,7 +43,7 @@ const settingsReducer = createReducer(
     }),
   ),
   on(
-    loadSettingsSuccessAction,
+    actions.loadSettingsSuccess,
     (state, action): SettingsState => ({
       pending: false,
       ...state,
@@ -62,7 +52,7 @@ const settingsReducer = createReducer(
   ),
 
   on(
-    loadSettingsFailureAction,
+    actions.loadSettingsFailure,
     (state, { error, response }): SettingsState => ({
       ...state,
       pending: false,
@@ -72,29 +62,30 @@ const settingsReducer = createReducer(
   ),
 
   on(
-    changeCurrentThemeAction,
-    changeNightThemeAction,
-    changeNightTimeFromAction,
-    changeNightTimeToAction,
-    changeDayThemeAction,
-    changeStickyHeaderAction,
-    changeActiveLanguageAction,
-    changeAvailableLanguages,
-    changeDefaultLanguage,
+    actions.setActiveTheme,
+    actions.setNightTheme,
+    actions.setNightTimeFrom,
+    actions.setNightTimeTo,
+    actions.setDayTheme,
+    actions.setStickyHeader,
+    actions.setActiveLanguage,
+    actions.setAvailableLanguages,
+    actions.setAvailableThemes,
+    actions.setAvailableLocales,
     (state, action): SettingsState => ({ ...state, ...action }),
   ),
 
   on(
-    changeLocaleAction,
-    (state, { locale }): SettingsState => ({
+    actions.setActiveLocale,
+    (state, { activeLocale }): SettingsState => ({
       ...state,
-      locale,
-      timePickerFormat: locale === 'en-US' ? 12 : locale === 'de-DE' ? 24 : 12,
+      activeLocale,
+      timePickerFormat: activeLocale.code === 'en-US' ? 12 : activeLocale.code === 'de-DE' ? 24 : 12,
     }),
   ),
 
   on(
-    changeTimeAndDateAction,
+    actions.setTimeAndDate,
     (state, { date }): SettingsState => ({
       ...state,
       date,

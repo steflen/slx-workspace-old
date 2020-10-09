@@ -1,4 +1,5 @@
 import { AvailableLangs } from '@ngneat/transloco';
+import { AvailableLocales, AvailableThemes } from '@slx/core';
 
 export interface SettingsState {
   pending: boolean; // indicates a running request (e.g. for spinner)
@@ -11,7 +12,7 @@ export interface SettingsState {
   nightTimeFrom: string;
   nightTimeTo: string;
   theme: string;
-  availableThemes: Array<string>;
+  availableThemes: AvailableThemes;
 
   // page
   stickyHeader: boolean;
@@ -23,10 +24,12 @@ export interface SettingsState {
   dateFormatted: string;
   date: Date;
 
-  // locale & language
+  // locale
+  activeLocale: Locale;
+  availableLocales: AvailableLocales;
+
+  // language
   activeLanguage: string;
-  locale: string;
   availableLanguages: AvailableLangs;
-  defaultLanguage: string;
   timePickerFormat: 12 | 24;
 }

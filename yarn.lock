@@ -8695,6 +8695,11 @@ findit2@^2.2.3:
   resolved "http://ninja-npm-verdaccio.barco.com:4873/findit2/-/findit2-2.2.3.tgz#58a466697df8a6205cdfdbf395536b8bd777a5f6"
   integrity sha1-WKRmaX34piBc39vzlVNri9d3pfY=
 
+flag-icon-css@^3.5.0:
+  version "3.5.0"
+  resolved "http://ninja-npm-verdaccio.barco.com:4873/flag-icon-css/-/flag-icon-css-3.5.0.tgz#430747d5cb91e60babf85494de99173c16dc7cf2"
+  integrity sha512-pgJnJLrtb0tcDgU1fzGaQXmR8h++nXvILJ+r5SmOXaaL/2pocunQo2a8TAXhjQnBpRLPtZ1KCz/TYpqeNuE2ew==
+
 flat-cache@^2.0.1:
   version "2.0.1"
   resolved "http://ninja-npm-verdaccio.barco.com:4873/flat-cache/-/flat-cache-2.0.1.tgz#5d296d6f04bda44a4630a301413bdbc2ec085ec0"

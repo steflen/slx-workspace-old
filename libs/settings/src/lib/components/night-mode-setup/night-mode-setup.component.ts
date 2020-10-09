@@ -18,8 +18,8 @@ export class NightModeSetupComponent {
 
   constructor(private settingsFacade: SettingsFacade) {}
 
-  onNightThemeChanged(event$: MatSelectChange): void {
-    this.settingsFacade.setNightTheme(event$.value);
+  onNightThemeChanged($event: MatSelectChange): void {
+    this.settingsFacade.setNightTheme($event.value);
   }
   onNightTimeFromChanged(nightTimeFrom: string): void {
     this.settingsFacade.setNightTimeFrom(nightTimeFrom);
