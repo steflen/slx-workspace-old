@@ -40,8 +40,8 @@ import { WINDOW_PROVIDERS } from './services/window.provider';
   exports: [SharedModule],
   providers: [
     // https://dzone.com/articles/how-to-use-the-app-initializer-token-to-hook-into
-    InitializerService,
     WINDOW_PROVIDERS,
+    InitializerService,
     {
       provide: APP_INITIALIZER,
       deps: [InitializerService],

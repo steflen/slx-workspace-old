@@ -1,10 +1,17 @@
 import { Action, createReducer, on } from '@ngrx/store';
+import { format, formatRFC7231 } from 'date-fns';
 import {
+  changeActiveLanguageAction,
+  changeAvailableLanguages,
   changeCurrentThemeAction,
   changeDayThemeAction,
-  changeHourAction,
+  changeDefaultLanguage,
+  changeLocaleAction,
   changeNightThemeAction,
+  changeNightTimeFromAction,
+  changeNightTimeToAction,
   changeStickyHeaderAction,
+  changeTimeAndDateAction,
   loadSettingsAction,
   loadSettingsFailureAction,
   loadSettingsSuccessAction,
@@ -18,10 +25,21 @@ export const initialState: SettingsState = {
   theme: 'light-theme',
   dayTheme: 'light-theme',
   nightTheme: 'dark-theme',
+  nightTimeFrom: '19:00:00',
+  nightTimeTo: '08:00:00',
   stickyHeader: true,
-  hour: new Date().getHours(),
+  dateHumanReadable: format(new Date(), 'MM/dd/yyyy'),
+  timeHumanReadable: format(new Date(), 'HH:mm:ss'),
+  dateFormatted: format(new Date(), "yyyy-MM-dd'T'HH:mm:ss.SSSxxx"),
+  dateTimeRFC7231: formatRFC7231(new Date()),
+  date: new Date(),
   lastResponse: null,
   lastError: null,
+  availableLanguages: null,
+  defaultLanguage: null,
+  activeLanguage: null,
+  locale: 'en-US',
+  timePickerFormat: 24,
 };
 
 const settingsReducer = createReducer(
@@ -56,10 +74,35 @@ const settingsReducer = createReducer(
   on(
     changeCurrentThemeAction,
     changeNightThemeAction,
+    changeNightTimeFromAction,
+    changeNightTimeToAction,
     changeDayThemeAction,
     changeStickyHeaderAction,
-    changeHourAction,
+    changeActiveLanguageAction,
+    changeAvailableLanguages,
+    changeDefaultLanguage,
     (state, action): SettingsState => ({ ...state, ...action }),
+  ),
+
+  on(
+    changeLocaleAction,
+    (state, { locale }): SettingsState => ({
+      ...state,
+      locale,
+      timePickerFormat: locale === 'en-US' ? 12 : locale === 'de-DE' ? 24 : 12,
+    }),
+  ),
+
+  on(
+    changeTimeAndDateAction,
+    (state, { date }): SettingsState => ({
+      ...state,
+      date,
+      dateFormatted: format(date, "yyyy-MM-dd'T'HH:mm:ss.SSSxxx"),
+      dateTimeRFC7231: formatRFC7231(date),
+      dateHumanReadable: format(new Date(), 'MM/dd/yyyy'),
+      timeHumanReadable: format(new Date(), 'HH:mm:ss'),
+    }),
   ),
 );
 

@@ -9,6 +9,8 @@ export interface Environment {
   appTitle: string;
   apiPath: string;
   availableLanguages: Array<Language>;
+  defaultLanguage: string;
+  fallbackLanguage: string;
 }
 
 export const ENVIRONMENT_TOKEN = new InjectionToken<Environment>('Environment');

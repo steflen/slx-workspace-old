@@ -3515,6 +3515,11 @@
   resolved "http://ninja-npm-verdaccio.barco.com:4873/@types%2flodash/-/lodash-4.14.161.tgz#a21ca0777dabc6e4f44f3d07f37b765f54188b18"
   integrity sha512-EP6O3Jkr7bXvZZSZYlsgt5DIjiGr0dXP1/jVEwVLTFgg0d+3lWVQkRavYVQszV7dYUwvg0B8R0MBDpcmXg7XIA==
 
+"@types/luxon@1.11.1":
+  version "1.11.1"
+  resolved "http://ninja-npm-verdaccio.barco.com:4873/@types%2fluxon/-/luxon-1.11.1.tgz#819d730cf8ada52bec9c4a1d94347d1250f22c5d"
+  integrity sha512-XBHQ7rzpOHyJudEQcMyoT67Np61FTb6S2jWqWQER/U7H2NAS+dpC8wv5T+6ygV5g/yJQdaojQbsJQiweool0Aw==
+
 "@types/markdown-to-jsx@^6.11.0":
   version "6.11.2"
   resolved "http://ninja-npm-verdaccio.barco.com:4873/@types%2fmarkdown-to-jsx/-/markdown-to-jsx-6.11.2.tgz#05d1aaffbf15be7be12c70535fa4fed65cc7c64f"
@@ -11814,6 +11819,11 @@ lunr@^2.3.6:
   resolved "http://ninja-npm-verdaccio.barco.com:4873/lunr/-/lunr-2.3.9.tgz#18b123142832337dd6e964df1a5a7707b25d35e1"
   integrity sha512-zTU3DaZaF3Rt9rhN3uBMGQD3dD2/vFQqnvZCDv4dl5iOzq2IZQqTxu90r4E5J+nP70J3ilqVCrbho2eWaeW8Ow==
 
+luxon@1.24.0:
+  version "1.24.0"
+  resolved "http://ninja-npm-verdaccio.barco.com:4873/luxon/-/luxon-1.24.0.tgz#6db04b79ec8f7159973d4dcf21871fd6acfb3d58"
+  integrity sha512-PNeB5cFbBtmuS137OuEdaJnCMTMPS2vz9hnM1Zl6tUIuYdtUgEhMqfVZ7yxX0jHEGx6rp757ECe7cdZxDgq2Tg==
+
 macos-release@^2.2.0:
   version "2.4.1"
   resolved "http://ninja-npm-verdaccio.barco.com:4873/macos-release/-/macos-release-2.4.1.tgz#64033d0ec6a5e6375155a74b1a1eba8e509820ac"
@@ -12586,6 +12596,15 @@ ngx-date-fns@^6.5.0:
   integrity sha512-bussCcjzmhir7tJPlEbMsbj+ICoI9Af5+15myhiywjxYP1eWs056xTKOXlcLtw1aeTsElwEzIwGTExWOsPL0Ww==
   dependencies:
     tslib "^2.0.0"
+
+ngx-material-timepicker@^5.5.3:
+  version "5.5.3"
+  resolved "http://ninja-npm-verdaccio.barco.com:4873/ngx-material-timepicker/-/ngx-material-timepicker-5.5.3.tgz#9b65071e8f00477d37d1b0f825baf8fb5ea800db"
+  integrity sha512-Ua6eNNNneHS8S1/3Tn2dUOnLdZ4k6MhQqvLM/eFVoeF0WF+q/uK1DAH8eAki3HW1ogq2oDWnVRSeXvvZGJldhQ==
+  dependencies:
+    "@types/luxon" "1.11.1"
+    luxon "1.24.0"
+    tslib "^1.9.0"
 
 ngx-pipes@^2.7.5:
   version "2.7.5"

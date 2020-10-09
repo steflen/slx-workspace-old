@@ -1,12 +1,12 @@
 import { OverlayContainer } from '@angular/cdk/overlay';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Actions, createEffect } from '@ngrx/effects';
+import { TranslocoService } from '@ngneat/transloco';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { interval } from 'rxjs';
-import { distinctUntilChanged, map, mapTo } from 'rxjs/operators';
-import { TranslationFacade } from '../../../../translation/src/lib/store/translation.facade';
-import { changeHourAction } from './settings.actions';
+import { distinctUntilChanged, map, mapTo, tap } from 'rxjs/operators';
+import { changeActiveLanguageAction, changeTimeAndDateAction } from './settings.actions';
 
 // https://ngrx.io/guide/effects
 @Injectable()
@@ -16,15 +16,26 @@ export class SettingsEffects {
     private readonly store: Store,
     private readonly router: Router,
     private readonly overlayContainer: OverlayContainer,
-    private readonly translationFacade: TranslationFacade,
+    private translocoService: TranslocoService,
   ) {}
 
-  changeHour = createEffect(() =>
-    interval(60_000).pipe(
-      mapTo(new Date().getHours()),
+  changeTimeAndDate = createEffect(() =>
+    interval(30000).pipe(
+      mapTo(new Date()),
       distinctUntilChanged(),
-      map((hour) => changeHourAction({ hour: hour })),
+      map((date) => changeTimeAndDateAction({ date })),
     ),
+  );
+
+  public setActiveLanguage$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(changeActiveLanguageAction),
+        tap(({ activeLanguage }) => {
+          this.translocoService.setActiveLang(activeLanguage);
+        }),
+      ),
+    { dispatch: false },
   );
 
   // persistSettings = createEffect(

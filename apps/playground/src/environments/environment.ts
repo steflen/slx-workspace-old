@@ -4,9 +4,11 @@ import { Environment } from '@slx/core';
 export const environment: Environment = {
   production: false,
   appTitle: 'Playground',
-  apiPath: '/mock-api',
+  apiPath: '/api',
   availableLanguages: [
     { id: 'en', label: 'English' },
     { id: 'de', label: 'Deutsch' },
   ],
+  defaultLanguage: 'en',
+  fallbackLanguage: 'en',
 };
