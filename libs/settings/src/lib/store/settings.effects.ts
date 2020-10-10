@@ -5,8 +5,8 @@ import { TranslocoService } from '@ngneat/transloco';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import { interval } from 'rxjs';
-import { distinctUntilChanged, map, mapTo, tap } from 'rxjs/operators';
-import { changeActiveLanguageAction, changeTimeAndDateAction } from './settings.actions';
+import { map, tap } from 'rxjs/operators';
+import { setActiveLanguage, updateTimeAndDate } from './settings.actions';
 
 // https://ngrx.io/guide/effects
 @Injectable()
@@ -19,18 +19,15 @@ export class SettingsEffects {
     private translocoService: TranslocoService,
   ) {}
 
-  changeTimeAndDate = createEffect(() =>
-    interval(30000).pipe(
-      mapTo(new Date()),
-      distinctUntilChanged(),
-      map((date) => changeTimeAndDateAction({ date })),
-    ),
+  updateTimeAndDate$ = createEffect(() =>
+    // every 30 seconds, update the internal reference timestamp
+    interval(30_000).pipe(map(() => updateTimeAndDate())),
   );
 
   public setActiveLanguage$ = createEffect(
     () =>
       this.actions$.pipe(
-        ofType(changeActiveLanguageAction),
+        ofType(setActiveLanguage),
         tap(({ activeLanguage }) => {
           this.translocoService.setActiveLang(activeLanguage);
         }),

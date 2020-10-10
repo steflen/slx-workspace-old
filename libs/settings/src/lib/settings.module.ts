@@ -6,6 +6,7 @@ import { Environment, ENVIRONMENT_TOKEN, WINDOW_PROVIDERS } from '@slx/core';
 import { SharedModule } from '@slx/shared';
 import { SharedMaterialModule } from '@slx/shared-material';
 import { TranslationModule, TranslocoHttpLoader } from '@slx/translation';
+import { DateFnsModule } from 'ngx-date-fns';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { LocaleSetupComponent } from './components/locale-setup/locale-setup.component';
 import { NightModeSetupComponent } from './components/night-mode-setup/night-mode-setup.component';
@@ -22,6 +23,7 @@ import { reducer } from './store/settings.reducer';
     SharedModule,
     NgxMaterialTimepickerModule,
     SharedMaterialModule,
+    DateFnsModule.forRoot(),
     TranslationModule.forChild(SETTINGS_FEATURE_KEY, TranslocoHttpLoader),
     StoreModule.forFeature(SETTINGS_FEATURE_KEY, reducer),
     EffectsModule.forFeature([SettingsEffects]),

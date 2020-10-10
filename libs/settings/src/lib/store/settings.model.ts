@@ -1,18 +1,17 @@
 import { AvailableLangs } from '@ngneat/transloco';
-import { AvailableLocales, AvailableThemes } from '@slx/core';
 
 export interface SettingsState {
   pending: boolean; // indicates a running request (e.g. for spinner)
   lastResponse?: string;
   lastError?: string | null; // the last error that occurred
 
-  // theme
+  // THEMING
+  // active theme gets calculated and can be selected
+  availableThemes: Array<string>;
   dayTheme: string;
   nightTheme: string;
-  nightTimeFrom: string;
-  nightTimeTo: string;
-  theme: string;
-  availableThemes: AvailableThemes;
+  nightStart: string;
+  nightEnd: string;
 
   // page
   stickyHeader: boolean;
@@ -25,8 +24,8 @@ export interface SettingsState {
   date: Date;
 
   // locale
-  activeLocale: Locale;
-  availableLocales: AvailableLocales;
+  activeLocale: string;
+  availableLocales: Array<string>;
 
   // language
   activeLanguage: string;

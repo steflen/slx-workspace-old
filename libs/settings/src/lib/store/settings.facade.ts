@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AvailableLangs } from '@ngneat/transloco';
 import { Store } from '@ngrx/store';
-import { AvailableLocales, AvailableThemes, Theme } from '@slx/core';
+import { DateFnsConfigurationService } from 'ngx-date-fns';
 import { Observable } from 'rxjs';
 import * as settingsActions from './settings.actions';
 import { SettingsState } from './settings.model';
@@ -22,9 +22,8 @@ export class SettingsFacade {
   public availableLanguages$: Observable<AvailableLangs> = this.store.select(settings.selectAvailableLanguages);
 
   // LOCALE
-
-  public activeLocale$: Observable<Locale> = this.store.select(settings.selectActiveLocale);
-  public availableLocales$: Observable<AvailableLocales> = this.store.select(settings.availableLocales);
+  public activeLocale$: Observable<any> = this.store.select(settings.selectActiveLocale);
+  public availableLocales$: Observable<Array<string>> = this.store.select(settings.selectAvailableLocales);
   public timePickerFormat$: Observable<12 | 24> = this.store.select(settings.selectTimePickerFormat);
 
   // TIME & DATE
@@ -34,15 +33,15 @@ export class SettingsFacade {
   public dateTimeRfc$: Observable<string> = this.store.select(settings.selectDateTimeRFC);
 
   // THEMEING
-  public availableThemes$: Observable<AvailableThemes> = this.store.select(settings.selectAvailableThemes);
-  public activeTheme$: Observable<string> = this.store.select(settings.selectActiveTheme);
+  public availableThemes$: Observable<Array<string>> = this.store.select(settings.selectAvailableThemes);
   public dayTheme$: Observable<string> = this.store.select(settings.selectDayTheme);
   public nightTheme$: Observable<string> = this.store.select(settings.selectNightTheme);
-  public nightTimeFrom$: Observable<string> = this.store.select(settings.selectNightTimeFrom);
-  public nightTimeTo$: Observable<string> = this.store.select(settings.selectNightTimeTo);
+  public nightStart$: Observable<string> = this.store.select(settings.selectNightStart);
+  public nightEnd$: Observable<string> = this.store.select(settings.selectNightEnd);
   public isNight$: Observable<boolean> = this.store.select(settings.selectIsNight);
+  public activeTheme$: Observable<string> = this.store.select(settings.selectActiveTheme);
 
-  constructor(private store: Store) {}
+  constructor(private store: Store, private dateFns: DateFnsConfigurationService) {}
 
   setActiveLanguage(activeLanguage: string): void {
     this.store.dispatch(settingsActions.setActiveLanguage({ activeLanguage }));
@@ -52,27 +51,36 @@ export class SettingsFacade {
     this.store.dispatch(settingsActions.setAvailableLanguages({ availableLanguages }));
   }
 
-  setAvailableLocales(availableLocales: AvailableLocales): void {
+  setAvailableLocales(availableLocales: Array<string>): void {
     this.store.dispatch(settingsActions.setAvailableLocales({ availableLocales }));
   }
 
-  setActiveLocale(activeLocale: Locale): void {
-    this.store.dispatch(settingsActions.setActiveLocale({ activeLocale }));
+  setActiveLocale(activeLocale: string): void {
+    if (activeLocale === 'de') {
+      this.store.dispatch(settingsActions.setActiveLocale({ activeLocale: 'de', timePickerFormat: 24 }));
+    } else {
+      this.store.dispatch(settingsActions.setActiveLocale({ activeLocale: 'en', timePickerFormat: 12 }));
+    }
+    // activeLocale.code === 'en-US' ? 12 : activeLocale.code === 'de-DE' ? 24 : 12,
   }
 
-  setNightTheme(nightTheme: Theme): void {
+  setAvailableThemes(availableThemes: Array<string>) {
+    this.store.dispatch(settingsActions.setAvailableThemes({ availableThemes }));
+  }
+
+  setDayTheme(dayTheme: string) {
+    this.store.dispatch(settingsActions.setDayTheme({ dayTheme }));
+  }
+
+  setNightTheme(nightTheme: string): void {
     this.store.dispatch(settingsActions.setNightTheme({ nightTheme }));
   }
 
-  setNightTimeFrom(nightTimeFrom: string): void {
-    this.store.dispatch(settingsActions.setNightTimeFrom({ nightTimeFrom }));
+  setNightStart(nightStart: string): void {
+    this.store.dispatch(settingsActions.setNightStart({ nightStart }));
   }
 
-  setNightTimeTo(nightTimeTo: string): void {
-    this.store.dispatch(settingsActions.setNightTimeTo({ nightTimeTo }));
-  }
-
-  setTimeAndDate(date: Date) {
-    this.store.dispatch(settingsActions.setTimeAndDate({ date }));
+  setNightEnd(nightEnd: string): void {
+    this.store.dispatch(settingsActions.setNightEnd({ nightEnd }));
   }
 }

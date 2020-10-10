@@ -7,46 +7,35 @@
             </mat-option>
         </mat-select>
     </mat-form-field>
+    <label> Now Active => {{ 'settings.' + (activeTheme$ | async) | transloco }} </label>
 </ng-container>
 
-<div class="picker-from">
-    <form class="picker-form">
-        <mat-form-field class="picker-width">
-            <input
-                matInput
-                placeholder="{{ nightTimeFrom$ | async }}"
-                aria-label="Time From"
-                [ngxTimepicker]="pickerFrom"
-                [format]="timePickerFormat$ | async"
-            />
-            <mat-hint align="start"><strong>From</strong></mat-hint>
-            <mat-hint align="end">Night mode starts here</mat-hint>
-        </mat-form-field>
-    </form>
+<div class="night-start">
+    <input
+        placeholder="{{ nightStart$ | async }}"
+        aria-label="Night Start Time"
+        [ngxTimepicker]="nightStartPicker"
+        [format]="timePickerFormat$ | async"
+        readonly
+    />
     <ngx-material-timepicker
-        #pickerFrom
-        [enableKeyboardInput]="true"
-        (timeSet)="onNightTimeFromChanged($event)"
+        #nightStartPicker
+        [theme]="(activeTheme$ | async) === 'dark-theme' ? darkTheme : lightTheme"
+        (timeSet)="onNightStartChanged($event)"
     ></ngx-material-timepicker>
 </div>
 
-<div class="picker-to">
-    <form class="picker-form">
-        <mat-form-field class="picker-width">
-            <input
-                matInput
-                placeholder="{{ nightTimeTo$ | async }}"
-                aria-label="Time To"
-                [ngxTimepicker]="pickerTo"
-                [format]="timePickerFormat$ | async"
-            />
-            <mat-hint align="start"><strong>Until</strong></mat-hint>
-            <mat-hint align="end">Night mode ends here</mat-hint>
-        </mat-form-field>
-    </form>
+<div class="night-end">
+    <input
+        placeholder="{{ nightEnd$ | async }}"
+        aria-label="Night End Time"
+        [ngxTimepicker]="nightEndPicker"
+        [format]="timePickerFormat$ | async"
+        readonly
+    />
     <ngx-material-timepicker
-        #pickerTo
-        [enableKeyboardInput]="true"
-        (timeSet)="onNightTimeToChanged($event)"
+        #nightEndPicker
+        [theme]="(activeTheme$ | async) === 'dark-theme' ? darkTheme : lightTheme"
+        (timeSet)="onNightEndChanged($event)"
     ></ngx-material-timepicker>
 </div>

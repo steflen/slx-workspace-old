@@ -20,15 +20,9 @@ export class SettingsInitService {
   ) {}
 
   public async init(): Promise<boolean> {
-    this.initDateAndTime();
-    this.initLanguages();
-    this.initLocales();
-    this.initTheming();
-    return true;
-  }
-
-  private async initDateAndTime(): Promise<boolean> {
-    this.settingsFacade.setTimeAndDate(new Date());
+    await this.initLanguages();
+    await this.initLocales();
+    await this.initTheming();
     return true;
   }
 
@@ -39,7 +33,6 @@ export class SettingsInitService {
   }
 
   private async initLanguages(): Promise<boolean> {
-    this.settingsFacade.setDefaultLanguage(this.environment.defaultLanguage);
     this.settingsFacade.setAvailableLanguages(this.environment.availableLanguages);
     this.settingsFacade.setActiveLanguage(this.environment.defaultLanguage);
     return true;
@@ -47,10 +40,11 @@ export class SettingsInitService {
 
   private async initTheming(): Promise<boolean> {
     this.settingsFacade.setAvailableThemes(this.environment.availableThemes);
-    this.settingsFacade.setActiveTheme(this.environment.defaultTheme);
+
     this.settingsFacade.setDayTheme(this.environment.defaultTheme);
     this.settingsFacade.setNightTheme(this.environment.nightTheme);
-    this.settingsFacade.setNightTimeFrom(this.environment.nightTimeFrom);
+    this.settingsFacade.setNightStart(this.environment.nightStart);
+    this.settingsFacade.setNightEnd(this.environment.nightEnd);
     return true;
   }
 }

@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { getHours } from 'date-fns';
+import { differenceInMinutes, parse } from 'date-fns';
 import { SETTINGS_FEATURE_KEY } from '../settings.feature-key';
 import { SettingsState } from './settings.model';
 
@@ -29,17 +29,29 @@ export const selectTimePickerFormat = createSelector(selectSettings, ({ timePick
 export const selectAvailableThemes = createSelector(selectSettings, ({ availableThemes }) => availableThemes);
 export const selectDayTheme = createSelector(selectSettings, ({ dayTheme }) => dayTheme);
 export const selectNightTheme = createSelector(selectSettings, ({ nightTheme }) => nightTheme);
-export const selectNightTimeFrom = createSelector(selectSettings, ({ nightTimeFrom }) => nightTimeFrom);
-export const selectNightTimeTo = createSelector(selectSettings, ({ nightTimeTo }) => nightTimeTo);
+export const selectNightStart = createSelector(selectSettings, ({ nightStart }) => nightStart);
+export const selectNightEnd = createSelector(selectSettings, ({ nightEnd }) => nightEnd);
 export const selectIsNight = createSelector(
+  selectActiveLocale,
   selectDate,
-  selectNightTimeFrom,
-  selectNightTimeTo,
-  (date: Date, from, to) => getHours(date) >= from || getHours(date) <= to,
+  selectNightStart,
+  selectNightEnd,
+  (locale: string, date: Date, nightStart: string, nightEnd: string) =>
+    // console.log(
+    //   'delta now start = ',
+    //   differenceInMinutes(date, parse(nightStart, locale === 'en' ? 'h:mm a' : 'hh:mm', date)),
+    // ); //must be positive
+    // console.log(
+    //   'delta now end = ',
+    //   differenceInMinutes(date, parse(nightEnd, locale === 'en' ? 'h:mm a' : 'hh:mm', date)),
+    // ); //must be negative
+    // return (
+    differenceInMinutes(date, parse(nightStart, locale === 'en' ? 'h:mm a' : 'hh:mm', date)) > 0 &&
+    differenceInMinutes(date, parse(nightEnd, locale === 'en' ? 'h:mm a' : 'hh:mm', date)) < 0,
 );
 export const selectActiveTheme = createSelector(
   selectDayTheme,
   selectNightTheme,
   selectIsNight,
-  (dayTheme, nightTheme, isNightHour) => (isNightHour ? nightTheme : dayTheme).toLowerCase(),
+  (dayTheme, nightTheme, isNightHour) => (isNightHour ? nightTheme : dayTheme),
 );

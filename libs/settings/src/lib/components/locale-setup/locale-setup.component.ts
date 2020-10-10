@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MatSelectChange } from '@angular/material/select';
 // noinspection ES6PreferShortImport
 import { SettingsFacade } from '../../store/settings.facade';
 
@@ -11,7 +10,7 @@ import { SettingsFacade } from '../../store/settings.facade';
 export class LocaleSetupComponent {
   constructor(private settingsFacade: SettingsFacade) {}
 
-  onLocaleChanged($event: MatSelectChange) {
-    this.settingsFacade.setLocale($event.value);
-  }
+  // onLocaleChanged($event: MatSelectChange) {
+  //   this.settingsFacade.setLocale($event.value);
+  // }
 }

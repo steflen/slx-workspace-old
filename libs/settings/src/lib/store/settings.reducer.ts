@@ -12,11 +12,10 @@ export const initialState: SettingsState = {
   lastError: null,
   ///// THEME ////////////////////////////
   availableThemes: null,
-  theme: null,
   dayTheme: null,
   nightTheme: null,
-  nightTimeFrom: null,
-  nightTimeTo: null,
+  nightStart: null,
+  nightEnd: null,
   ///// LANGUAGE ////////////////////////////
   availableLanguages: null,
   activeLanguage: null,
@@ -62,35 +61,35 @@ const settingsReducer = createReducer(
   ),
 
   on(
-    actions.setActiveTheme,
-    actions.setNightTheme,
-    actions.setNightTimeFrom,
-    actions.setNightTimeTo,
-    actions.setDayTheme,
     actions.setStickyHeader,
-    actions.setActiveLanguage,
-    actions.setAvailableLanguages,
     actions.setAvailableThemes,
+    actions.setDayTheme,
+    actions.setNightTheme,
+    actions.setNightStart,
+    actions.setNightEnd,
+    actions.setAvailableLanguages,
+    actions.setActiveLanguage,
     actions.setAvailableLocales,
     (state, action): SettingsState => ({ ...state, ...action }),
   ),
 
   on(
     actions.setActiveLocale,
-    (state, { activeLocale }): SettingsState => ({
+    (state, { activeLocale, timePickerFormat }): SettingsState => ({
       ...state,
       activeLocale,
-      timePickerFormat: activeLocale.code === 'en-US' ? 12 : activeLocale.code === 'de-DE' ? 24 : 12,
+      timePickerFormat,
+      // timePickerFormat: activeLocale.code === 'en-US' ? 12 : activeLocale.code === 'de-DE' ? 24 : 12,
     }),
   ),
 
   on(
-    actions.setTimeAndDate,
-    (state, { date }): SettingsState => ({
+    actions.updateTimeAndDate,
+    (state): SettingsState => ({
       ...state,
-      date,
-      dateFormatted: format(date, "yyyy-MM-dd'T'HH:mm:ss.SSSxxx"),
-      dateTimeRFC7231: formatRFC7231(date),
+      date: new Date(),
+      dateFormatted: format(new Date(), "yyyy-MM-dd'T'HH:mm:ss.SSSxxx"),
+      dateTimeRFC7231: formatRFC7231(new Date()),
       dateHumanReadable: format(new Date(), 'MM/dd/yyyy'),
       timeHumanReadable: format(new Date(), 'HH:mm:ss'),
     }),
