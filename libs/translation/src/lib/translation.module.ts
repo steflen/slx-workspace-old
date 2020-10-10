@@ -6,8 +6,7 @@ import {
   TRANSLOCO_LOADER,
   TRANSLOCO_SCOPE,
 } from '@ngneat/transloco';
-import { Environment } from '@slx/core';
-import { SharedModule } from '@slx/shared';
+import { Environment, SharedModule } from '@slx/shared';
 import { TranslocoHttpLoader } from './services/transloco-loader';
 
 @NgModule({

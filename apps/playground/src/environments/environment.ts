@@ -1,4 +1,4 @@
-import { Environment } from '@slx/core';
+import { Environment } from '@slx/shared';
 // import 'zone.js/dist/zone-error'; // Included with Angular CLI.
 
 export const environment: Environment = {
@@ -17,6 +17,6 @@ export const environment: Environment = {
   defaultTheme: 'light-theme',
   dayTheme: 'light-theme',
   nightTheme: 'dark-theme',
-  nightStart: '7:00 PM', //'19:00',
+  nightStart: '1:00 AM', //'19:00',
   nightEnd: '8:00 AM', //'08:00',
 };

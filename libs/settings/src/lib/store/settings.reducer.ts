@@ -1,6 +1,7 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { format, formatRFC7231 } from 'date-fns';
 import * as actions from './settings.actions';
+import { setActiveTheme } from './settings.actions';
 import { SettingsState } from './settings.model';
 
 export const initialState: SettingsState = {
@@ -12,6 +13,7 @@ export const initialState: SettingsState = {
   lastError: null,
   ///// THEME ////////////////////////////
   availableThemes: null,
+  activeTheme: null,
   dayTheme: null,
   nightTheme: null,
   nightStart: null,
@@ -70,6 +72,7 @@ const settingsReducer = createReducer(
     actions.setAvailableLanguages,
     actions.setActiveLanguage,
     actions.setAvailableLocales,
+    setActiveTheme,
     (state, action): SettingsState => ({ ...state, ...action }),
   ),
 

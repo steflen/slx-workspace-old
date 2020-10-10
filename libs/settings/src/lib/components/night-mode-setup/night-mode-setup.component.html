@@ -1,4 +1,17 @@
 <ng-container *ngIf="availableThemes$ | async as availableThemes">
+    <div class="icon-form-field">
+        <mat-icon color="accent">
+            <fa-icon icon="paint-brush" color="accent"></fa-icon>
+        </mat-icon>
+        <mat-form-field>
+            <mat-select disableRipple (selectionChange)="onThemeChanged($event)">
+                <mat-option *ngFor="let theme of availableThemes" [value]="theme">
+                    {{ 'settings.' + theme | transloco }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
     <mat-form-field appearance="fill">
         <mat-label>Night Theme</mat-label>
         <mat-select disableRipple (selectionChange)="onNightThemeChanged($event)">
@@ -7,7 +20,7 @@
             </mat-option>
         </mat-select>
     </mat-form-field>
-    <label> Now Active => {{ 'settings.' + (activeTheme$ | async) | transloco }} </label>
+    <label> Now Active => {{ 'settings.' + (effectiveTheme$ | async) | transloco }} </label>
 </ng-container>
 
 <div class="night-start">
@@ -20,7 +33,7 @@
     />
     <ngx-material-timepicker
         #nightStartPicker
-        [theme]="(activeTheme$ | async) === 'dark-theme' ? darkTheme : lightTheme"
+        [theme]="(effectiveTheme$ | async) === 'dark-theme' ? darkTheme : lightTheme"
         (timeSet)="onNightStartChanged($event)"
     ></ngx-material-timepicker>
 </div>
@@ -35,7 +48,7 @@
     />
     <ngx-material-timepicker
         #nightEndPicker
-        [theme]="(activeTheme$ | async) === 'dark-theme' ? darkTheme : lightTheme"
+        [theme]="(effectiveTheme$ | async) === 'dark-theme' ? darkTheme : lightTheme"
         (timeSet)="onNightEndChanged($event)"
     ></ngx-material-timepicker>
 </div>

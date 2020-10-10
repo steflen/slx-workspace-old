@@ -128,3 +128,4 @@ api-database.sqlite
 /tmp/
 
 /libs/shared-assets/i18n/board
+/libs/shared-assets/i18n/shell

@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { APP_INITIALIZER, ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { Environment, ENVIRONMENT_TOKEN, WINDOW_PROVIDERS } from '@slx/core';
-import { SharedModule } from '@slx/shared';
+import { Environment, ENVIRONMENT_TOKEN, SharedModule, WINDOW_PROVIDERS } from '@slx/shared';
+import { SharedFontawesomeModule } from '@slx/shared-fontawesome';
 import { SharedMaterialModule } from '@slx/shared-material';
 import { TranslationModule, TranslocoHttpLoader } from '@slx/translation';
 import { DateFnsModule } from 'ngx-date-fns';
@@ -23,6 +23,7 @@ import { reducer } from './store/settings.reducer';
     SharedModule,
     NgxMaterialTimepickerModule,
     SharedMaterialModule,
+    SharedFontawesomeModule,
     DateFnsModule.forRoot(),
     TranslationModule.forChild(SETTINGS_FEATURE_KEY, TranslocoHttpLoader),
     StoreModule.forFeature(SETTINGS_FEATURE_KEY, reducer),

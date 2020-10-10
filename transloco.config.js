@@ -5,7 +5,7 @@ module.exports = {
       dist: ['./libs/shared-assets/i18n'],
     },
     {
-      src: './libs/authentication',
+      src: './libs/router',
       dist: ['./libs/shared-assets/i18n'],
     },
     {
@@ -17,7 +17,11 @@ module.exports = {
       dist: ['./libs/shared-assets/i18n'],
     },
     {
-      src: './libs/router',
+      src: './libs/authentication',
+      dist: ['./libs/shared-assets/i18n'],
+    },
+    {
+      src: './libs/shell',
       dist: ['./libs/shared-assets/i18n'],
     },
     {

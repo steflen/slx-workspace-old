@@ -27,6 +27,7 @@ export const selectTimePickerFormat = createSelector(selectSettings, ({ timePick
 
 // THEMEING
 export const selectAvailableThemes = createSelector(selectSettings, ({ availableThemes }) => availableThemes);
+export const selectActiveTheme = createSelector(selectSettings, ({ activeTheme }) => activeTheme);
 export const selectDayTheme = createSelector(selectSettings, ({ dayTheme }) => dayTheme);
 export const selectNightTheme = createSelector(selectSettings, ({ nightTheme }) => nightTheme);
 export const selectNightStart = createSelector(selectSettings, ({ nightStart }) => nightStart);
@@ -49,9 +50,9 @@ export const selectIsNight = createSelector(
     differenceInMinutes(date, parse(nightStart, locale === 'en' ? 'h:mm a' : 'hh:mm', date)) > 0 &&
     differenceInMinutes(date, parse(nightEnd, locale === 'en' ? 'h:mm a' : 'hh:mm', date)) < 0,
 );
-export const selectActiveTheme = createSelector(
+export const selectEffectiveTheme = createSelector(
   selectDayTheme,
   selectNightTheme,
   selectIsNight,
-  (dayTheme, nightTheme, isNightHour) => (isNightHour ? nightTheme : dayTheme),
+  (dayTheme, nightTheme, isNight) => (isNight ? nightTheme : dayTheme),
 );

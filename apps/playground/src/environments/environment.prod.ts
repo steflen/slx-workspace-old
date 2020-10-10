@@ -1,4 +1,4 @@
-import { Environment } from '@slx/core';
+import { Environment } from '@slx/shared';
 
 export const environment: Environment = {
   production: true,

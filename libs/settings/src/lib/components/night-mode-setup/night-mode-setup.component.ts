@@ -19,7 +19,7 @@ export class NightModeSetupComponent {
   nightEnd$: Observable<string> = this.settingsFacade.nightEnd$;
   availableThemes$: Observable<Array<string>> = this.settingsFacade.availableThemes$;
   timePickerFormat$: Observable<12 | 24> = this.settingsFacade.timePickerFormat$;
-  activeTheme$: Observable<string> = this.settingsFacade.activeTheme$;
+  effectiveTheme$: Observable<string> = this.settingsFacade.effectiveTheme$;
 
   lightTheme: NgxMaterialTimepickerTheme = {
     container: {
@@ -57,21 +57,14 @@ export class NightModeSetupComponent {
     this.settingsFacade.setNightTheme($event.value);
   }
   onNightStartChanged(nightStart: string): void {
-    // if (this.nightStartPicker.format === 12) {
-    //   this.settingsFacade.setNightStart(parse(nightStart, 'h:mm a', new Date()));
-    // } else {
-    //   this.settingsFacade.setNightStart(parse(nightStart, 'hh:mm', new Date()));
-    // }
     this.settingsFacade.setNightStart(nightStart);
   }
 
   onNightEndChanged(nightEnd: string): void {
-    // if (this.nightEndPicker.format === 12) {
-    //   // parse(nightEnd, 'h:mm a', new Date())
-    //   this.settingsFacade.setNightEnd(nightEnd);
-    // } else {
-    //parse(nightEnd, 'hh:mm', new Date())
     this.settingsFacade.setNightEnd(nightEnd);
-    // }
+  }
+
+  onThemeChanged($event: MatSelectChange) {
+    this.settingsFacade.setActiveTheme($event.value);
   }
 }

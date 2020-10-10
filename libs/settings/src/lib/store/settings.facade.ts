@@ -40,6 +40,7 @@ export class SettingsFacade {
   public nightEnd$: Observable<string> = this.store.select(settings.selectNightEnd);
   public isNight$: Observable<boolean> = this.store.select(settings.selectIsNight);
   public activeTheme$: Observable<string> = this.store.select(settings.selectActiveTheme);
+  public effectiveTheme$: Observable<string> = this.store.select(settings.selectEffectiveTheme);
 
   constructor(private store: Store, private dateFns: DateFnsConfigurationService) {}
 
@@ -62,6 +63,10 @@ export class SettingsFacade {
       this.store.dispatch(settingsActions.setActiveLocale({ activeLocale: 'en', timePickerFormat: 12 }));
     }
     // activeLocale.code === 'en-US' ? 12 : activeLocale.code === 'de-DE' ? 24 : 12,
+  }
+
+  setActiveTheme(activeTheme: string) {
+    this.store.dispatch(settingsActions.setActiveTheme({ activeTheme }));
   }
 
   setAvailableThemes(availableThemes: Array<string>) {

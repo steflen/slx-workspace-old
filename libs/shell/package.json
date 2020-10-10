@@ -7,5 +7,11 @@
   },
   "dependencies": {
     "tslib": "^2.0.0"
-  }
+  },
+  "i18n": [
+    {
+      "scope": "shell",
+      "path": "src/lib/i18n"
+    }
+  ]
 }

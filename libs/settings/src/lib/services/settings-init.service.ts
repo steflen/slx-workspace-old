@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
-import { Environment, ENVIRONMENT_TOKEN } from '@slx/core';
+import { Environment, ENVIRONMENT_TOKEN } from '@slx/shared';
 // noinspection ES6PreferShortImport
 import { SettingsFacade } from '../store/settings.facade';
 
@@ -40,7 +40,7 @@ export class SettingsInitService {
 
   private async initTheming(): Promise<boolean> {
     this.settingsFacade.setAvailableThemes(this.environment.availableThemes);
-
+    this.settingsFacade.setActiveTheme(this.environment.defaultTheme);
     this.settingsFacade.setDayTheme(this.environment.defaultTheme);
     this.settingsFacade.setNightTheme(this.environment.nightTheme);
     this.settingsFacade.setNightStart(this.environment.nightStart);

@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
-import { Environment, ENVIRONMENT_TOKEN } from '../interfaces/environment.interface';
+import { Environment, ENVIRONMENT_TOKEN } from '../../../../shared/src/lib/interfaces/environment.interface';
 
 @Injectable()
 export class EnvironmentService {

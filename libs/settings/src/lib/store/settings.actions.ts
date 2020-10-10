@@ -42,6 +42,11 @@ export const setAvailableThemes = createAction(
   props<{ availableThemes: Array<string> }>(),
 );
 
+export const setActiveTheme = createAction(
+  `[${SETTINGS_FEATURE_KEY}] Setting Active Theme`,
+  props<{ activeTheme: string }>(),
+);
+
 export const setDayTheme = createAction(`[${SETTINGS_FEATURE_KEY}] Setting Day Theme`, props<{ dayTheme: string }>());
 
 export const setNightTheme = createAction(
