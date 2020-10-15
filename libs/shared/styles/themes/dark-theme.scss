@@ -1,0 +1,8 @@
+@import '../../../../node_modules/@angular/material/theming';
+@import 'palette';
+
+$slx-dark-primary: mat-palette($slx-primary-palette);
+$slx-dark-accent: mat-palette($slx-highlight-palette);
+$slx-dark-warn: mat-palette($slx-error-palette);
+
+$slx-dark-theme: slx-dark-theme($slx-dark-primary, $slx-dark-accent, $slx-dark-warn);

@@ -1,0 +1,18 @@
+@import '../../../../node_modules/@angular/material/theming';
+@import 'palette';
+@import 'light-theme';
+@import 'dark-theme';
+
+//@import '../app/app.component.theme';
+//@import '../../../../libs/configuration-app/features/dashboard/src/lib/components/dashboard/dashboard.component.theme';
+//
+//@mixin custom-components-theme($theme) {
+//  @include ops-configuration-app-theme($theme);
+//  @include ops-configuration-app-dashboard-theme($theme);
+//}
+
+$custom-typography: mat-typography-config(
+    $font-family: 'Montserrat,Ubuntu;',
+);
+
+@include mat-core($custom-typography);

@@ -1,0 +1,426 @@
+@import '../../../../node_modules/@angular/material/theming';
+
+$slx-background: (
+    light: #e3e7e9,
+    dark: #222,
+);
+$slx-background-hover: (
+    light: #d9e9f8,
+    dark: #202f3e,
+);
+$slx-background-press: (
+    light: #a5cbee,
+    dark: #1c4265,
+);
+
+$slx-level1: (
+    light: #ededed,
+    dark: #323232,
+);
+$slx-level1-hover: (
+    light: #cadae9,
+    dark: #2d3d4c,
+);
+$slx-level1-press: (
+    light: #9abfe3,
+    dark: #264b6f,
+);
+
+$slx-level2: (
+    light: #d6d6d6,
+    dark: #464646,
+);
+$slx-level2-hover: (
+    light: #b7c6d6,
+    dark: #3e4e5d,
+);
+$slx-level2-press: (
+    light: #8cb1d5,
+    dark: #33587c,
+);
+
+$slx-level3: (
+    light: #bdbdbd,
+    dark: #5b5b5b,
+);
+$slx-level3-hover: (
+    light: #a2b1c1,
+    dark: #4f5f6e,
+);
+$slx-level3-press: (
+    light: #7ca2c5,
+    dark: #406589,
+);
+
+$slx-primary: (
+    light: #546472,
+    dark: #546472,
+);
+$slx-primary-hover: (
+    light: #1062b1,
+    dark: #398bda,
+);
+$slx-primary-press: (
+    light: #0c4883,
+    dark: #6da9e4,
+);
+
+$slx-highlight: (
+    light: #66a3dd,
+    dark: #264b6f,
+);
+$slx-highlight-hover: (
+    light: #5689b9,
+    dark: #496886,
+);
+$slx-highlight-press: (
+    light: #3f6589,
+    dark: #798fa6,
+);
+
+$slx-error: (
+    light: #f44336,
+    dark: #f44336,
+);
+$slx-error-hover: (
+    light: #cd382d,
+    dark: #f66156,
+);
+$slx-error-press: (
+    light: #972a21,
+    dark: #f88b82,
+);
+
+$slx-warning: (
+    light: #ffab00,
+    dark: #ffab00,
+);
+$slx-warning-hover: (
+    light: #d69000,
+    dark: #ffb929,
+);
+$slx-warning-press: (
+    light: #9e6a00,
+    dark: #ffcb61,
+);
+
+$slx-success: (
+    light: #00c853,
+    dark: #00c853,
+);
+$slx-success-hover: (
+    light: #00a846,
+    dark: #29d16f,
+);
+$slx-success-press: (
+    light: #007c33,
+    dark: #61dd94,
+);
+
+$slx-info: (
+    light: #536dfe,
+    dark: #536dfe,
+);
+$slx-info-hover: (
+    light: #465bd5,
+    dark: #6f84fe,
+);
+$slx-info-press: (
+    light: #33449d,
+    dark: #94a5fe,
+);
+
+// Foreground palette for light themes.
+$slx-light-theme-foreground: (
+    base: black,
+    divider: $dark-dividers,
+    dividers: $dark-dividers,
+    disabled: $dark-disabled-text,
+    disabled-button: rgba(black, 0.26),
+    disabled-text: $dark-disabled-text,
+    elevation: black,
+    hint-text: $dark-disabled-text,
+    secondary-text: $dark-secondary-text,
+    icon: rgba(black, 0.54),
+    icons: rgba(black, 0.54),
+    text: rgba(black, 0.87),
+    slider-min: rgba(black, 0.87),
+    slider-off: rgba(black, 0.26),
+    slider-off-active: rgba(black, 0.38),
+);
+
+// Background palette for light themes.
+$slx-light-theme-background: (
+    status-bar: map_get($slx-level2, light),
+    app-bar: map_get($slx-level1, light),
+    background: map_get($slx-background, light),
+    hover: rgba(black, 0.04),
+    card: #f4f5f6,
+    dialog: #f4f5f6,
+    disabled-button: rgba(black, 0.12),
+    raised-button: #f4f5f6,
+    focused-button: $dark-focused,
+    selected-button: map_get($slx-level2, light),
+    selected-disabled-button: map_get($slx-level3, light),
+    disabled-button-toggle: map_get($slx-level2-hover, light),
+    unselected-chip: map_get($slx-level2, light),
+    disabled-list-option: map_get($slx-level3, light),
+);
+
+// Foreground palette for dark themes.
+$slx-dark-theme-foreground: (
+    base: white,
+    divider: $light-dividers,
+    dividers: $light-dividers,
+    disabled: $light-disabled-text,
+    disabled-button: rgba(white, 0.3),
+    disabled-text: $light-disabled-text,
+    elevation: black,
+    hint-text: $light-disabled-text,
+    secondary-text: $light-secondary-text,
+    icon: white,
+    icons: white,
+    text: white,
+    slider-min: white,
+    slider-off: rgba(white, 0.3),
+    slider-off-active: rgba(white, 0.3),
+);
+
+// Background palette for dark themes.
+$slx-dark-theme-background: (
+    status-bar: map_get($slx-level2, dark),
+    app-bar: map_get($slx-level1, dark),
+    background: map_get($slx-background, dark),
+    hover: rgba(white, 0.04),
+    card: map_get($mat-grey, 800),
+    dialog: map_get($mat-grey, 800),
+    disabled-button: rgba(white, 0.12),
+    raised-button: map-get($mat-grey, 800),
+    focused-button: $light-focused,
+    selected-button: map_get($slx-level2, dark),
+    selected-disabled-button: map_get($slx-level3, dark),
+    disabled-button-toggle: map_get($slx-level2-hover, dark),
+    unselected-chip: map_get($slx-level2, dark),
+    disabled-list-option: map_get($slx-level3, dark),
+);
+
+// Creates a container object for a light theme to be given to individual component theme mixins.
+@function slx-light-theme($primary, $accent, $warn) {
+    @return (
+        primary: $primary,
+        accent: $accent,
+        warn: $warn,
+        is-dark: false,
+        foreground: $slx-light-theme-foreground,
+        background: $slx-light-theme-background
+    );
+}
+
+// Creates a container object for a dark theme to be given to individual component theme mixins.
+@function slx-dark-theme($primary, $accent, $warn) {
+    @return (
+        primary: $primary,
+        accent: $accent,
+        warn: $warn,
+        is-dark: true,
+        foreground: $slx-dark-theme-foreground,
+        background: $slx-dark-theme-background
+    );
+}
+
+$slx-primary-palette: (
+    50: #f1f8fe,
+    100: #abd2f7,
+    200: #78b7f3,
+    300: #3693ed,
+    400: #1a84ea,
+    500: #546472,
+    600: #1065b7,
+    700: #0e569b,
+    800: #0b467f,
+    900: #093763,
+    A100: #e6f3ff,
+    A200: #80c1ff,
+    A400: #1c8ffd,
+    A700: #0f82f0,
+    contrast: (
+        50: $dark-primary-text,
+        100: $dark-primary-text,
+        200: $dark-primary-text,
+        300: $dark-primary-text,
+        400: $light-primary-text,
+        500: $light-primary-text,
+        600: $light-primary-text,
+        700: $light-primary-text,
+        800: $light-primary-text,
+        900: $light-primary-text,
+        A100: $dark-primary-text,
+        A200: $dark-primary-text,
+        A400: $light-primary-text,
+        A700: $light-primary-text,
+    ),
+);
+$slx-info-palette: (
+    50: $light-primary-text,
+    100: $light-primary-text,
+    200: #d7ddff,
+    300: #90a1fe,
+    400: #7187fe,
+    500: #536dfe,
+    600: #3553fe,
+    700: #1639fe,
+    800: #0126f4,
+    900: #0121d5,
+    A100: $light-primary-text,
+    A200: #ebeeff,
+    A400: #8597ff,
+    A700: #6b82ff,
+    contrast: (
+        50: $dark-primary-text,
+        100: $dark-primary-text,
+        200: $dark-primary-text,
+        300: $dark-primary-text,
+        400: $dark-primary-text,
+        500: $light-primary-text,
+        600: $light-primary-text,
+        700: $light-primary-text,
+        800: $light-primary-text,
+        900: $light-primary-text,
+        A100: $dark-primary-text,
+        A200: $dark-primary-text,
+        A400: $dark-primary-text,
+        A700: $dark-primary-text,
+    ),
+);
+
+$slx-error-palette: (
+    50: $light-primary-text,
+    100: #feeae9,
+    200: #fbb9b4,
+    300: #f77970,
+    400: #f65e53,
+    500: #f44336,
+    600: #f22819,
+    700: #e11b0c,
+    800: #c3170b,
+    900: #a61409,
+    A100: $light-primary-text,
+    A200: #ffc8c4,
+    A400: #ff695e,
+    A700: #fa564a,
+    contrast: (
+        50: $dark-primary-text,
+        100: $dark-primary-text,
+        200: $dark-primary-text,
+        300: $dark-primary-text,
+        400: $dark-primary-text,
+        500: $light-primary-text,
+        600: $light-primary-text,
+        700: $light-primary-text,
+        800: $light-primary-text,
+        900: $light-primary-text,
+        A100: $dark-primary-text,
+        A200: $dark-primary-text,
+        A400: $dark-primary-text,
+        A700: $dark-primary-text,
+    ),
+);
+
+$slx-warning-palette: (
+    50: #fff5e0,
+    100: #ffe6b3,
+    200: #ffd580,
+    300: #ffc44d,
+    400: #ffb826,
+    500: #ffab00,
+    600: #ffa400,
+    700: #ff9a00,
+    800: #ff9100,
+    900: #ff8000,
+    A100: $light-primary-text,
+    A200: #fff8f2,
+    A400: #ffdcbf,
+    A700: #ffcea6,
+    contrast: (
+        50: $dark-primary-text,
+        100: $dark-primary-text,
+        200: $dark-primary-text,
+        300: $dark-primary-text,
+        400: $dark-primary-text,
+        500: $dark-primary-text,
+        600: $dark-primary-text,
+        700: $dark-primary-text,
+        800: $dark-primary-text,
+        900: $dark-primary-text,
+        A100: $dark-primary-text,
+        A200: $dark-primary-text,
+        A400: $dark-primary-text,
+        A700: $dark-primary-text,
+    ),
+);
+
+$slx-success-palette: (
+    50: #e0f8ea,
+    100: #b3efcb,
+    200: #80e4a9,
+    300: #4dd987,
+    400: #26d06d,
+    500: #00c853,
+    600: #00c24c,
+    700: #00bb42,
+    800: #00b439,
+    900: #00a729,
+    A100: #d1ffd9,
+    A200: #9effaf,
+    A400: #6bff85,
+    A700: #52ff70,
+    contrast: (
+        50: $dark-primary-text,
+        100: $dark-primary-text,
+        200: $dark-primary-text,
+        300: $dark-primary-text,
+        400: $dark-primary-text,
+        500: $light-primary-text,
+        600: $light-primary-text,
+        700: $light-primary-text,
+        800: $light-primary-text,
+        900: $light-primary-text,
+        A100: $dark-primary-text,
+        A200: $dark-primary-text,
+        A400: $dark-primary-text,
+        A700: $dark-primary-text,
+    ),
+);
+
+$slx-highlight-palette: (
+    50: #e5e9ee,
+    100: #bec9d4,
+    200: #93a5b7,
+    300: #67819a,
+    400: #476685,
+    500: #264b6f,
+    600: #224467,
+    700: #1c3b5c,
+    800: #173352,
+    900: #0d2340,
+    A100: #7aaeff,
+    A200: #478fff,
+    A400: #1471ff,
+    A700: #0062f9,
+    contrast: (
+        50: $dark-primary-text,
+        100: $dark-primary-text,
+        200: $dark-primary-text,
+        300: $light-primary-text,
+        400: $light-primary-text,
+        500: $light-primary-text,
+        600: $light-primary-text,
+        700: $light-primary-text,
+        800: $light-primary-text,
+        900: $light-primary-text,
+        A100: $dark-primary-text,
+        A200: $dark-primary-text,
+        A400: $light-primary-text,
+        A700: $light-primary-text,
+    ),
+);

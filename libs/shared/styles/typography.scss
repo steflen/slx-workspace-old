@@ -1,0 +1,5 @@
+@import '../../../node_modules/@angular/material/theming';
+
+$custom-typography: mat-typography-config(
+    $font-family: 'Montserrat,Ubuntu;',
+);

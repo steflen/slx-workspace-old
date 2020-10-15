@@ -1,0 +1,5 @@
+<div [class]="'theme-wrapper ' + (effectiveTheme$ | async)">
+    <slx-glue-feature-top></slx-glue-feature-top>
+
+    <router-outlet></router-outlet>
+</div>

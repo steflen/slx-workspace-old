@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+@import '../../../node_modules/@angular/material/theming';
+
+@import 'variables';
+
+@import 'typography';
+
+@include mat-core($custom-typography);
+@import 'themes/light-theme';
+@import 'themes/dark-theme';
+@import '../../glue/feature-shell/src/lib/components/shell/shell.component.theme';
+@import '../../glue/feature-bottom/src/lib/components/bottom/bottom.component.theme';
+@import '../../glue/feature-top/src/lib/components/top/top.component.theme';
+@import '../../settings/feature-shell/src/lib/components/settings-feature-shell/settings-shell.component.theme';
+@import '../../settings/feature-locale/src/lib/components/locale/locale.component.theme';
+@import '../../settings/feature-language/src/lib/components/language/language.component.theme';
+@import '../../settings/feature-look-and-feel/src/lib/components/look-and-feel/look-and-feel.component.theme';
+@import '../../settings/feature-time-and-date/src/lib/components/time-and-date/time-and-date.component.theme';
+@import '../../board/feature-shell/src/lib/components/shell/shell.component.theme';
+@import '../../board/feature-dyna-grid/src/lib/components/dyna-grid/dynamic-grid.component.theme';
+@import '../../board/feature-hoverlay/src/lib/components/hoverlay/hoverlay.component.theme';
+@import '../../extra/feature-error-overview/src/lib/components/error-overview/error-overview.component.theme';
+@import '../../extra/feature-navigator/src/lib/components/navigate-backward/navigate-backward.component.theme';
+@import '../../extra/feature-navigator/src/lib/components/navigate-forward/navigate-forward.component.theme';
+
+@mixin custom-components-theme($theme) {
+    @include slx-glue-feature-shell-theme($theme);
+    @include slx-glue-feature-top-theme($theme);
+    @include slx-glue-feature-bottom-theme($theme);
+    @include slx-settings-feature-shell-theme($theme);
+    @include slx-settings-feature-language-theme($theme);
+    @include slx-settings-feature-locale-theme($theme);
+    @include slx-settings-feature-look-and-feel-theme($theme);
+    @include slx-settings-feature-time-and-date-theme($theme);
+    @include slx-board-feature-shell-theme($theme);
+    @include slx-board-feature-hoverlay-theme($theme);
+    @include slx-board-feature-dyna-grid-theme($theme);
+    @include slx-extra-feature-error-overview-theme($theme);
+    @include slx-extra-feature-navigator-navigate-backward-theme($theme);
+    @include slx-extra-feature-navigator-navigate-forward-theme($theme);
+}
+
+.light-theme {
+    @include angular-material-theme($slx-light-theme);
+    @include custom-components-theme($slx-light-theme);
+}
+
+.dark-theme {
+    @include angular-material-theme($slx-dark-theme);
+    @include custom-components-theme($slx-dark-theme);
+}

@@ -1,0 +1,14 @@
+<mat-nav-list style="padding-top: 56px" *ngIf="(errorCount$ | async) > 0; else noErrors">
+    <mat-list-item *ngFor="let error of allErrors$ | async; let index = index">
+        <mat-icon mat-list-icon *ngIf="error.severity === 'high'">notifications</mat-icon>
+        <mat-icon mat-list-icon *ngIf="error.severity === 'default'">notifications</mat-icon>
+
+        <h4 mat-line style="font-weight: bold; margin-bottom: 5px">
+            {{ error.message }}
+        </h4>
+        <p mat-line>
+            {{ error.date | dfnsFormat: "yyyy-MM-dd'T'HH:mm:ss.SSSxxx" }}
+        </p>
+    </mat-list-item>
+</mat-nav-list>
+<ng-template #noErrors> No Errors</ng-template>

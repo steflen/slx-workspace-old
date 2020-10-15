@@ -2,22 +2,21 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { APP_INITIALIZER, ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
+import { NavigationActionTiming, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
-import { ErrorModule } from '@slx/error';
-import { RouterModule } from '@slx/router';
-import { SharedModule } from '@slx/shared';
+import { Environment, ENVIRONMENT_TOKEN, SharedCommonModule, WINDOW_PROVIDERS } from '@slx/shared-common';
 import { CustomIconService } from '@slx/shared-material';
-import { Environment, ENVIRONMENT_TOKEN } from '../../../shared/src/lib/interfaces/environment.interface';
-import { WINDOW_PROVIDERS } from '../../../shared/src/lib/interfaces/window.interface';
 import { buildSpecificModules } from './build-specifics';
-import { metaReducers } from './helpers';
+import { metaReducers } from './meta';
+import { RouterSerializer } from './meta/router.serializer';
 import { CoreInitializerService, initCore } from './services/core-init.service';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
-    SharedModule,
+    SharedCommonModule,
+    // CORE ROOT STORE
     StoreModule.forRoot(
       {},
       {
@@ -31,12 +30,14 @@ import { CoreInitializerService, initCore } from './services/core-init.service';
         },
       },
     ),
-    buildSpecificModules,
     EffectsModule.forRoot([]),
-    RouterModule,
-    ErrorModule,
+    StoreRouterConnectingModule.forRoot({
+      serializer: RouterSerializer,
+      navigationActionTiming: NavigationActionTiming.PostActivation,
+    }),
+    buildSpecificModules,
   ],
-  exports: [SharedModule],
+  exports: [SharedCommonModule],
   providers: [
     // https://dzone.com/articles/how-to-use-the-app-initializer-token-to-hook-into
     WINDOW_PROVIDERS,

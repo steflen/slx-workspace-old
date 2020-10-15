@@ -3,11 +3,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BoardModule } from '@slx/board';
+import { BoardFeatureShellModule } from '@slx/board-feature-shell';
 import { CoreModule } from '@slx/core';
-import { SettingsModule } from '@slx/settings';
-import { SharedModule } from '@slx/shared';
-import { TranslationModule } from '@slx/translation';
+import { SettingsDomainModule } from '@slx/settings-domain';
+import { SettingsFeatureShellModule } from '@slx/settings-feature-shell';
+import { SharedTranslationModule } from '@slx/shared-translation';
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,11 +18,12 @@ import { AppComponent } from './app.component';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    SharedModule,
-    TranslationModule.forRoot(environment),
+    SharedTranslationModule.forRoot(environment),
     CoreModule.forRoot(environment),
-    SettingsModule.forRoot(environment),
-    BoardModule, // board-routing is done via @slx/shell
+
+    BoardFeatureShellModule, // board-routing is done via @slx/shell-old-old
+    SettingsDomainModule.forRoot(environment),
+    SettingsFeatureShellModule,
     AppRoutingModule,
   ],
   declarations: [AppComponent],

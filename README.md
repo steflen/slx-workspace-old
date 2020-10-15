@@ -19,3 +19,7 @@ backend:
 - rate limit
 - cors
 - pino logger
+
+ddd, see
+https://www.npmjs.com/package/@angular-architects/ddd
+https://github.com/angular-architects/ddd-demo/blob/master/nx.json

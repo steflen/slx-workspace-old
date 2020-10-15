@@ -24,58 +24,91 @@
   },
   "projects": {
     "storybook": {
-      "tags": []
+      "tags": ["tools"]
     },
     "playground": {
-      "tags": []
+      "tags": ["playground", "app"]
     },
     "playground-e2e": {
-      "tags": [],
+      "tags": ["playground"],
       "implicitDependencies": ["playground"]
     },
     "api": {
-      "tags": []
-    },
-    "api-interfaces": {
-      "tags": []
-    },
-    "core": {
-      "tags": []
-    },
-    "authentication": {
-      "tags": []
-    },
-    "translation": {
-      "tags": []
-    },
-    "error": {
-      "tags": []
-    },
-    "router": {
-      "tags": []
-    },
-    "shared-material": {
-      "tags": []
-    },
-    "shared-fontawesome": {
-      "tags": []
-    },
-    "shared": {
-      "tags": []
+      "tags": ["api", "app"]
     },
     "api-authentication": {
-      "tags": []
+      "tags": ["api"]
     },
     "api-user": {
+      "tags": ["api"]
+    },
+    "board-domain": {
+      "tags": ["board", "domain"]
+    },
+    "board-feature-shell": {
+      "tags": ["shell", "feature"]
+    },
+    "board-feature-dyna-grid": {
+      "tags": ["board"]
+    },
+    "board-feature-hoverlay": {
+      "tags": ["board"]
+    },
+    "settings-domain": {
+      "tags": ["settings", "domain"]
+    },
+    "settings-feature-shell": {
+      "tags": ["settings", "feature", "shell"]
+    },
+    "settings-feature-look-and-feel": {
+      "tags": ["settings", "feature"]
+    },
+    "settings-feature-time-and-date": {
+      "tags": ["settings", "feature"]
+    },
+    "core": {
+      "tags": ["core"]
+    },
+    "shared-common": {
+      "tags": ["shared"]
+    },
+    "shared-material": {
+      "tags": ["shared"]
+    },
+    "shared-fontawesome": {
+      "tags": ["shared"]
+    },
+    "shared-translation": {
+      "tags": ["shared"]
+    },
+    "extra-domain": {
+      "tags": ["extra", "domain"]
+    },
+    "extra-feature-error-overview": {
+      "tags": ["extra", "feature"]
+    },
+    "extra-feature-navigator": {
+      "tags": ["extra", "feature"]
+    },
+    "settings-feature-locale": {
       "tags": []
     },
-    "shell": {
+    "settings-feature-language": {
       "tags": []
     },
-    "board": {
+    "glue-domain": {
       "tags": []
     },
-    "settings": {
+    "glue-feature-bottom": {
+      "tags": []
+    },
+    "glue-feature-top": {
+      "tags": []
+    },
+    "glue-feature-shell": {
+      "tags": []
+    },
+    "extra-feature-shell": {
       "tags": []
     }
   }
