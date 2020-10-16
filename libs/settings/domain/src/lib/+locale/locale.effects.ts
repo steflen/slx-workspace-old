@@ -1,12 +1,23 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions } from '@ngrx/effects';
-import { Store } from '@ngrx/store';
+import { Action, Store } from '@ngrx/store';
+import { Environment, ENVIRONMENT_TOKEN } from '@slx/shared-common';
+import { initLocale } from './locale.actions';
 
 // https://ngrx.io/guide/effects
 @Injectable()
 export class LocaleEffects {
-  constructor(private readonly actions$: Actions, private readonly store: Store, private readonly router: Router) {}
+  constructor(
+    @Inject(ENVIRONMENT_TOKEN) private env: Environment,
+    private readonly actions$: Actions,
+    private readonly store: Store,
+    private readonly router: Router,
+  ) {}
+
+  ngrxOnInitEffects(): Action {
+    return initLocale({ locale: this.env['domain-init'].settings.locale });
+  }
 
   // persistSettings = createEffect(
   //   () =>

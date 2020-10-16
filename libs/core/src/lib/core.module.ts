@@ -5,11 +5,11 @@ import { EffectsModule } from '@ngrx/effects';
 import { NavigationActionTiming, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { Environment, ENVIRONMENT_TOKEN, SharedCommonModule, WINDOW_PROVIDERS } from '@slx/shared-common';
-import { CustomIconService } from '@slx/shared-material';
 import { buildSpecificModules } from './build-specifics';
 import { metaReducers } from './meta';
 import { RouterSerializer } from './meta/router.serializer';
-import { CoreInitializerService, initCore } from './services/core-init.service';
+import { CoreInitService, initCore } from './services/core-init.service';
+import { HttpConfigService, initHttpConfig } from './services/http-config.service';
 
 @NgModule({
   imports: [
@@ -22,7 +22,6 @@ import { CoreInitializerService, initCore } from './services/core-init.service';
       {
         metaReducers,
         runtimeChecks: {
-          // https://ngrx.io/guide/store/configuration/runtime-checks
           strictActionImmutability: true,
           strictActionSerializability: false,
           strictStateImmutability: true,
@@ -39,17 +38,19 @@ import { CoreInitializerService, initCore } from './services/core-init.service';
   ],
   exports: [SharedCommonModule],
   providers: [
-    // https://dzone.com/articles/how-to-use-the-app-initializer-token-to-hook-into
     WINDOW_PROVIDERS,
-    CoreInitializerService,
     {
       provide: APP_INITIALIZER,
-      deps: [CoreInitializerService],
+      deps: [CoreInitService],
       useFactory: initCore,
       multi: true,
     },
-    // mat custom icon service is not provided in shared module as shared modules are service-free
-    CustomIconService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initHttpConfig,
+      deps: [HttpConfigService],
+      multi: true,
+    },
   ],
 })
 export class CoreModule {

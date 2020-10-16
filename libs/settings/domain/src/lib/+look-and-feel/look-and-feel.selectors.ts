@@ -2,8 +2,8 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { differenceInMinutes, parse } from 'date-fns';
 import { selectActiveLocale } from '../+locale/locale.selectors';
 import { selectDate } from '../+time-and-date/time-and-date.selectors';
+import { LookAndFeelModel } from '../../../../../shared/common/src/lib/models/settings/look-and-feel.model';
 import { SETTINGS_FEATURE_LOOK_AND_FEEL } from '../settings.features';
-import { LookAndFeelModel } from './look-and-feel.model';
 
 export const selectLookAndFeelFeature = createFeatureSelector<LookAndFeelModel>(SETTINGS_FEATURE_LOOK_AND_FEEL);
 export const selectLookAndFeelState = createSelector(selectLookAndFeelFeature, (state: LookAndFeelModel) => state);

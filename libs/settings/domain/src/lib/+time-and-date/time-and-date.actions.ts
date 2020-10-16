@@ -1,9 +1,11 @@
-import { createAction } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
+import { TimeAndDateModel } from '@slx/shared-common';
 import { SETTINGS_FEATURE_TIME_AND_DATE } from '../settings.features';
 
-////////////////////////////////////////////////////////////////////////////////
-//////////  TIME AND DATE  /////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
+export const initTimeAndDate = createAction(
+  `${SETTINGS_FEATURE_TIME_AND_DATE}: Init`,
+  props<{ timeAndDate?: TimeAndDateModel }>(),
+);
 
 export const updateTimeAndDate = createAction(`[${SETTINGS_FEATURE_TIME_AND_DATE}] Setting Time And Date`);
 

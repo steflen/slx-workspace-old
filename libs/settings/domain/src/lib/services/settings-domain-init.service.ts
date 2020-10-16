@@ -20,6 +20,34 @@ export class SettingsDomainInitService {
   constructor(@Inject(ENVIRONMENT_TOKEN) private environment: Environment, private store: Store) {}
 
   public async init(): Promise<boolean> {
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXx');
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXx');
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXx');
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXx');
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXx');
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXx');
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXx');
+    console.log(this.environment);
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXx');
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXx');
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXx');
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXx');
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXx');
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXx');
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXx');
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXx');
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXx');
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXx');
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXx');
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXx');
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXx');
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXx');
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXx');
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXx');
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXx');
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXx');
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXx');
+    console.log('XXXXXXXXXXXXXXXXXXXXXXXXXx');
     await this.initTimeAndDate();
     await this.initLocale();
     await this.initLanguage();
@@ -61,12 +89,4 @@ export class SettingsDomainInitService {
 
     return true;
   }
-}
-
-/**
- * This method is used as hook into Angular's init process.
- * @returns Take the service as dependencies and returns the init method.
- */
-export function initSettingsDomain(service: SettingsDomainInitService) {
-  return () => service.init();
 }

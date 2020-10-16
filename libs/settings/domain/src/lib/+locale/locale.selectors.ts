@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { LocaleModel } from '@slx/shared-common';
 import { SETTINGS_FEATURE_LOCALE } from '../settings.features';
-import { LocaleModel } from './locale.model';
 
 export const selectLocaleFeature = createFeatureSelector<LocaleModel>(SETTINGS_FEATURE_LOCALE);
 export const selectLocaleState = createSelector(selectLocaleFeature, (state: LocaleModel) => state);

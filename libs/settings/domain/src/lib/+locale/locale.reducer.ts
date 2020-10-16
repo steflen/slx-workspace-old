@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
+import { LocaleModel } from '@slx/shared-common';
 import * as actions from './locale.actions';
-import { LocaleModel } from './locale.model';
 
 export const initialState: LocaleModel = {
   availableLocales: null,
@@ -13,6 +13,14 @@ const reducer = createReducer(
   on(actions.setAvailableLocales, (state, { availableLocales }) => ({ ...state, availableLocales })),
 
   on(actions.setActiveLocale, (state, { activeLocale }) => ({ ...state, activeLocale })),
+
+  on(
+    actions.initLocale,
+    (state, action): LocaleModel => ({
+      ...state,
+      ...action.locale,
+    }),
+  ),
 );
 
 export function localeReducer(state: LocaleModel | null, action: Action) {

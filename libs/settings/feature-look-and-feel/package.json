@@ -1,5 +1,5 @@
 {
-  "name": "@slx/settings-feature-theming",
+  "name": "@slx/settings-feature-look-and-feel",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^10.1.4",
@@ -10,7 +10,7 @@
   },
   "i18n": [
     {
-      "scope": "settingsFeatureTheming",
+      "scope": "settingsFeatureLookAndFeel",
       "path": "src/lib/i18n"
     }
   ]

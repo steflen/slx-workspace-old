@@ -1,1 +1,1 @@
-export * from './lib/settings-feature-theming.module';
+export * from './lib/settings-feature-look-and-feel.module';

@@ -5,7 +5,7 @@ import { StoreModule } from '@ngrx/store';
 import { ErrorEffects } from './+error/error.effects';
 import { errorReducer } from './+error/error.reducer';
 import { NavigatorEffects } from './+navigator/navigator.effects';
-import { EXTRA_FEATURE_ERROR, EXTRA_FEATURE_NAVIGATOR } from './extra.feature-keys';
+import { EXTRA_FEATURE_ERROR, EXTRA_FEATURE_NAVIGATOR } from './extra.features';
 
 @NgModule({
   imports: [

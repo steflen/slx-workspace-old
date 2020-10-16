@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { EXTRA_FEATURE_ERROR } from '../extra.feature-keys';
+import { EXTRA_FEATURE_ERROR } from '../extra.features';
 import { ErrorState, selectAllErrors, selectErrorsTotal } from './error.reducer';
 
 export const getState = createFeatureSelector<ErrorState>(EXTRA_FEATURE_ERROR);

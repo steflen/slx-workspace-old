@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { LanguageModel } from '@slx/shared-common';
 import { SETTINGS_FEATURE_LANGUAGE } from '../settings.features';
-import { LanguageModel } from './language.model';
 
 export const selectLanguageFeature = createFeatureSelector<LanguageModel>(SETTINGS_FEATURE_LANGUAGE);
 export const selectLanguageState = createSelector(selectLanguageFeature, (state: LanguageModel) => state);

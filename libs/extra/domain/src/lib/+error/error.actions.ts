@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { EXTRA_FEATURE_ERROR } from '../extra.feature-keys';
+import { EXTRA_FEATURE_ERROR } from '../extra.features';
 
 export const addNewErrorAction = createAction(
   `[${EXTRA_FEATURE_ERROR}] Add New Error`,

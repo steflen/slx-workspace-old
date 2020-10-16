@@ -144,3 +144,6 @@ api-database.sqlite
 /libs/shared/assets/i18n/extraFeatureNavigator
 /libs/shared/assets/i18n/settingsFeatureShell
 /libs/shared/assets/i18n/core
+/libs/shared/assets/i18n/platformFeatureShell
+/libs/shared/assets/i18n/platformFeatureTop
+/libs/shared/assets/i18n/platformFeatureBottom

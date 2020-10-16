@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { TimeAndDateModel } from '@slx/shared-common';
 import { SETTINGS_FEATURE_TIME_AND_DATE } from '../settings.features';
-import { TimeAndDateModel } from './time-and-date.model';
 
 export const selectTimeAndDateFeature = createFeatureSelector<TimeAndDateModel>(SETTINGS_FEATURE_TIME_AND_DATE);
 export const selectTimeAndDateState = createSelector(selectTimeAndDateFeature, (state: TimeAndDateModel) => state);

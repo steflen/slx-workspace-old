@@ -1,21 +1,27 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslocoService } from '@ngneat/transloco';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { Store } from '@ngrx/store';
+import { Action, Store } from '@ngrx/store';
+import { Environment, ENVIRONMENT_TOKEN } from '@slx/shared-common';
 import { tap } from 'rxjs/operators';
 // noinspection ES6PreferShortImport
-import { setActiveLanguage } from './language.actions';
+import { initLanguage, setActiveLanguage } from './language.actions';
 
 // https://ngrx.io/guide/effects
 @Injectable()
 export class LanguageEffects {
   constructor(
+    @Inject(ENVIRONMENT_TOKEN) private env: Environment,
     private readonly actions$: Actions,
     private readonly store: Store,
     private readonly router: Router,
     private translocoService: TranslocoService,
   ) {}
+
+  ngrxOnInitEffects(): Action {
+    return initLanguage({ language: this.env['domain-init'].settings.language });
+  }
 
   public setActiveLanguage$ = createEffect(
     () =>

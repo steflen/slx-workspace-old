@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { TimeAndDateModel } from '@slx/shared-common';
 import { DateFnsConfigurationService } from 'ngx-date-fns';
 import { Observable } from 'rxjs';
-// noinspection ES6PreferShortImport
-import { TimeAndDateModel } from '../+time-and-date/time-and-date.model';
 import * as TimeAndDateQuery from '../+time-and-date/time-and-date.selectors';
 
 @Injectable({

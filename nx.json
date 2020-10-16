@@ -26,12 +26,14 @@
     "storybook": {
       "tags": ["tools"]
     },
-    "playground": {
-      "tags": ["playground", "app"]
+    "playground-web": {
+      "tags": []
     },
-    "playground-e2e": {
-      "tags": ["playground"],
-      "implicitDependencies": ["playground"]
+    "playground-mobile": {
+      "tags": []
+    },
+    "playground-desktop": {
+      "tags": []
     },
     "api": {
       "tags": ["api", "app"]
@@ -42,11 +44,18 @@
     "api-user": {
       "tags": ["api"]
     },
+    "board-shell-mobile": {
+      "tags": []
+    },
+    "board-shell-web": {
+      "tags": []
+    },
+    "board-shell-desktop": {
+      "tags": []
+    },
+
     "board-domain": {
       "tags": ["board", "domain"]
-    },
-    "board-feature-shell": {
-      "tags": ["shell", "feature"]
     },
     "board-feature-dyna-grid": {
       "tags": ["board"]
@@ -96,19 +105,46 @@
     "settings-feature-language": {
       "tags": []
     },
-    "glue-domain": {
+    "platform-domain": {
       "tags": []
     },
-    "glue-feature-bottom": {
+    "platform-feature-bottom": {
       "tags": []
     },
-    "glue-feature-top": {
+    "platform-feature-top": {
       "tags": []
     },
-    "glue-feature-shell": {
+    "platform-feature-shell": {
       "tags": []
     },
     "extra-feature-shell": {
+      "tags": []
+    },
+    "extra-shell-web": {
+      "tags": []
+    },
+    "extra-shell-desktop": {
+      "tags": []
+    },
+    "extra-shell-mobile": {
+      "tags": []
+    },
+    "platform-shell-mobile": {
+      "tags": []
+    },
+    "platform-shell-desktop": {
+      "tags": []
+    },
+    "platform-shell-web": {
+      "tags": []
+    },
+    "settings-shell-web": {
+      "tags": []
+    },
+    "settings-shell-desktop": {
+      "tags": []
+    },
+    "settings-shell-mobile": {
       "tags": []
     }
   }

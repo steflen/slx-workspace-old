@@ -21,9 +21,9 @@ export class SharedTranslationModule {
         {
           provide: TRANSLOCO_CONFIG,
           useValue: {
-            availableLangs: environment.language.availableLanguages,
-            defaultLang: environment.language.defaultLanguage,
-            fallbackLang: environment.language.fallbackLanguage,
+            availableLangs: environment['domain-init'].settings.language.availableLanguages,
+            defaultLang: environment['domain-init'].settings.language.activeLanguage,
+            fallbackLang: environment['domain-init'].settings.language.activeLanguage,
             prodMode: environment.production,
             reRenderOnLangChange: true, // set to true when dynamic language change is in place
             flatten: {

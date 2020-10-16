@@ -5,15 +5,15 @@ module.exports = {
       dist: ['./libs/shared/assets/i18n'],
     },
     {
-      src: './libs/glue/feature-shell',
+      src: './libs/platform/feature-shell',
       dist: ['./libs/shared/assets/i18n'],
     },
     {
-      src: './libs/glue/feature-top',
+      src: './libs/platform/feature-top',
       dist: ['./libs/shared/assets/i18n'],
     },
     {
-      src: './libs/glue/feature-bottom',
+      src: './libs/platform/feature-bottom',
       dist: ['./libs/shared/assets/i18n'],
     },
     {

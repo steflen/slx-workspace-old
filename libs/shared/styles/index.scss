@@ -9,33 +9,80 @@
 @include mat-core($custom-typography);
 @import 'themes/light-theme';
 @import 'themes/dark-theme';
-@import '../../glue/feature-shell/src/lib/components/shell/shell.component.theme';
-@import '../../glue/feature-bottom/src/lib/components/bottom/bottom.component.theme';
-@import '../../glue/feature-top/src/lib/components/top/top.component.theme';
-@import '../../settings/feature-shell/src/lib/components/settings-feature-shell/settings-shell.component.theme';
+// domain "plattform"
+@import '../../platform/shell-web/src/lib/components/platform-layout-web/platform-layout-web.component.theme';
+@import '../../platform/shell-web/src/lib/components/platform-layout-web/platform-layout-web.component.theme';
+@import '../../platform/shell-desktop/src/lib/components/platform-layout-desktop/platform-layout-desktop.component.theme';
+@import '../../platform/shell-desktop/src/lib/components/platform-layout-desktop/platform-layout-desktop.component.theme';
+@import '../../platform/shell-mobile/src/lib/components/platform-layout-mobile/platform-layout-mobile.component.theme';
+@import '../../platform/shell-mobile/src/lib/components/platform-layout-mobile/platform-layout-mobile.component.theme';
+@import '../../platform/feature-bottom/src/lib/components/bottom/bottom.component.theme';
+@import '../../platform/feature-top/src/lib/components/top/top.component.theme';
+// domain "settings"
+@import '../../settings/shell-web/src/lib/components/settings-landing-web/settings-landing-web.component.theme';
+@import '../../settings/shell-web/src/lib/components/settings-layout-web/settings-layout-web.component.theme';
+@import '../../settings/shell-desktop/src/lib/components/settings-landing-desktop/settings-landing-desktop.component.theme';
+@import '../../settings/shell-desktop/src/lib/components/settings-layout-desktop/settings-layout-desktop.component.theme';
+@import '../../settings/shell-mobile/src/lib/components/settings-landing-mobile/settings-landing-mobile.component.theme';
+@import '../../settings/shell-mobile/src/lib/components/settings-layout-mobile/settings-layout-mobile.component.theme';
 @import '../../settings/feature-locale/src/lib/components/locale/locale.component.theme';
 @import '../../settings/feature-language/src/lib/components/language/language.component.theme';
 @import '../../settings/feature-look-and-feel/src/lib/components/look-and-feel/look-and-feel.component.theme';
 @import '../../settings/feature-time-and-date/src/lib/components/time-and-date/time-and-date.component.theme';
-@import '../../board/feature-shell/src/lib/components/shell/shell.component.theme';
-@import '../../board/feature-dyna-grid/src/lib/components/dyna-grid/dynamic-grid.component.theme';
+// domain "board"
+@import '../../board/shell-web/src/lib/components/board-landing-web/board-landing-web.component.theme';
+@import '../../board/shell-web/src/lib/components/board-layout-web/board-layout-web.component.theme';
+@import '../../board/shell-desktop/src/lib/components/board-landing-desktop/board-landing-desktop.component.theme';
+@import '../../board/shell-desktop/src/lib/components/board-layout-desktop/board-layout-desktop.component.theme';
+@import '../../board/shell-mobile/src/lib/components/board-landing-mobile/board-landing-mobile.component.theme';
+@import '../../board/shell-mobile/src/lib/components/board-layout-mobile/board-layout-mobile.component.theme';
+@import '../../board/feature-dyna-grid/src/lib/components/dyna-grid/dyna-grid.component.theme';
 @import '../../board/feature-hoverlay/src/lib/components/hoverlay/hoverlay.component.theme';
+// domain "extra"
+@import '../../extra/shell-web/src/lib/components/extra-landing-web/extra-landing-web.component.theme';
+@import '../../extra/shell-web/src/lib/components/extra-layout-web/extra-layout-web.component.theme';
+@import '../../extra/shell-desktop/src/lib/components/extra-landing-desktop/extra-landing-desktop.component.theme';
+@import '../../extra/shell-desktop/src/lib/components/extra-layout-desktop/extra-layout-desktop.component.theme';
+@import '../../extra/shell-mobile/src/lib/components/extra-landing-mobile/extra-landing-mobile.component.theme';
+@import '../../extra/shell-mobile/src/lib/components/extra-layout-mobile/extra-layout-mobile.component.theme';
 @import '../../extra/feature-error-overview/src/lib/components/error-overview/error-overview.component.theme';
 @import '../../extra/feature-navigator/src/lib/components/navigate-backward/navigate-backward.component.theme';
 @import '../../extra/feature-navigator/src/lib/components/navigate-forward/navigate-forward.component.theme';
 
 @mixin custom-components-theme($theme) {
-    @include slx-glue-feature-shell-theme($theme);
-    @include slx-glue-feature-top-theme($theme);
-    @include slx-glue-feature-bottom-theme($theme);
-    @include slx-settings-feature-shell-theme($theme);
+    //platform
+    @include slx-platform-layout-web-theme($theme);
+    @include slx-platform-layout-desktop-theme($theme);
+    @include slx-platform-layout-mobile-theme($theme);
+    @include slx-platform-feature-top-theme($theme);
+    @include slx-platform-feature-bottom-theme($theme);
+    //settings
+    @include slx-settings-landing-desktop-theme($theme);
+    @include slx-settings-landing-mobile-theme($theme);
+    @include slx-settings-landing-web-theme($theme);
+    @include slx-settings-layout-web-theme();
+    @include slx-settings-layout-desktop-theme();
+    @include slx-settings-layout-mobile-theme();
     @include slx-settings-feature-language-theme($theme);
     @include slx-settings-feature-locale-theme($theme);
     @include slx-settings-feature-look-and-feel-theme($theme);
     @include slx-settings-feature-time-and-date-theme($theme);
-    @include slx-board-feature-shell-theme($theme);
+    //board
+    @include slx-board-landing-web-theme($theme);
+    @include slx-board-landing-desktop-theme($theme);
+    @include slx-board-landing-mobile-theme($theme);
+    @include slx-board-layout-web-theme($theme);
+    @include slx-board-layout-desktop-theme($theme);
+    @include slx-board-layout-mobile-theme($theme);
     @include slx-board-feature-hoverlay-theme($theme);
     @include slx-board-feature-dyna-grid-theme($theme);
+    //extra
+    @include slx-extra-layout-web-theme($theme);
+    @include slx-extra-layout-desktop-theme($theme);
+    @include slx-extra-layout-mobile-theme($theme);
+    @include slx-extra-landing-web-theme($theme);
+    @include slx-extra-landing-desktop-theme($theme);
+    @include slx-extra-landing-mobile-theme($theme);
     @include slx-extra-feature-error-overview-theme($theme);
     @include slx-extra-feature-navigator-navigate-backward-theme($theme);
     @include slx-extra-feature-navigator-navigate-forward-theme($theme);

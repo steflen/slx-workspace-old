@@ -1,6 +1,6 @@
 import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { Action, createReducer, on } from '@ngrx/store';
-import { EXTRA_FEATURE_ERROR } from '../extra.feature-keys';
+import { EXTRA_FEATURE_ERROR } from '../extra.features';
 import * as errorActions from './error.actions';
 import { ErrorEntity } from './error.models';
 

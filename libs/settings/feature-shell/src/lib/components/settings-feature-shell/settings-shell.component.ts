@@ -11,6 +11,6 @@ export class SettingsFeatureShellComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //
+    console.log('XXXXXXXXXXXXXXXXx');
   }
 }

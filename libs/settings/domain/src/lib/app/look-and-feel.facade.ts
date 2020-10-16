@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { LookAndFeelModel } from '@slx/shared-common';
 import { Observable } from 'rxjs';
 import * as LookAndFeelActions from '../+look-and-feel/look-and-feel.actions';
-// noinspection ES6PreferShortImport
-import { LookAndFeelModel } from '../+look-and-feel/look-and-feel.model';
 import * as LookAndFeelQuery from '../+look-and-feel/look-and-feel.selectors';
 @Injectable({
   providedIn: 'root',

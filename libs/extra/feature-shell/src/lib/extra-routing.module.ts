@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GlueFeatureShell } from '@slx/glue-feature-shell';
-import { ExtraFeatureShellComponent } from './components/shell/shell.component';
+import { PlatformFeatureShell } from '@slx/platform-feature-shell';
 
 const routes: Routes = [
-  GlueFeatureShell.childRoutes([
+  PlatformFeatureShell.childRoutes([
     {
-      path: 'extra',
-      component: ExtraFeatureShellComponent,
-      data: { title: 'Extra' },
+      path: 'error-overview',
+      loadChildren: () => import('@slx/extra-feature-error-overview').then((m) => m.ExtraFeatureErrorOverviewModule),
+      data: { title: 'Error Overview' },
     },
   ]),
 ];

@@ -1,13 +1,19 @@
 import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { Actions, createEffect, ofType, OnInitEffects } from '@ngrx/effects';
+import { Action } from '@ngrx/store';
 import { map, tap } from 'rxjs/operators';
+import { EXTRA_FEATURE_NAVIGATOR } from '../extra.features';
 import * as RouterActions from './navigator.actions';
 
 @Injectable()
-export class NavigatorEffects {
+export class NavigatorEffects implements OnInitEffects {
   constructor(private action$: Actions, private router: Router, private location: Location) {}
+
+  ngrxOnInitEffects(): Action {
+    return { type: `${EXTRA_FEATURE_NAVIGATOR}: Init` };
+  }
 
   public goto$ = createEffect(
     () =>
