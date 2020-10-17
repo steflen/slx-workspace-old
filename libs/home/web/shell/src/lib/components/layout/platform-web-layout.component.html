@@ -1,0 +1,5 @@
+<div [class]="'theme-wrapper ' + (effectiveTheme$ | async)">
+    <slx-home-feature-top></slx-home-feature-top>
+
+    <router-outlet></router-outlet>
+</div>

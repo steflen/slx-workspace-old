@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PlatformFeatureShell } from '@slx/platform-feature-shell';
+import { PlatformFeatureShell } from '@slx/home-feature-shell';
 
 const routes: Routes = [
   PlatformFeatureShell.childRoutes([

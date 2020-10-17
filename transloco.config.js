@@ -1,11 +1,11 @@
 module.exports = {
   scopedLibs: [
     {
-      src: './libs/platform/_feature/top',
+      src: './libs/home/_feature/top',
       dist: ['./libs/shared/assets/i18n'],
     },
     {
-      src: './libs/platform/_feature/bottom',
+      src: './libs/home/_feature/bottom',
       dist: ['./libs/shared/assets/i18n'],
     },
     {

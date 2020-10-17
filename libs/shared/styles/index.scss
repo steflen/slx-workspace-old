@@ -10,14 +10,14 @@
 @import 'themes/light-theme';
 @import 'themes/dark-theme';
 // domain "plattform"
-@import '../../platform/web/shell/src/lib/components/layout/platform-web-layout.component.theme';
-@import '../../platform/web/shell/src/lib/components/layout/platform-web-layout.component.theme';
-@import '../../platform/desktop/shell/src/lib/components/layout/platform-desktop-layout.component.theme';
-@import '../../platform/desktop/shell/src/lib/components/layout/platform-desktop-layout.component.theme';
-@import '../../platform/mobile/shell/src/lib/components/layout/platform-mobile-layout.component.theme';
-@import '../../platform/mobile/shell/src/lib/components/layout/platform-mobile-layout.component.theme';
-@import '../../platform/_feature/bottom/src/lib/components/bottom/bottom.component.theme';
-@import '../../platform/_feature/top/src/lib/components/top/top.component.theme';
+@import '../../home/web/shell/src/lib/components/layout/platform-web-layout.component.theme';
+@import '../../home/web/shell/src/lib/components/layout/platform-web-layout.component.theme';
+@import '../../home/desktop/shell/src/lib/components/layout/platform-desktop-layout.component.theme';
+@import '../../home/desktop/shell/src/lib/components/layout/platform-desktop-layout.component.theme';
+@import '../../home/mobile/shell/src/lib/components/layout/platform-mobile-layout.component.theme';
+@import '../../home/mobile/shell/src/lib/components/layout/platform-mobile-layout.component.theme';
+@import '../../home/_feature/bottom/src/lib/components/bottom/bottom.component.theme';
+@import '../../home/_feature/top/src/lib/components/top/top.component.theme';
 // domain "settings"
 @import '../../settings/web/shell/src/lib/components/landing/settings-web.landing.component.theme';
 @import '../../settings/web/shell/src/lib/components/layout/settings-web-layout.component.theme';
@@ -50,12 +50,12 @@
 @import '../../extra/_feature/feature-navigator/src/lib/components/navigate-forward/navigate-forward.component.theme';
 
 @mixin custom-components-theme($theme) {
-    //platform
+    //home
     @include slx-platform-web-layout-theme($theme);
     @include slx-platform-desktop-layout-theme($theme);
     @include slx-platform-mobile-layout-theme($theme);
-    @include slx-platform-feature-top-theme($theme);
-    @include slx-platform-feature-bottom-theme($theme);
+    @include slx-home-feature-top-theme($theme);
+    @include slx-home-feature-bottom-theme($theme);
     //settings
     @include slx-settings-web-layout-theme($theme);
     @include slx-settings-web-landing-theme($theme);

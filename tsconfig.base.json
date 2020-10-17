@@ -34,12 +34,12 @@
       "@slx/extra-feature-error-overview": ["libs/extra/_feature/error-overview/src/index.ts"],
       "@slx/extra-feature-navigator": ["libs/extra/_feature/navigator/src/index.ts"],
       // PLATFORM LIBS
-      "@slx/platform-web-shell": ["libs/platform/web/shell/src/index.ts"],
-      "@slx/platform-desktop-shell": ["libs/platform/desktop/shell/src/index.ts"],
-      "@slx/platform-mobile-shell": ["libs/platform/mobile/shell/src/index.ts"],
-      "@slx/platform-domain": ["libs/platform/_domain/src/index.ts"],
-      "@slx/platform-feature-top": ["libs/platform/_feature/top/src/index.ts"],
-      "@slx/platform-feature-bottom": ["libs/platform/_feature/bottom/src/index.ts"],
+      "@slx/home-web-shell": ["libs/home/web/shell/src/index.ts"],
+      "@slx/home-desktop-shell": ["libs/home/desktop/shell/src/index.ts"],
+      "@slx/home-mobile-shell": ["libs/home/mobile/shell/src/index.ts"],
+      "@slx/home-domain": ["libs/home/_domain/src/index.ts"],
+      "@slx/home-feature-top": ["libs/home/_feature/top/src/index.ts"],
+      "@slx/home-feature-bottom": ["libs/home/_feature/bottom/src/index.ts"],
       // SETTING LIBS
       "@slx/settings-web-shell": ["libs/settings/web/shell/src/index.ts"],
       "@slx/settings-desktop-shell": ["libs/settings/desktop/shell/src/index.ts"],

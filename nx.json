@@ -26,126 +26,124 @@
     "storybook": {
       "tags": ["tools"]
     },
+
     "playground-web": {
-      "tags": []
-    },
-    "playground-mobile": {
       "tags": []
     },
     "playground-desktop": {
       "tags": []
     },
-    "api": {
-      "tags": ["api", "app"]
-    },
-    "api-authentication": {
-      "tags": ["api"]
-    },
-    "api-user": {
-      "tags": ["api"]
-    },
-    "board-mobile-shell": {
-      "tags": []
-    },
-    "board-web-shell": {
-      "tags": []
-    },
-    "board-desktop-shell": {
+    "playground-mobile": {
       "tags": []
     },
 
-    "board-domain": {
-      "tags": ["board", "domain"]
+    "api": {
+      "tags": ["scope:api", "app"]
     },
-    "board-feature-dyna-grid": {
-      "tags": ["board"]
+    "api-authentication": {
+      "tags": ["scope:api"]
     },
-    "board-feature-hoverlay": {
-      "tags": ["board"]
+    "api-user": {
+      "tags": ["scope:api"]
     },
-    "settings-domain": {
-      "tags": ["settings", "domain"]
-    },
-    "settings-feature-shell": {
-      "tags": ["settings", "feature", "shell"]
-    },
-    "settings-feature-look-and-feel": {
-      "tags": ["settings", "feature"]
-    },
-    "settings-feature-time-and-date": {
-      "tags": ["settings", "feature"]
-    },
+
     "core": {
-      "tags": ["core"]
+      "tags": ["scope:core"]
     },
+
     "shared-common": {
-      "tags": ["shared"]
-    },
-    "shared-material": {
-      "tags": ["shared"]
-    },
-    "shared-fontawesome": {
-      "tags": ["shared"]
+      "tags": ["scope:shared"]
     },
     "shared-translation": {
-      "tags": ["shared"]
+      "tags": ["scope:shared"]
     },
-    "extra-domain": {
-      "tags": ["extra", "domain"]
+    "shared-material": {
+      "tags": ["scope:shared"]
     },
-    "extra-feature-error-overview": {
-      "tags": ["extra", "feature"]
+    "shared-fontawesome": {
+      "tags": ["scope:shared"]
     },
-    "extra-feature-navigator": {
-      "tags": ["extra", "feature"]
+
+    "board-web-shell": {
+      "tags": ["scope:board", "type:shell", "platform:web"]
     },
-    "settings-feature-locale": {
-      "tags": []
+    "board-desktop-shell": {
+      "tags": ["scope:board", "type:shell", "platform:desktop"]
     },
-    "settings-feature-language": {
-      "tags": []
+    "board-mobile-shell": {
+      "tags": ["scope:board", "type:shell", "platform:mobile"]
     },
-    "platform-domain": {
-      "tags": []
+    "board-domain": {
+      "tags": ["scope:board", "layer:domain"]
     },
-    "platform-feature-bottom": {
-      "tags": []
+    "board-feature-dyna-grid": {
+      "tags": ["scope:board", "type:feature"]
     },
-    "platform-feature-top": {
-      "tags": []
+    "board-feature-hoverlay": {
+      "tags": ["scope:board", "type:feature"]
     },
-    "platform-feature-shell": {
-      "tags": []
-    },
-    "extra-feature-shell": {
-      "tags": []
-    },
-    "extra-web-shell": {
-      "tags": []
-    },
-    "extra-desktop-shell": {
-      "tags": []
-    },
-    "extra-mobile-shell": {
-      "tags": []
-    },
-    "platform-mobile-shell": {
-      "tags": []
-    },
-    "platform-desktop-shell": {
-      "tags": []
-    },
-    "platform-web-shell": {
-      "tags": []
-    },
+
     "settings-web-shell": {
-      "tags": []
+      "tags": ["scope:settings", "type:shell", "platform:web"]
     },
     "settings-desktop-shell": {
-      "tags": []
+      "tags": ["scope:settings", "type:shell", "platform:desktop"]
     },
     "settings-mobile-shell": {
-      "tags": []
+      "tags": ["scope:settings", "type:shell", "platform:mobile"]
+    },
+    "settings-domain": {
+      "tags": ["scope:settings", "layer:domain"]
+    },
+    "settings-feature-language": {
+      "tags": ["scope:settings", "type:feature"]
+    },
+    "settings-feature-locale": {
+      "tags": ["scope:settings", "type:feature"]
+    },
+    "settings-feature-look-and-feel": {
+      "tags": ["scope:settings", "type:feature"]
+    },
+    "settings-feature-time-and-date": {
+      "tags": ["scope:settings", "type:feature"]
+    },
+
+    "extra-web-shell": {
+      "tags": ["scope:extra", "type:shell", "platform:web"]
+    },
+    "extra-desktop-shell": {
+      "tags": ["scope:extra", "type:shell", "platform:desktop"]
+    },
+    "extra-mobile-shell": {
+      "tags": ["scope:extra", "type:shell", "platform:mobile"]
+    },
+    "extra-domain": {
+      "tags": ["scope:extra", "layer:domain"]
+    },
+    "extra-feature-error-overview": {
+      "tags": ["scope:extra", "type:feature"]
+    },
+    "extra-feature-navigator": {
+      "tags": ["scope:extra", "type:feature"]
+    },
+
+    "home-web-shell": {
+      "tags": ["scope:home", "type:shell", "platform:web"]
+    },
+    "home-desktop-shell": {
+      "tags": ["scope:home", "type:shell", "platform:desktop"]
+    },
+    "home-mobile-shell": {
+      "tags": ["scope:home", "type:shell", "platform:mobile"]
+    },
+    "home-domain": {
+      "tags": ["scope:home", "layer:domain"]
+    },
+    "home-feature-bottom": {
+      "tags": ["scope:home", "type:feature"]
+    },
+    "home-feature-top": {
+      "tags": ["scope:home", "type:feature"]
     }
   }
 }
