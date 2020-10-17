@@ -4,13 +4,13 @@ import { RouterModule } from '@angular/router';
 import { BoardDomainModule } from '@slx/board-domain';
 import { ExtraDomainModule } from '@slx/extra-domain';
 import { MuxDomainModule } from '@slx/mux-domain';
-import { MuxFeatureBottomModule } from '@slx/mux-feature-bottom';
-import { MuxFeatureTopModule } from '@slx/mux-feature-top';
 import { SettingsDomainModule } from '@slx/settings-domain';
 import { SharedCommonModule } from '@slx/shared-common';
 import { SharedMaterialModule } from '@slx/shared-material';
 import { SharedTranslationModule, TranslocoHttpLoader } from '@slx/shared-translation';
+import { BottomComponent } from './components/bottom/bottom.component';
 import { MuxWebLayoutComponent } from './components/layout/mux-web-layout.component';
+import { TopComponent } from './components/top/top.component';
 
 @NgModule({
   imports: [
@@ -25,9 +25,9 @@ import { MuxWebLayoutComponent } from './components/layout/mux-web-layout.compon
     SettingsDomainModule,
     BoardDomainModule,
 
-    // Load Modules for Outer Layout
-    MuxFeatureTopModule,
-    MuxFeatureBottomModule,
+    // // Load Modules for Outer Layout
+    // MuxFeatureTopModule,
+    // MuxFeatureBottomModule,
 
     // Load Layout Eagerly, Load Content Lazyly
     RouterModule.forChild([
@@ -51,7 +51,8 @@ import { MuxWebLayoutComponent } from './components/layout/mux-web-layout.compon
       },
     ]),
   ],
-  declarations: [MuxWebLayoutComponent],
+
+  declarations: [MuxWebLayoutComponent, TopComponent, BottomComponent],
   exports: [MuxWebLayoutComponent],
 })
 export class MuxWebShellModule {}

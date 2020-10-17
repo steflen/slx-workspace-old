@@ -5,11 +5,11 @@ import { MuxTopFacade } from '@slx/mux-domain';
 import { MuxFeatureBottomComponent } from '@slx/mux-feature-bottom';
 
 @Component({
-  selector: 'slx-mux-feature-top',
+  selector: 'slx-mux-web-top',
   templateUrl: './top.component.html',
   styleUrls: ['./top.component.scss'],
 })
-export class MuxFeatureTopComponent {
+export class TopComponent {
   isControlsOpened: boolean; // << now qnd, later store!
 
   constructor(

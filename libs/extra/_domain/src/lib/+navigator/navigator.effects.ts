@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Actions, createEffect, ofType, OnInitEffects } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
-import { tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { EXTRA_FEATURE_NAVIGATOR } from '../extra.features';
 import * as RouterActions from './navigator.actions';
 
@@ -24,44 +24,45 @@ export class NavigatorEffects implements OnInitEffects {
     () =>
       this.action$.pipe(
         ofType(RouterActions.goto),
-        // map(({ params }) => params),
+        map((action) => action.params),
+        tap(({ commands, extras }) => this.router.navigate(commands, { ...extras })),
         // tap(({ commands, extras }) => this.router.navigate(commands, extras)),
-        tap(({ params: { commands, extras } }) => this.router.navigate(commands, extras)),
+        // tap(({ params: { commands, queryParams extras } }) => this.router.navigate(...commands, { queryParams, ...extras })),
       ),
     { dispatch: false },
   );
 
-  public outletGoto$ = createEffect(
-    () =>
-      this.action$.pipe(
-        ofType(RouterActions.outletBoards),
-        // map((action) => action.outlet),
-        tap(() => {
-          // return this.router.navigate([{ outlets: { name: route } }]);
-          return this.router.navigate([{ outlets: { 'bottom-control': 'board' } }], {
-            relativeTo: this.route,
-          });
-          //return this.router.navigate(path, { queryParams, ...extras });
-        }),
-      ),
-    { dispatch: false },
-  );
-
-  public outletSettings$ = createEffect(
-    () =>
-      this.action$.pipe(
-        ofType(RouterActions.outletSettings),
-        // map((action) => action.outlet),
-        tap(() => {
-          // return this.router.navigate([{ outlets: { name: route } }]);
-          return this.router.navigate([{ outlets: { 'bottom-control': 'settings' } }], {
-            relativeTo: this.route,
-          });
-          //return this.router.navigate(path, { queryParams, ...extras });
-        }),
-      ),
-    { dispatch: false },
-  );
+  // public outletBoard$ = createEffect(
+  //   () =>
+  //     this.action$.pipe(
+  //       ofType(RouterActions.outletBoard),
+  //       // map((action) => action.outlet),
+  //       tap(() => {
+  //         // return this.router.navigate([{ outlets: { name: route } }]);
+  //         return this.router.navigate(['board', { outlets: { 'bottom-control': ['board'] } }], {
+  //           relativeTo: this.route,
+  //         });
+  //         //return this.router.navigate(path, { queryParams, ...extras });
+  //       }),
+  //     ),
+  //   { dispatch: false },
+  // );
+  //
+  // public outletSettings$ = createEffect(
+  //   () =>
+  //     this.action$.pipe(
+  //       ofType(RouterActions.outletSettings),
+  //       // map((action) => action.outlet),
+  //       tap(() => {
+  //         // return this.router.navigate([{ outlets: { name: route } }]);
+  //         return this.router.navigate([{ outlets: { 'bottom-control': ['settings'] } }], {
+  //           relativeTo: this.route,
+  //         });
+  //         //return this.router.navigate(path, { queryParams, ...extras });
+  //       }),
+  //     ),
+  //   { dispatch: false },
+  // );
 
   public forward$ = createEffect(
     () =>

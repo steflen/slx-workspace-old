@@ -8,10 +8,11 @@ export interface RouterStateUrl {
 
 export interface NavigationParams {
   commands: any[];
+  // query?: any;
   extras?: NavigationExtras;
 }
 
-export interface OutletNavigationParams {
+export interface NavigationOutlet {
   name: string;
   route: string;
 }

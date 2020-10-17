@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'slx-playground-web',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'playground-web';
+
+  constructor(private router: Router) {}
+  printRouter() {
+    console.log(this.router.config);
+  }
 }

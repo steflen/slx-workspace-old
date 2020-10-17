@@ -3,15 +3,12 @@ import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 import { MuxBottomFacade } from '@slx/mux-domain';
 
 @Component({
-  selector: 'slx-mux-feature-bottom',
+  selector: 'slx-mux-web-bottom',
   templateUrl: './bottom.component.html',
   styleUrls: ['./bottom.component.scss'],
 })
-export class MuxFeatureBottomComponent {
-  constructor(
-    private homeBottomFacade: MuxBottomFacade,
-    private bottomSheetRef: MatBottomSheetRef<MuxFeatureBottomComponent>,
-  ) {}
+export class BottomComponent {
+  constructor(private homeBottomFacade: MuxBottomFacade, private bottomSheetRef: MatBottomSheetRef<BottomComponent>) {}
 
   openLink(event: MouseEvent): void {
     this.bottomSheetRef.dismiss();

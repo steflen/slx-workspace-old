@@ -14,25 +14,26 @@ import { TestAtSettingsComponent } from './components/test-at-settings/test-at-s
     CommonModule,
     SharedMaterialModule,
     SharedTranslationModule.forChild(MUX_FEATURE_BOTTOM, TranslocoHttpLoader),
-    RouterModule.forRoot([
+    RouterModule.forChild([
       {
-        path: '',
+        path: 'mux',
         component: TestAtHomeComponent,
-        outlet: 'bottom-control',
+        outlet: 'bottom',
       },
       {
         path: 'board',
         component: TestAtBoardComponent,
-        outlet: 'bottom-control',
+        outlet: 'bottom',
       },
       {
         path: 'settings',
         component: TestAtSettingsComponent,
-        outlet: 'bottom-control',
+        outlet: 'bottom',
       },
     ]),
   ],
   declarations: [MuxFeatureBottomComponent, TestAtSettingsComponent, TestAtHomeComponent, TestAtBoardComponent],
+  // entryComponents: [MuxFeatureBottomComponent],
   exports: [MuxFeatureBottomComponent],
 })
 export class MuxFeatureBottomModule {}
