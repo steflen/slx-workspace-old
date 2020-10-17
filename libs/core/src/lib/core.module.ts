@@ -4,7 +4,7 @@ import { APP_INITIALIZER, ModuleWithProviders, NgModule, Optional, SkipSelf } fr
 import { EffectsModule } from '@ngrx/effects';
 import { NavigationActionTiming, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
-import { Environment, ENVIRONMENT_TOKEN, SharedCommonModule, WINDOW_PROVIDERS } from '@slx/shared-common';
+import { Environment, ENVIRONMENT_TOKEN, WINDOW_PROVIDERS } from '@slx/shared-common';
 import { buildSpecificModules } from './build-specifics';
 import { metaReducers } from './meta';
 import { RouterSerializer } from './meta/router.serializer';
@@ -15,7 +15,7 @@ import { HttpConfigService, initHttpConfig } from './services/http-config.servic
   imports: [
     CommonModule,
     HttpClientModule,
-    SharedCommonModule,
+    //SharedCommonModule,
     // CORE ROOT STORE
     StoreModule.forRoot(
       {},
@@ -36,7 +36,9 @@ import { HttpConfigService, initHttpConfig } from './services/http-config.servic
     }),
     buildSpecificModules,
   ],
-  exports: [SharedCommonModule],
+  exports: [
+    /*SharedCommonModule*/
+  ],
   providers: [
     WINDOW_PROVIDERS,
     {

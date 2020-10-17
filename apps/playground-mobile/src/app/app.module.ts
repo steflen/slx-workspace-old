@@ -22,7 +22,7 @@ import { AppComponent } from './app.component';
         // { path: '', redirectTo: 'web', pathMatch: 'full' },
         {
           path: '',
-          loadChildren: () => import('@slx/platform-shell-mobile').then((module) => module.PlatformShellMobileModule),
+          loadChildren: () => import('@slx/platform-mobile-shell').then((module) => module.PlatformMobileShellModule),
         },
       ],
       {

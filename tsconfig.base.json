@@ -16,52 +16,46 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      // API LIBS
       "@slx/api-authentication": ["libs/api/authentication/src/index.ts"],
       "@slx/api-user": ["libs/api/user/src/index.ts"],
+      // CORE LIBS
       "@slx/core": ["libs/core/src/index.ts"],
+      // SHARED LIBS
       "@slx/shared-common": ["libs/shared/common/src/index.ts"],
       "@slx/shared-material": ["libs/shared/material/src/index.ts"],
       "@slx/shared-fontawesome": ["libs/shared/fontawesome/src/index.ts"],
       "@slx/shared-translation": ["libs/shared/translation/src/index.ts"],
-      "@slx/extra-domain": ["libs/extra/domain/src/index.ts"],
-      "@slx/extra-feature-error-overview": ["libs/extra/feature-error-overview/src/index.ts"],
-      "@slx/extra-feature-navigator": ["libs/extra/feature-navigator/src/index.ts"],
-
-      //
-      "@slx/settings-shell-web": ["libs/settings/shell-web/src/index.ts"],
-      "@slx/settings-shell-desktop": ["libs/settings/shell-desktop/src/index.ts"],
-      "@slx/settings-shell-mobile": ["libs/settings/shell-mobile/src/index.ts"],
-      "@slx/settings-domain": ["libs/settings/domain/src/index.ts"],
-      "@slx/settings-feature-locale": ["libs/settings/feature-locale/src/index.ts"],
-      "@slx/settings-feature-language": ["libs/settings/feature-language/src/index.ts"],
-      "@slx/settings-feature-look-and-feel": ["libs/settings/feature-look-and-feel/src/index.ts"],
-      "@slx/settings-feature-time-and-date": ["libs/settings/feature-time-and-date/src/index.ts"],
-      //
-      "@slx/shell-domain": ["libs/shell/domain/src/index.ts"],
-      "@slx/shell-feature-layout": ["libs/shell/feature-layout/src/index.ts"],
-      "@slx/shell-feature-top-bar": ["libs/shell/feature-top-bar/src/index.ts"],
-      "@slx/shell-feature-controls": ["libs/shell/feature-controls/src/index.ts"],
-
-      "@slx/extra-feature-shell": ["libs/extra/feature-shell/src/index.ts"],
-      "@slx/board-feature-container": ["libs/board/feature-container/src/index.ts"],
-      "@slx/extra-shell-web": ["libs/extra/shell-web/src/index.ts"],
-      "@slx/extra-shell-desktop": ["libs/extra/shell-desktop/src/index.ts"],
-      "@slx/extra-shell-mobile": ["libs/extra/shell-mobile/src/index.ts"],
-      // PLATFORM
-      "@slx/platform-shell-web": ["libs/platform/shell-web/src/index.ts"],
-      "@slx/platform-shell-mobile": ["libs/platform/shell-mobile/src/index.ts"],
-      "@slx/platform-shell-desktop": ["libs/platform/shell-desktop/src/index.ts"],
-      "@slx/platform-domain": ["libs/platform/domain/src/index.ts"],
-      "@slx/platform-feature-bottom": ["libs/platform/feature-bottom/src/index.ts"],
-      "@slx/platform-feature-top": ["libs/platform/feature-top/src/index.ts"],
-      // BOARD
-      "@slx/board-shell-web": ["libs/board/shell-web/src/index.ts"],
-      "@slx/board-shell-mobile": ["libs/board/shell-mobile/src/index.ts"],
-      "@slx/board-shell-desktop": ["libs/board/shell-desktop/src/index.ts"],
-      "@slx/board-domain": ["libs/board/domain/src/index.ts"],
-      "@slx/board-feature-shell": ["libs/board/feature-shell/src/index.ts"],
-      "@slx/board-feature-dyna-grid": ["libs/board/feature-dyna-grid/src/index.ts"],
-      "@slx/board-feature-hoverlay": ["libs/board/feature-hoverlay/src/index.ts"]
+      // EXTRA LIBS
+      "@slx/extra-web-shell": ["libs/extra/web/shell/src/index.ts"],
+      "@slx/extra-desktop-shell": ["libs/extra/desktop/shell/src/index.ts"],
+      "@slx/extra-mobile-shell": ["libs/extra/mobile/shell/src/index.ts"],
+      "@slx/extra-domain": ["libs/extra/_domain/src/index.ts"],
+      "@slx/extra-feature-error-overview": ["libs/extra/_feature/error-overview/src/index.ts"],
+      "@slx/extra-feature-navigator": ["libs/extra/_feature/navigator/src/index.ts"],
+      // PLATFORM LIBS
+      "@slx/platform-web-shell": ["libs/platform/web/shell/src/index.ts"],
+      "@slx/platform-desktop-shell": ["libs/platform/desktop/shell/src/index.ts"],
+      "@slx/platform-mobile-shell": ["libs/platform/mobile/shell/src/index.ts"],
+      "@slx/platform-domain": ["libs/platform/_domain/src/index.ts"],
+      "@slx/platform-feature-top": ["libs/platform/_feature/top/src/index.ts"],
+      "@slx/platform-feature-bottom": ["libs/platform/_feature/bottom/src/index.ts"],
+      // SETTING LIBS
+      "@slx/settings-web-shell": ["libs/settings/web/shell/src/index.ts"],
+      "@slx/settings-desktop-shell": ["libs/settings/desktop/shell/src/index.ts"],
+      "@slx/settings-mobile-shell": ["libs/settings/mobile/shell/src/index.ts"],
+      "@slx/settings-domain": ["libs/settings/_domain/src/index.ts"],
+      "@slx/settings-feature-locale": ["libs/settings/_feature/locale/src/index.ts"],
+      "@slx/settings-feature-language": ["libs/settings/_feature/language/src/index.ts"],
+      "@slx/settings-feature-look-and-feel": ["libs/settings/_feature/look-and-feel/src/index.ts"],
+      "@slx/settings-feature-time-and-date": ["libs/settings/_feature/time-and-date/src/index.ts"],
+      // BOARD LIBS
+      "@slx/board-web-shell": ["libs/board/web/shell/src/index.ts"],
+      "@slx/board-desktop-shell": ["libs/board/desktop/shell/src/index.ts"],
+      "@slx/board-mobile-shell": ["libs/board/mobile/shell/src/index.ts"],
+      "@slx/board-domain": ["libs/board/_domain/src/index.ts"],
+      "@slx/board-feature-dyna-grid": ["libs/board/_feature/dyna-grid/src/index.ts"],
+      "@slx/board-feature-hoverlay": ["libs/board/_feature/hoverlay/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

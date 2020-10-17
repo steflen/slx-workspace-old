@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CustomIconService } from '@slx/shared-material';
+import { CustomIconService } from './custom-icon.service';
 
 @Injectable({
   providedIn: 'root',

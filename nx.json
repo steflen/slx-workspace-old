@@ -44,13 +44,13 @@
     "api-user": {
       "tags": ["api"]
     },
-    "board-shell-mobile": {
+    "board-mobile-shell": {
       "tags": []
     },
-    "board-shell-web": {
+    "board-web-shell": {
       "tags": []
     },
-    "board-shell-desktop": {
+    "board-desktop-shell": {
       "tags": []
     },
 
@@ -120,31 +120,31 @@
     "extra-feature-shell": {
       "tags": []
     },
-    "extra-shell-web": {
+    "extra-web-shell": {
       "tags": []
     },
-    "extra-shell-desktop": {
+    "extra-desktop-shell": {
       "tags": []
     },
-    "extra-shell-mobile": {
+    "extra-mobile-shell": {
       "tags": []
     },
-    "platform-shell-mobile": {
+    "platform-mobile-shell": {
       "tags": []
     },
-    "platform-shell-desktop": {
+    "platform-desktop-shell": {
       "tags": []
     },
-    "platform-shell-web": {
+    "platform-web-shell": {
       "tags": []
     },
-    "settings-shell-web": {
+    "settings-web-shell": {
       "tags": []
     },
-    "settings-shell-desktop": {
+    "settings-desktop-shell": {
       "tags": []
     },
-    "settings-shell-mobile": {
+    "settings-mobile-shell": {
       "tags": []
     }
   }

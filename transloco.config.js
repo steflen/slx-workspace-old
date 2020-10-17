@@ -1,60 +1,43 @@
 module.exports = {
   scopedLibs: [
     {
-      src: './libs/core',
+      src: './libs/platform/_feature/top',
       dist: ['./libs/shared/assets/i18n'],
     },
     {
-      src: './libs/platform/feature-shell',
+      src: './libs/platform/_feature/bottom',
       dist: ['./libs/shared/assets/i18n'],
     },
     {
-      src: './libs/platform/feature-top',
+      src: './libs/extra/_feature/error-overview',
       dist: ['./libs/shared/assets/i18n'],
     },
     {
-      src: './libs/platform/feature-bottom',
+      src: './libs/extra/_feature/navigator',
       dist: ['./libs/shared/assets/i18n'],
     },
     {
-      src: './libs/extra/feature-error-overview',
+      src: './libs/settings/_feature/locale',
       dist: ['./libs/shared/assets/i18n'],
     },
     {
-      src: './libs/extra/feature-navigator',
+      src: './libs/settings/_feature/language',
       dist: ['./libs/shared/assets/i18n'],
     },
     {
-      src: './libs/settings/feature-shell',
+      src: './libs/settings/_feature/look-and-feel',
       dist: ['./libs/shared/assets/i18n'],
     },
     {
-      src: './libs/settings/feature-locale',
+      src: './libs/settings/_feature/time-and-date',
       dist: ['./libs/shared/assets/i18n'],
     },
     {
-      src: './libs/settings/feature-language',
+      src: './libs/board/_feature/dyna-grid',
       dist: ['./libs/shared/assets/i18n'],
     },
     {
-      src: './libs/settings/feature-look-and-feel',
-      dist: ['./libs/shared/assets/i18n'],
-    },
-    {
-      src: './libs/settings/feature-time-and-date',
-      dist: ['./libs/shared/assets/i18n'],
-    },
-
-    {
-      src: './libs/board/feature-shell',
-      dist: ['./libs/shared/assets/i18n'],
-    },
-    {
-      src: './libs/board/feature-dyna-grid',
-      dist: ['./libs/shared/assets/i18n'],
-    },
-    {
-      src: './libs/board/feature-hoverlay',
+      src: './libs/board/_feature/hoverlay',
       dist: ['./libs/shared/assets/i18n'],
     },
   ],

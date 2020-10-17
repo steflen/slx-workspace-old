@@ -1320,7 +1320,7 @@
       }
     },
 
-    "extra-shell-web": {
+    "extra-web-shell": {
       "projectType": "library",
       "root": "libs/extra/shell-web",
       "sourceRoot": "libs/extra/shell-web/src",
@@ -1360,7 +1360,7 @@
         }
       }
     },
-    "extra-shell-desktop": {
+    "extra-desktop-shell": {
       "projectType": "library",
       "root": "libs/extra/shell-desktop",
       "sourceRoot": "libs/extra/shell-desktop/src",
@@ -1400,7 +1400,7 @@
         }
       }
     },
-    "extra-shell-mobile": {
+    "extra-mobile-shell": {
       "projectType": "library",
       "root": "libs/extra/shell-mobile",
       "sourceRoot": "libs/extra/shell-mobile/src",
@@ -1440,7 +1440,7 @@
         }
       }
     },
-    "platform-shell-mobile": {
+    "platform-mobile-shell": {
       "projectType": "library",
       "root": "libs/platform/shell-mobile",
       "sourceRoot": "libs/platform/shell-mobile/src",
@@ -1480,7 +1480,7 @@
         }
       }
     },
-    "platform-shell-desktop": {
+    "platform-desktop-shell": {
       "projectType": "library",
       "root": "libs/platform/shell-desktop",
       "sourceRoot": "libs/platform/shell-desktop/src",
@@ -1520,7 +1520,7 @@
         }
       }
     },
-    "platform-shell-web": {
+    "platform-web-shell": {
       "projectType": "library",
       "root": "libs/platform/shell-web",
       "sourceRoot": "libs/platform/shell-web/src",
@@ -1560,7 +1560,7 @@
         }
       }
     },
-    "settings-shell-web": {
+    "settings-web-shell": {
       "projectType": "library",
       "root": "libs/settings/shell-web",
       "sourceRoot": "libs/settings/shell-web/src",
@@ -1600,7 +1600,7 @@
         }
       }
     },
-    "settings-shell-desktop": {
+    "settings-desktop-shell": {
       "projectType": "library",
       "root": "libs/settings/shell-desktop",
       "sourceRoot": "libs/settings/shell-desktop/src",
@@ -1640,7 +1640,7 @@
         }
       }
     },
-    "settings-shell-mobile": {
+    "settings-mobile-shell": {
       "projectType": "library",
       "root": "libs/settings/shell-mobile",
       "sourceRoot": "libs/settings/shell-mobile/src",
@@ -1680,7 +1680,7 @@
         }
       }
     },
-    "board-shell-mobile": {
+    "board-mobile-shell": {
       "projectType": "library",
       "root": "libs/board/shell-mobile",
       "sourceRoot": "libs/board/shell-mobile/src",
@@ -1720,7 +1720,7 @@
         }
       }
     },
-    "board-shell-web": {
+    "board-web-shell": {
       "projectType": "library",
       "root": "libs/board/shell-web",
       "sourceRoot": "libs/board/shell-web/src",
@@ -1760,7 +1760,7 @@
         }
       }
     },
-    "board-shell-desktop": {
+    "board-desktop-shell": {
       "projectType": "library",
       "root": "libs/board/shell-desktop",
       "sourceRoot": "libs/board/shell-desktop/src",
