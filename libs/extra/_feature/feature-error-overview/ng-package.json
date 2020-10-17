@@ -1,6 +1,6 @@
 {
   "$schema": "../../../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../../dist/libs/extra/feature-error-overview",
+  "dest": "../../../dist/libs/extra/_feature/error-overview",
   "lib": {
     "entryFile": "src/index.ts"
   }

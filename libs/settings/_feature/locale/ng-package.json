@@ -1,6 +1,6 @@
 {
   "$schema": "../../../../node_modules/ng-packagr/ng-package.schema.json",
-  "dest": "../../../dist/libs/settings/feature-locale",
+  "dest": "../../../dist/libs/settings/_feature/locale",
   "lib": {
     "entryFile": "src/index.ts"
   }

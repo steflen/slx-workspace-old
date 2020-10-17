@@ -127,9 +127,6 @@ api-database.sqlite
 
 /tmp/
 
-/libs/shared/shared-assets/i18n/board
-/libs/shared/shared-assets/i18n/shell
-
 /libs/shared-assets/i18n/coreFeatureErrorOverview
 /libs/shared-assets/i18n/coreFeatureNavigator
 /libs/shared-assets/i18n/settingsFeatureLocaleAndLanguage
