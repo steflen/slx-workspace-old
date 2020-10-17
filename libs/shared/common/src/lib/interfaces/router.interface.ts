@@ -6,8 +6,12 @@ export interface RouterStateUrl {
   params: Params;
 }
 
-export interface RouterStateParams {
-  path: any[];
-  query?: any;
+export interface NavigationParams {
+  commands: any[];
   extras?: NavigationExtras;
+}
+
+export interface OutletNavigationParams {
+  name: string;
+  route: string;
 }

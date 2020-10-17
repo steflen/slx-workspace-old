@@ -30,13 +30,13 @@ import { SettingsWebLayoutComponent } from './components/layout/settings-web-lay
             path: 'time-and-date',
             loadChildren: () =>
               import('@slx/settings-feature-time-and-date').then((m) => m.SettingsFeatureTimeAndDateModule),
-            data: { title: 'Blog', animation: 'blog' },
+            data: { title: 'Time And Date', animation: 'time-and-date' },
           },
           {
             path: 'look-and-feel',
             loadChildren: () =>
               import('@slx/settings-feature-look-and-feel').then((m) => m.SettingsFeatureLookAndFeelModule),
-            data: { title: 'Blog', animation: 'blog' },
+            data: { title: 'Look And Feel', animation: 'look-and-feel' },
           },
           {
             path: 'locale',

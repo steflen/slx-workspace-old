@@ -58,7 +58,7 @@ export const parameters = {
 export const globalTypes = {
   theme: {
     name: 'Theme',
-    description: 'Global theme for components',
+    description: 'Global theme for base',
     defaultValue: 'light',
     toolbar: {
       icon: 'circlehollow',
@@ -68,7 +68,7 @@ export const globalTypes = {
   },
   locale: {
     name: 'Locale',
-    description: 'i18n locale',
+    description: 'i18n lazy-locale',
     defaultValue: 'en',
     toolbar: {
       icon: 'globe',

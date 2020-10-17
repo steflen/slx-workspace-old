@@ -1,5 +1,5 @@
 export interface LocaleModel {
-  // locale
+  // lazy-locale
   activeLocale: string;
   availableLocales: Array<string>;
 }

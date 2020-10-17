@@ -17,7 +17,7 @@ module.exports = {
       dist: ['./libs/shared/assets/i18n'],
     },
     {
-      src: './libs/settings/_feature/locale',
+      src: './libs/settings/_feature/lazy-locale',
       dist: ['./libs/shared/assets/i18n'],
     },
     {

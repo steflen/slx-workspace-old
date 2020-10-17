@@ -23,11 +23,11 @@ export const selectIsNight = createSelector(
   (locale: string, date: Date, nightStart: string, nightEnd: string) =>
     // console.log(
     //   'delta now start = ',
-    //   differenceInMinutes(date, parse(nightStart, locale === 'en' ? 'h:mm a' : 'hh:mm', date)),
+    //   differenceInMinutes(date, parse(nightStart, lazy-locale === 'en' ? 'h:mm a' : 'hh:mm', date)),
     // ); //must be positive
     // console.log(
     //   'delta now end = ',
-    //   differenceInMinutes(date, parse(nightEnd, locale === 'en' ? 'h:mm a' : 'hh:mm', date)),
+    //   differenceInMinutes(date, parse(nightEnd, lazy-locale === 'en' ? 'h:mm a' : 'hh:mm', date)),
     // ); //must be negative
     // return (
     differenceInMinutes(date, parse(nightStart, locale === 'en' ? 'h:mm a' : 'hh:mm', date)) > 0 &&

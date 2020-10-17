@@ -7,5 +7,7 @@ import { LocaleFacade } from '@slx/settings-domain';
   styleUrls: ['./locale.component.scss'],
 })
 export class LocaleComponent {
-  constructor(private localeFacade: LocaleFacade) {}
+  constructor(private localeFacade: LocaleFacade) {
+    console.log('🔥 Loaded DynamicLazyComponent');
+  }
 }

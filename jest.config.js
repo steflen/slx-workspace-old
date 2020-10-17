@@ -23,7 +23,7 @@ module.exports = {
     '<rootDir>/libs/settings/domain',
     '<rootDir>/libs/settings/_feature/time-and-date',
     '<rootDir>/libs/settings/_feature/look-and-feel',
-    '<rootDir>/libs/settings/_feature/locale',
+    '<rootDir>/libs/settings/_feature/lazy-locale',
     '<rootDir>/libs/settings/_feature/language',
     '<rootDir>/libs/extra/web/shell',
     '<rootDir>/libs/extra/desktop/shell',

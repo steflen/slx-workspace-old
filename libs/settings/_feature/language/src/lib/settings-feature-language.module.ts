@@ -1,9 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { LanguageComponent } from './components/language/language.component';
+import { RouterModule } from '@angular/router';
+import { LanguageComponent } from './web/language/language.component';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [
+    CommonModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: LanguageComponent,
+      },
+    ]),
+  ],
   declarations: [LanguageComponent],
 })
 export class SettingsFeatureLanguageModule {}

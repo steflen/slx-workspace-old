@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'settings-feature-locale',
+  displayName: 'settings-feature-lazy-locale',
   preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -14,7 +14,7 @@ module.exports = {
       },
     },
   },
-  coverageDirectory: '../../../coverage/libs/settings/_feature/locale',
+  coverageDirectory: '../../../coverage/libs/settings/_feature/lazy-locale',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',

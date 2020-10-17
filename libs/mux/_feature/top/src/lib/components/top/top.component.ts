@@ -19,15 +19,17 @@ export class MuxFeatureTopComponent {
   ) {}
 
   gotoBoard() {
-    this.navigatorFacade.goto({ path: ['board'] });
+    this.navigatorFacade.goto({ commands: ['board'] });
+    this.navigatorFacade.outletBoard();
   }
 
   gotoErrors() {
-    this.navigatorFacade.goto({ path: ['error-overview'] });
+    this.navigatorFacade.goto({ commands: ['error-overview'] });
   }
 
   gotoSettings() {
-    this.navigatorFacade.goto({ path: ['settings'] });
+    this.navigatorFacade.goto({ commands: ['settings'] });
+    this.navigatorFacade.outletSettings();
   }
 
   openControls(): void {

@@ -30,7 +30,7 @@ export class UserService {
       });
     } catch (err) {
       // Transaction has been rolled back
-      // err is whatever rejected the promise chain returned to the transaction callback
+      // err is lazy-whatever rejected the promise chain returned to the transaction callback
     }
     return this.userModel.findAll();
   }

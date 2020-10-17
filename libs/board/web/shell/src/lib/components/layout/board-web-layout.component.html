@@ -1,1 +1,8 @@
-<router-outlet></router-outlet>
+<a [routerLink]="[{ outlets: { primary: ['products'], sidebar: ['products'] } }]"> Products </a>
+
+<div class="float-left">
+    <router-outlet></router-outlet>
+</div>
+<div class="float-right">
+    <router-outlet name="sidebar"></router-outlet>
+</div>

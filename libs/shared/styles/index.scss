@@ -25,8 +25,8 @@
 @import '../../settings/desktop/shell/src/lib/components/layout/settings-desktop-layout.component.theme';
 @import '../../settings/mobile/shell/src/lib/components/landing/settings-mobile-landing.component.theme';
 @import '../../settings/mobile/shell/src/lib/components/layout/settings-mobile-layout.component.theme';
-@import '../../settings/_feature/locale/src/lib/components/locale/locale.component.theme';
-@import '../../settings/_feature/language/src/lib/components/language/language.component.theme';
+@import '../../settings/_feature/locale/src/lib/components/lazy-locale/locale.component.theme';
+@import '../../settings/_feature/language/src/lib/web/language/language.component.theme';
 @import '../../settings/_feature/look-and-feel/src/lib/components/look-and-feel/look-and-feel.component.theme';
 @import '../../settings/_feature/time-and-date/src/lib/components/time-and-date/time-and-date.component.theme';
 // domain "board"

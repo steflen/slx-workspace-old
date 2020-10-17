@@ -1,15 +1,20 @@
 import { Location } from '@angular/common';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Actions, createEffect, ofType, OnInitEffects } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
-import { map, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { EXTRA_FEATURE_NAVIGATOR } from '../extra.features';
 import * as RouterActions from './navigator.actions';
 
 @Injectable()
 export class NavigatorEffects implements OnInitEffects {
-  constructor(private action$: Actions, private router: Router, private location: Location) {}
+  constructor(
+    private action$: Actions,
+    private router: Router,
+    private route: ActivatedRoute,
+    private location: Location,
+  ) {}
 
   ngrxOnInitEffects(): Action {
     return { type: `${EXTRA_FEATURE_NAVIGATOR}: Init` };
@@ -19,8 +24,41 @@ export class NavigatorEffects implements OnInitEffects {
     () =>
       this.action$.pipe(
         ofType(RouterActions.goto),
-        map((action) => action.params),
-        tap(({ path, query: queryParams, extras }) => this.router.navigate(path, { queryParams, ...extras })),
+        // map(({ params }) => params),
+        // tap(({ commands, extras }) => this.router.navigate(commands, extras)),
+        tap(({ params: { commands, extras } }) => this.router.navigate(commands, extras)),
+      ),
+    { dispatch: false },
+  );
+
+  public outletGoto$ = createEffect(
+    () =>
+      this.action$.pipe(
+        ofType(RouterActions.outletBoards),
+        // map((action) => action.outlet),
+        tap(() => {
+          // return this.router.navigate([{ outlets: { name: route } }]);
+          return this.router.navigate([{ outlets: { 'bottom-control': 'board' } }], {
+            relativeTo: this.route,
+          });
+          //return this.router.navigate(path, { queryParams, ...extras });
+        }),
+      ),
+    { dispatch: false },
+  );
+
+  public outletSettings$ = createEffect(
+    () =>
+      this.action$.pipe(
+        ofType(RouterActions.outletSettings),
+        // map((action) => action.outlet),
+        tap(() => {
+          // return this.router.navigate([{ outlets: { name: route } }]);
+          return this.router.navigate([{ outlets: { 'bottom-control': 'settings' } }], {
+            relativeTo: this.route,
+          });
+          //return this.router.navigate(path, { queryParams, ...extras });
+        }),
       ),
     { dispatch: false },
   );

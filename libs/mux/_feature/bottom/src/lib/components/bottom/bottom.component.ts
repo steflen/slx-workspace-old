@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
+import { ActivatedRoute } from '@angular/router';
 import { MuxBottomFacade } from '@slx/mux-domain';
 
 @Component({
@@ -9,6 +10,7 @@ import { MuxBottomFacade } from '@slx/mux-domain';
 })
 export class MuxFeatureBottomComponent {
   constructor(
+    private route: ActivatedRoute,
     private homeBottomFacade: MuxBottomFacade,
     private bottomSheetRef: MatBottomSheetRef<MuxFeatureBottomComponent>,
   ) {}
