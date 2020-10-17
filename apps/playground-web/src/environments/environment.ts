@@ -42,7 +42,7 @@ export const environment: Environment = {
         peng: 'blubb123',
       },
     },
-    platform: {
+    mux: {
       bottom: { peng: 'dsfdsf' },
       top: { peng: 'aejfneoäif' },
     },

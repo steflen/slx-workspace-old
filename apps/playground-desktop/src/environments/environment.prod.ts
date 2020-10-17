@@ -1,5 +1,5 @@
 import { Environment } from '@slx/shared-common';
-
+import { format, formatRFC7231 } from 'date-fns';
 export const environment: Environment = {
   'production': false,
   'appTitle': 'Playground',
@@ -27,6 +27,14 @@ export const environment: Environment = {
         nightStart: '1:00 AM', //'19:00',
         nightEnd: '8:00 AM', //'08:00',
       },
+      timeAndDate: {
+        timePickerFormat: 12,
+        date: new Date(),
+        dateFormatted: format(new Date(), "yyyy-MM-dd'T'HH:mm:ss.SSSxxx"),
+        dateTimeRFC7231: formatRFC7231(new Date()),
+        dateHumanReadable: format(new Date(), 'MM/dd/yyyy'),
+        timeHumanReadable: format(new Date(), 'HH:mm:ss'),
+      },
     },
     board: {
       'dyna-grid': { bla: 'aasdf' },
@@ -34,7 +42,7 @@ export const environment: Environment = {
         peng: 'blubb123',
       },
     },
-    platform: {
+    mux: {
       bottom: { peng: 'dsfdsf' },
       top: { peng: 'aejfneoäif' },
     },

@@ -29,18 +29,6 @@ import {
 })
 export class SettingsDomainModule {
   constructor(@Inject(ENVIRONMENT_TOKEN) private environment: Environment) {
-    console.log(this.environment);
+    // console.log(this.environment);
   }
-  // static forRoot(environment: Environment): ModuleWithProviders<any> {
-  //   return {
-  //     ngModule: SettingsDomainModule,
-  //     providers: [
-  //       WINDOW_PROVIDERS,
-  //       {
-  //         provide: ENVIRONMENT_TOKEN,
-  //         useValue: environment,
-  //       },
-  //     ],
-  //   };
-  // }
 }

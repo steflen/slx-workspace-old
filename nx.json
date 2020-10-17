@@ -1,7 +1,7 @@
 {
   "npmScope": "slx",
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "development"
   },
   "implicitDependencies": {
     "angular.json": "*",
@@ -24,126 +24,118 @@
   },
   "projects": {
     "storybook": {
-      "tags": ["tools"]
+      "tags": ["project:tool"]
     },
-
     "playground-web": {
-      "tags": []
+      "tags": ["project:app"]
     },
     "playground-desktop": {
-      "tags": []
+      "tags": ["project:app"]
     },
     "playground-mobile": {
-      "tags": []
+      "tags": ["project:app"]
     },
-
     "api": {
-      "tags": ["scope:api", "app"]
+      "tags": ["project:app", "scope:api", "app"]
     },
     "api-authentication": {
-      "tags": ["scope:api"]
+      "tags": ["project:lib", "scope:api"]
     },
     "api-user": {
-      "tags": ["scope:api"]
+      "tags": ["project:lib", "scope:api"]
     },
-
     "core": {
-      "tags": ["scope:core"]
+      "tags": ["project:lib", "scope:core"]
     },
-
     "shared-common": {
-      "tags": ["scope:shared"]
+      "tags": ["project:lib", "scope:shared"]
     },
     "shared-translation": {
-      "tags": ["scope:shared"]
+      "tags": ["project:lib", "scope:shared"]
     },
     "shared-material": {
-      "tags": ["scope:shared"]
+      "tags": ["project:lib", "scope:shared"]
     },
     "shared-fontawesome": {
-      "tags": ["scope:shared"]
+      "tags": ["project:lib", "scope:shared"]
     },
-
     "board-web-shell": {
-      "tags": ["scope:board", "type:shell", "platform:web"]
+      "tags": ["project:lib", "scope:board", "type:shell", "platform:web"]
     },
     "board-desktop-shell": {
-      "tags": ["scope:board", "type:shell", "platform:desktop"]
+      "tags": ["project:lib", "scope:board", "type:shell", "platform:desktop"]
     },
     "board-mobile-shell": {
-      "tags": ["scope:board", "type:shell", "platform:mobile"]
+      "tags": ["project:lib", "scope:board", "type:shell", "platform:mobile"]
     },
     "board-domain": {
-      "tags": ["scope:board", "layer:domain"]
+      "tags": ["project:lib", "scope:board", "layer:domain"]
     },
     "board-feature-dyna-grid": {
-      "tags": ["scope:board", "type:feature"]
+      "tags": ["project:lib", "scope:board", "type:feature"]
     },
     "board-feature-hoverlay": {
-      "tags": ["scope:board", "type:feature"]
+      "tags": ["project:lib", "scope:board", "type:feature"]
     },
-
     "settings-web-shell": {
-      "tags": ["scope:settings", "type:shell", "platform:web"]
+      "tags": ["project:lib", "scope:settings", "type:shell", "platform:web"]
     },
     "settings-desktop-shell": {
-      "tags": ["scope:settings", "type:shell", "platform:desktop"]
+      "tags": ["project:lib", "scope:settings", "type:shell", "platform:desktop"]
     },
     "settings-mobile-shell": {
-      "tags": ["scope:settings", "type:shell", "platform:mobile"]
+      "tags": ["project:lib", "scope:settings", "type:shell", "platform:mobile"]
     },
     "settings-domain": {
-      "tags": ["scope:settings", "layer:domain"]
+      "tags": ["project:lib", "scope:settings", "layer:domain"]
     },
     "settings-feature-language": {
-      "tags": ["scope:settings", "type:feature"]
+      "tags": ["project:lib", "scope:settings", "type:feature"]
     },
     "settings-feature-locale": {
-      "tags": ["scope:settings", "type:feature"]
+      "tags": ["project:lib", "scope:settings", "type:feature"]
     },
     "settings-feature-look-and-feel": {
-      "tags": ["scope:settings", "type:feature"]
+      "tags": ["project:lib", "scope:settings", "type:feature"]
     },
     "settings-feature-time-and-date": {
-      "tags": ["scope:settings", "type:feature"]
+      "tags": ["project:lib", "scope:settings", "type:feature"]
     },
-
     "extra-web-shell": {
-      "tags": ["scope:extra", "type:shell", "platform:web"]
+      "tags": ["project:lib", "scope:extra", "type:shell", "platform:web"]
     },
     "extra-desktop-shell": {
-      "tags": ["scope:extra", "type:shell", "platform:desktop"]
+      "tags": ["project:lib", "scope:extra", "type:shell", "platform:desktop"]
     },
     "extra-mobile-shell": {
-      "tags": ["scope:extra", "type:shell", "platform:mobile"]
+      "tags": ["project:lib", "scope:extra", "type:shell", "platform:mobile"]
     },
     "extra-domain": {
-      "tags": ["scope:extra", "layer:domain"]
+      "tags": ["project:lib", "scope:extra", "layer:domain"]
     },
     "extra-feature-error-overview": {
-      "tags": ["scope:extra", "type:feature"]
+      "tags": ["project:lib", "scope:extra", "type:feature"]
     },
     "extra-feature-navigator": {
-      "tags": ["scope:extra", "type:feature"]
+      "tags": ["project:lib", "scope:extra", "type:feature"]
     },
-
-    "home-web-shell": {
-      "tags": ["scope:home", "type:shell", "platform:web"]
+    "mux-web-shell": {
+      "tags": ["project:lib", "scope:mux", "type:shell", "platform:web"]
     },
-    "home-desktop-shell": {
-      "tags": ["scope:home", "type:shell", "platform:desktop"]
+    "mux-desktop-shell": {
+      "tags": ["project:lib", "scope:mux", "type:shell", "platform:desktop"]
     },
-    "home-mobile-shell": {
-      "tags": ["scope:home", "type:shell", "platform:mobile"]
+    "mux-mobile-shell": {
+      "tags": ["project:lib", "scope:mux", "type:shell", "platform:mobile"]
     },
-    "home-domain": {
-      "tags": ["scope:home", "layer:domain"]
+    "mux-domain": {
+      "tags": ["project:lib", "scope:mux", "layer:domain"]
     },
-    "home-feature-bottom": {
-      "tags": ["scope:home", "type:feature"]
+    "mux-feature-bottom": {
+      "tags": ["project:lib", "scope:mux", "type:feature"]
     },
-    "home-feature-top": {
-      "tags": ["scope:home", "type:feature"]
+    "mux-feature-top": {
+      "tags": ["project:lib", "scope:mux", "type:feature"]
     }
   }
 }

@@ -1,0 +1,30 @@
+// override bottom-sheet style
+::ng-deep .mat-bottom-sheet-container {
+    padding: 0 !important;
+    width: 70vw;
+}
+
+.toolbar-icon {
+    padding: 0 14px;
+}
+
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+
+.toolbar-bottom {
+}
+
+.toolbar-mid {
+}
+
+.toolbar-top {
+    height: 2rem;
+    padding-right: 0;
+}
+
+.toolbar-top .buttons {
+    position: absolute;
+    right: 0;
+    top: 0;
+}

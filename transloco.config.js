@@ -1,11 +1,11 @@
 module.exports = {
   scopedLibs: [
     {
-      src: './libs/home/_feature/top',
+      src: './libs/mux/_feature/top',
       dist: ['./libs/shared/assets/i18n'],
     },
     {
-      src: './libs/home/_feature/bottom',
+      src: './libs/mux/_feature/bottom',
       dist: ['./libs/shared/assets/i18n'],
     },
     {

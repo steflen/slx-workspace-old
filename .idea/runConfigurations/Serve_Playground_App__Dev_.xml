@@ -1,9 +1,9 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Serve Playground App (Dev)" type="js.build_tools.nx">
-    <node-interpreter value="$USER_HOME$/.nvm/versions/node/v14.13.0/bin/node" />
-    <nxfile value="$PROJECT_DIR$/nx.json" />
+    <node-interpreter value="project" />
+    <nxfile value="$PROJECT_DIR$/../slx-demo/nx.json" />
     <tasks>
-      <task value="playground:serve" />
+      <task value="demo-ui-electron-renderer-e2e" />
     </tasks>
     <method v="2" />
   </configuration>

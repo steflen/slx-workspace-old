@@ -10,14 +10,14 @@
 @import 'themes/light-theme';
 @import 'themes/dark-theme';
 // domain "plattform"
-@import '../../home/web/shell/src/lib/components/layout/platform-web-layout.component.theme';
-@import '../../home/web/shell/src/lib/components/layout/platform-web-layout.component.theme';
-@import '../../home/desktop/shell/src/lib/components/layout/platform-desktop-layout.component.theme';
-@import '../../home/desktop/shell/src/lib/components/layout/platform-desktop-layout.component.theme';
-@import '../../home/mobile/shell/src/lib/components/layout/platform-mobile-layout.component.theme';
-@import '../../home/mobile/shell/src/lib/components/layout/platform-mobile-layout.component.theme';
-@import '../../home/_feature/bottom/src/lib/components/bottom/bottom.component.theme';
-@import '../../home/_feature/top/src/lib/components/top/top.component.theme';
+@import '../../mux/web/shell/src/lib/components/layout/mux-web-layout.component.theme';
+@import '../../mux/web/shell/src/lib/components/layout/mux-web-layout.component.theme';
+@import '../../mux/desktop/shell/src/lib/components/layout/mux-desktop-layout.component.theme';
+@import '../../mux/desktop/shell/src/lib/components/layout/mux-desktop-layout.component.theme';
+@import '../../mux/mobile/shell/src/lib/components/layout/mux-mobile-layout.component.theme';
+@import '../../mux/mobile/shell/src/lib/components/layout/mux-mobile-layout.component.theme';
+@import '../../mux/_feature/bottom/src/lib/components/bottom/bottom.component.theme';
+@import '../../mux/_feature/top/src/lib/components/top/top.component.theme';
 // domain "settings"
 @import '../../settings/web/shell/src/lib/components/landing/settings-web.landing.component.theme';
 @import '../../settings/web/shell/src/lib/components/layout/settings-web-layout.component.theme';
@@ -50,12 +50,12 @@
 @import '../../extra/_feature/feature-navigator/src/lib/components/navigate-forward/navigate-forward.component.theme';
 
 @mixin custom-components-theme($theme) {
-    //home
-    @include slx-platform-web-layout-theme($theme);
-    @include slx-platform-desktop-layout-theme($theme);
-    @include slx-platform-mobile-layout-theme($theme);
-    @include slx-home-feature-top-theme($theme);
-    @include slx-home-feature-bottom-theme($theme);
+    //mux
+    @include slx-mux-web-layout-theme($theme);
+    @include slx-mux-desktop-layout-theme($theme);
+    @include slx-mux-mobile-layout-theme($theme);
+    @include slx-mux-feature-top-theme($theme);
+    @include slx-mux-feature-bottom-theme($theme);
     //settings
     @include slx-settings-web-layout-theme($theme);
     @include slx-settings-web-landing-theme($theme);

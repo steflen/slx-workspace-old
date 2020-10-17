@@ -29,7 +29,7 @@ export interface Environment {
       'dyna-grid': DynaGridModel;
       'hoverlay': HoverlayModel;
     };
-    platform: {
+    mux: {
       bottom: BottomModel;
       top: TopModel;
     };

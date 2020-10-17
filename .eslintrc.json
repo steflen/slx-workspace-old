@@ -25,7 +25,41 @@
       {
         "enforceBuildableLibDependency": true,
         "allow": [],
-        "depConstraints": [{ "sourceTag": "*", "onlyDependOnLibsWithTags": ["*"] }]
+        "depConstraints": [
+          { "sourceTag": "*", "onlyDependOnLibsWithTags": ["*"] },
+          {
+            // an application is only allowed to import something from a library
+            "sourceTag": "project:app",
+            "onlyDependOnLibsWithTags": ["project:lib"]
+          },
+          {
+            // a library is only allowed to import something from a library
+            "sourceTag": "project:lib",
+            "onlyDependOnLibsWithTags": ["project:lib"]
+          },
+          // whats inside a SCOPE has to stay inside that scope, except for SHARED
+          {
+            "sourceTag": "scope:extra",
+            "onlyDependOnLibsWithTags": ["scope:extra", "shared"]
+          },
+          {
+            "sourceTag": "scope:home",
+            "onlyDependOnLibsWithTags": ["scope:home", "shared"]
+          },
+          {
+            "sourceTag": "scope:settings",
+            "onlyDependOnLibsWithTags": ["scope:settings", "shared"]
+          },
+          {
+            "sourceTag": "scope:board",
+            "onlyDependOnLibsWithTags": ["scope:board", "shared"]
+          },
+          // a FEATURE belongs to it's domain, but can import from UI and UTILS
+          {
+            "sourceTag": "type:feature",
+            "onlyDependOnLibsWithTags": ["type:domain", "type:ui", "type:util"]
+          }
+        ]
       }
     ]
   },

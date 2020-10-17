@@ -22,7 +22,7 @@
 // import 'classlist.js';  // Run `npm install --save classlist.js`.
 
 /**
- * Web Animations `@angular/home-browser/animations`
+ * Web Animations `@angular/mux-browser/animations`
  * Only required if AnimationBuilder is used within the application and using IE/Edge or Safari.
  * Standard animation support in Angular DOES NOT require any polyfills (as of Angular 6.0).
  */

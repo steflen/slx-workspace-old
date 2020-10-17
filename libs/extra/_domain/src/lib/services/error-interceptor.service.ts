@@ -3,7 +3,7 @@ import { ErrorHandler, Injectable, Injector } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { addNewErrorAction } from '../+error-overview';
+import { addNewErrorAction } from '../+error-overview/error-overview.actions';
 // noinspection ES6PreferShortImport
 
 @Injectable()

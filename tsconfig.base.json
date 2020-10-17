@@ -16,31 +16,25 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      // API LIBS
       "@slx/api-authentication": ["libs/api/authentication/src/index.ts"],
       "@slx/api-user": ["libs/api/user/src/index.ts"],
-      // CORE LIBS
       "@slx/core": ["libs/core/src/index.ts"],
-      // SHARED LIBS
       "@slx/shared-common": ["libs/shared/common/src/index.ts"],
       "@slx/shared-material": ["libs/shared/material/src/index.ts"],
       "@slx/shared-fontawesome": ["libs/shared/fontawesome/src/index.ts"],
       "@slx/shared-translation": ["libs/shared/translation/src/index.ts"],
-      // EXTRA LIBS
       "@slx/extra-web-shell": ["libs/extra/web/shell/src/index.ts"],
       "@slx/extra-desktop-shell": ["libs/extra/desktop/shell/src/index.ts"],
       "@slx/extra-mobile-shell": ["libs/extra/mobile/shell/src/index.ts"],
       "@slx/extra-domain": ["libs/extra/_domain/src/index.ts"],
       "@slx/extra-feature-error-overview": ["libs/extra/_feature/error-overview/src/index.ts"],
       "@slx/extra-feature-navigator": ["libs/extra/_feature/navigator/src/index.ts"],
-      // PLATFORM LIBS
-      "@slx/home-web-shell": ["libs/home/web/shell/src/index.ts"],
-      "@slx/home-desktop-shell": ["libs/home/desktop/shell/src/index.ts"],
-      "@slx/home-mobile-shell": ["libs/home/mobile/shell/src/index.ts"],
-      "@slx/home-domain": ["libs/home/_domain/src/index.ts"],
-      "@slx/home-feature-top": ["libs/home/_feature/top/src/index.ts"],
-      "@slx/home-feature-bottom": ["libs/home/_feature/bottom/src/index.ts"],
-      // SETTING LIBS
+      "@slx/mux-web-shell": ["libs/mux/web/shell/src/index.ts"],
+      "@slx/mux-desktop-shell": ["libs/mux/desktop/shell/src/index.ts"],
+      "@slx/mux-mobile-shell": ["libs/mux/mobile/shell/src/index.ts"],
+      "@slx/mux-domain": ["libs/mux/_domain/src/index.ts"],
+      "@slx/mux-feature-top": ["libs/mux/_feature/top/src/index.ts"],
+      "@slx/mux-feature-bottom": ["libs/mux/_feature/bottom/src/index.ts"],
       "@slx/settings-web-shell": ["libs/settings/web/shell/src/index.ts"],
       "@slx/settings-desktop-shell": ["libs/settings/desktop/shell/src/index.ts"],
       "@slx/settings-mobile-shell": ["libs/settings/mobile/shell/src/index.ts"],
@@ -49,7 +43,6 @@
       "@slx/settings-feature-language": ["libs/settings/_feature/language/src/index.ts"],
       "@slx/settings-feature-look-and-feel": ["libs/settings/_feature/look-and-feel/src/index.ts"],
       "@slx/settings-feature-time-and-date": ["libs/settings/_feature/time-and-date/src/index.ts"],
-      // BOARD LIBS
       "@slx/board-web-shell": ["libs/board/web/shell/src/index.ts"],
       "@slx/board-desktop-shell": ["libs/board/desktop/shell/src/index.ts"],
       "@slx/board-mobile-shell": ["libs/board/mobile/shell/src/index.ts"],
