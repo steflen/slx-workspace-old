@@ -32,18 +32,33 @@ export class NavigatorEffects implements OnInitEffects {
     { dispatch: false },
   );
 
-  public outletBoard$ = createEffect(
+  public outletBottomBoard$ = createEffect(
     () =>
       this.action$.pipe(
-        ofType(RouterActions.outletBoard),
-        // map((action) => action.outlet),
+        ofType(RouterActions.outletBottomBoard),
         tap(() => {
-          // return this.router.navigate([{ outlets: { name: route } }]);
-          this.router.navigateByUrl('board/(aux-nested:aux-nested)');
-          return this.router.navigate(['board', { outlets: { 'bottom-control': ['board'] } }], {
-            relativeTo: this.route,
-          });
-          //return this.router.navigate(path, { queryParams, ...extras });
+          this.router.navigateByUrl('board(bottom:board)');
+        }),
+      ),
+    { dispatch: false },
+  );
+  public outletBottomSettings = createEffect(
+    () =>
+      this.action$.pipe(
+        ofType(RouterActions.outletBottomSettings),
+        tap(() => {
+          this.router.navigateByUrl('settings(bottom:settings)');
+        }),
+      ),
+    { dispatch: false },
+  );
+  public outletClosoe$ = createEffect(
+    () =>
+      this.action$.pipe(
+        ofType(RouterActions.outletClose),
+        //close bottom sheet
+        tap(({ route }) => {
+          this.router.navigateByUrl(route);
         }),
       ),
     { dispatch: false },

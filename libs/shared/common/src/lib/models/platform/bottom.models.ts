@@ -1,3 +1,3 @@
 export interface BottomModel {
-  peng: string;
+  isBottomOpen: boolean;
 }

@@ -349,6 +349,14 @@
         },
         "serve": {
           "builder": "@nrwl/node:execute",
+          "configurations": {
+            "mock": {
+              "buildTarget": "api:build:mock"
+            },
+            "production": {
+              "buildTarget": "api:build:production"
+            }
+          },
           "options": {
             "buildTarget": "api:build"
           }
@@ -368,33 +376,33 @@
         }
       }
     },
-    "api-authentication": {
-      "root": "libs/api/authentication",
-      "sourceRoot": "libs/api/authentication/src",
+    "api-auth": {
+      "root": "libs/api/auth",
+      "sourceRoot": "libs/api/auth/src",
       "projectType": "library",
       "schematics": {},
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/api/authentication/**/*.ts"]
+            "lintFilePatterns": ["libs/api/auth/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/api/authentication/jest.config.js",
+            "jestConfig": "libs/api/auth/jest.config.js",
             "passWithNoTests": true
           }
         },
         "build": {
           "builder": "@nrwl/node:package",
           "options": {
-            "outputPath": "dist/libs/api/authentication",
-            "tsConfig": "libs/api/authentication/tsconfig.lib.json",
-            "packageJson": "libs/api/authentication/package.json",
-            "main": "libs/api/authentication/src/index.ts",
-            "assets": ["libs/api/authentication/*.md"]
+            "outputPath": "dist/libs/api/auth",
+            "tsConfig": "libs/api/auth/tsconfig.lib.json",
+            "packageJson": "libs/api/auth/package.json",
+            "main": "libs/api/auth/src/index.ts",
+            "assets": ["libs/api/auth/*.md"]
           }
         }
       }

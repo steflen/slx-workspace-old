@@ -35,16 +35,16 @@ export class UserService {
     return this.userModel.findAll();
   }
 
-  findOne(id: string): Promise<User> {
+  findOne(username: string): Promise<User> {
     return this.userModel.findOne({
       where: {
-        id,
+        username,
       },
     });
   }
 
-  async remove(id: string): Promise<void> {
-    const user = await this.findOne(id);
+  async remove(username: string): Promise<void> {
+    const user = await this.findOne(username);
     await user.destroy();
   }
 }

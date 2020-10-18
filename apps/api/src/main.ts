@@ -1,6 +1,5 @@
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
-import compression from 'compression';
 import * as dotenv from 'dotenv';
 import * as rateLimit from 'express-rate-limit';
 import * as helmet from 'helmet';
@@ -8,9 +7,9 @@ import { Logger } from 'nestjs-pino';
 import { resolve } from 'path';
 import { AppModule } from './app/app.module';
 
-const bla = dotenv.config({ path: resolve(__dirname, 'assets', '.env') });
-console.log('bla');
-console.log(bla);
+const cfg = dotenv.config({ path: resolve(__dirname, 'assets', '.env') });
+console.log(cfg);
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { logger: true });
 
@@ -27,15 +26,14 @@ async function bootstrap() {
   const rateLimitConfig = cfg.get('rateLimit');
   const sequelizeConfig = cfg.get('sequelize');
 
-  logger.log('Server root', __dirname);
-  logger.log('Process cwd', process.cwd());
-  logger.log('System Config', systemConfig);
-  logger.log('Cors Config', corsConfig);
-  logger.log('Rate Limit Config', rateLimitConfig);
-  logger.log('Sequelize Config', sequelizeConfig);
+  logger.debug('Server root', __dirname);
+  logger.debug('Process cwd', process.cwd());
+  logger.debug('System Config', systemConfig);
+  logger.debug('Cors Config', corsConfig);
+  logger.debug('Rate Limit Config', rateLimitConfig);
+  logger.debug('Sequelize Config', sequelizeConfig);
 
   app.enableCors(corsConfig);
-  app.use(compression());
   app.use(helmet());
   app.use(rateLimit(rateLimitConfig));
   app.enableShutdownHooks();
@@ -49,7 +47,7 @@ async function bootstrap() {
     // db.stop(function(err) {
     //   process.exit(err ? 1 : 0);
     // });
-    logger.log('graceful shutdown now');
+    logger.log('>>>> bye bye');
   });
 
   return logger;

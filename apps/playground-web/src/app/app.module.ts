@@ -22,13 +22,13 @@ import { AppComponent } from './app.component';
 
     RouterModule.forRoot(
       [
-        { path: '', component: MuxWebLayoutComponent },
+        { path: '', redirectTo: 'mux', pathMatch: 'full' },
+        { path: 'mux', component: MuxWebLayoutComponent },
         // { path: 'mux', component: MuxWebLayoutComponent },
         // {
         //   path: 'mux',
         //   loadChildren: () => import('@slx/mux-web-shell').then((module) => module.MuxWebShellModule),
         // },
-        // { path: '**', redirectTo: 'mux' /*'404'*/, pathMatch: 'full' },
       ],
       {
         //router config

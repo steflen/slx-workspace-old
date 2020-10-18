@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NavigatorFacade } from '@slx/extra-domain';
 import { MuxTopFacade } from '@slx/mux-domain';
 import { MuxFeatureBottomComponent } from '@slx/mux-feature-bottom';
@@ -15,29 +15,22 @@ export class MuxFeatureTopComponent {
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private homeTopFacade: MuxTopFacade,
     private bottomSheet: MatBottomSheet,
     private navigatorFacade: NavigatorFacade,
   ) {}
 
   gotoBoard() {
-    console.log('>>>>>>>>>>>>>>');
-    console.log(this.router.config);
-    this.navigatorFacade.goto({ commands: ['mux', { outlets: { bottom: ['board'] } }] });
-    // this.navigatorFacade.goto({ commands: ['board', { outlet: { 'bottom-control': 'board' } }] });
-    // this.navigatorFacade.outletBoard();
-    // this.navigatorFacade.go('board', 'bottom-control', 'board');
+    this.navigatorFacade.outletBottomBoard();
   }
 
   gotoSettings() {
-    this.navigatorFacade.goto({ commands: [{ outlets: { bottom: ['settings'] } }] });
-    // this.navigatorFacade.outletSettings();
-    // this.navigatorFacade.go('settings', 'bottom-control', 'settings');
+    this.navigatorFacade.outletBottomSettings();
   }
 
   gotoErrors() {
-    this.navigatorFacade.goto({ commands: ['error-overview', { outlets: { bottom: ['else'] } }] });
-    // this.navigatorFacade.go('board', 'bottom-control', '');
+    this.navigatorFacade.outletClose('error-overview');
   }
 
   openControls(): void {

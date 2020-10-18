@@ -4,8 +4,12 @@ import { EXTRA_FEATURE_NAVIGATOR } from '../extra.features';
 
 export const goto = createAction(`[${EXTRA_FEATURE_NAVIGATOR}] Navigating`, props<{ params: NavigationParams }>());
 
-export const outletBoard = createAction(`[${EXTRA_FEATURE_NAVIGATOR}] Outlet Board`);
-export const outletSettings = createAction(`[${EXTRA_FEATURE_NAVIGATOR}] Outlet Settings`);
+export const outletBottomBoard = createAction(`[${EXTRA_FEATURE_NAVIGATOR}] Outlet Bottom Board Navigation`);
+export const outletBottomSettings = createAction(`[${EXTRA_FEATURE_NAVIGATOR}] Outlet Bottom Settings Navigation`);
+export const outletClose = createAction(
+  `[${EXTRA_FEATURE_NAVIGATOR}] Outlet Close Navigation`,
+  props<{ route: string }>(),
+);
 
 export const back = createAction(`[${EXTRA_FEATURE_NAVIGATOR}] Navigating Back`);
 

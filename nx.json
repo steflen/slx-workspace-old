@@ -38,7 +38,7 @@
     "api": {
       "tags": ["project:app", "scope:api", "app"]
     },
-    "api-authentication": {
+    "api-auth": {
       "tags": ["project:lib", "scope:api"]
     },
     "api-user": {

@@ -3,7 +3,8 @@
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
     "types": ["node"],
-    "target": "es6",
+    "target": "ES2020",
+    "module": "CommonJS",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },

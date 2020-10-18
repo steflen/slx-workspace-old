@@ -1,0 +1,44 @@
+{
+  "collection": "@nestjs/schematics",
+  "sourceRoot": ".",
+  "root": ".",
+  "language": "ts",
+  "monorepo": true,
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "tsconfig.base.json",
+    "webpackConfigPath": "apps/api/webpack.config.js",
+    "plugins": [
+      {
+        "name": "@nestjs/swagger/plugin"
+      }
+    ]
+  },
+  "projects": {
+    "api": {
+      "type": "application",
+      "root": "apps/api",
+      "entryFile": "main",
+      "sourceRoot": "apps/api/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/api/tsconfig.app.json"
+      }
+    },
+    "api-user": {
+      "type": "library",
+      "root": "libs/api/auth",
+      "entryFile": "index",
+      "sourceRoot": "libs/api/auth/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/api/auth/tsconfig.lib.json"
+      }
+  },
+    "api-user": {
+      "type": "library",
+      "root": "libs/api/user",
+      "entryFile": "index",
+      "sourceRoot": "libs/api/user/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/api/user/tsconfig.lib.json"
+      }
+}

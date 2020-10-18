@@ -43,7 +43,7 @@ export const environment: Environment = {
       },
     },
     mux: {
-      bottom: { peng: 'dsfdsf' },
+      bottom: { isBottomOpen: false },
       top: { peng: 'aejfneoäif' },
     },
   },

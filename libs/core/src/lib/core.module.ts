@@ -2,12 +2,11 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { APP_INITIALIZER, ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
-import { NavigationActionTiming, StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { Environment, ENVIRONMENT_TOKEN, WINDOW_PROVIDERS } from '@slx/shared-common';
 import { buildSpecificModules } from './build-specifics';
 import { metaReducers } from './meta';
-import { RouterSerializer } from './meta/router.serializer';
 import { CoreInitService, initCore } from './services/core-init.service';
 import { HttpConfigService, initHttpConfig } from './services/http-config.service';
 
@@ -22,17 +21,17 @@ import { HttpConfigService, initHttpConfig } from './services/http-config.servic
       {
         metaReducers,
         runtimeChecks: {
-          strictActionImmutability: true,
+          strictActionImmutability: false,
           strictActionSerializability: false,
-          strictStateImmutability: true,
+          strictStateImmutability: false,
           strictStateSerializability: false,
         },
       },
     ),
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule.forRoot({
-      serializer: RouterSerializer,
-      navigationActionTiming: NavigationActionTiming.PostActivation,
+      //serializer: RouterSerializer,
+      // navigationActionTiming: NavigationActionTiming.PostActivation,
     }),
     buildSpecificModules,
   ],

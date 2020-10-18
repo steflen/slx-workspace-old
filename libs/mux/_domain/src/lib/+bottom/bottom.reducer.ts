@@ -3,7 +3,7 @@ import { BottomModel } from '@slx/shared-common';
 import { initBottom } from './bottom.actions';
 
 export const initialState: BottomModel = {
-  peng: 'pong',
+  isBottomOpen: false,
 };
 
 const reducer = createReducer(

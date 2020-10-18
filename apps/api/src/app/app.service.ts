@@ -1,9 +1,12 @@
 import { Injectable } from '@nestjs/common';
-import { Message } from '@slx/api-interfaces';
+import { Logger } from 'nestjs-pino';
 
 @Injectable()
 export class AppService {
-  getData(): Message {
-    return { message: 'Welcome to api!' };
+  constructor(private readonly log: Logger) {}
+
+  getHello(): string {
+    this.log.debug('GET HELLO');
+    return 'Hello World!';
   }
 }

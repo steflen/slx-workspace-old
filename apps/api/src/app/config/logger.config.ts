@@ -1,18 +1,22 @@
 import { RequestMethod } from '@nestjs/common';
 import { registerAs } from '@nestjs/config';
 import { Params } from 'nestjs-pino';
-import { uuid } from 'uuidv4';
 
 export default registerAs(
   'logger',
   () =>
     ({
       pinoHttp: {
-        prettyPrint: process.env.NODE_ENV === 'development',
+        prettyPrint: {
+          colorize: true,
+          levelFirst: true,
+          translateTime: 'UTC:dd.mm.yyy, h:MM:ss TT Z',
+        },
         useLevel: 'trace',
-        autoLogging: true,
-        genReqId: uuid,
-        name: 'api',
+        // useLevel: 'trace',
+        // autoLogging: true,
+        // genReqId: uuid,
+        // name: 'api',
       },
       /**
        * Optional parameters for `pino-http` module

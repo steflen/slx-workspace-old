@@ -4,7 +4,7 @@ module.exports = {
     '<rootDir>/apps/playground-desktop',
     '<rootDir>/apps/playground-mobile',
     '<rootDir>/apps/api',
-    '<rootDir>/libs/api/authentication',
+    '<rootDir>/libs/api/auth',
     '<rootDir>/libs/api/user',
     '<rootDir>/libs/core',
     '<rootDir>/libs/shared/common',
@@ -37,5 +37,6 @@ module.exports = {
     '<rootDir>/libs/mux/_domain',
     '<rootDir>/libs/mux/_feature/top',
     '<rootDir>/libs/mux/_feature/bottom',
+    '<rootDir>/libs/bla',
   ],
 };

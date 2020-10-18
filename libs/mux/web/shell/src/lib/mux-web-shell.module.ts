@@ -34,7 +34,6 @@ import { MuxWebLayoutComponent } from './components/layout/mux-web-layout.compon
       {
         path: '',
         component: MuxWebLayoutComponent,
-
         children: [
           {
             path: 'board',

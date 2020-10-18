@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { ApiUserModule } from '@slx/api-user';
+import { AuthModule } from '@slx/api-auth';
+import { UserModule } from '@slx/api-user';
 import { LoggerModule } from 'nestjs-pino';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -24,7 +25,8 @@ import cfgs from './config';
       inject: [ConfigService],
       useFactory: (cfg: ConfigService) => cfg.get('sequelize') || {},
     }),
-    ApiUserModule,
+    AuthModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
