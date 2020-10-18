@@ -32,21 +32,22 @@ export class NavigatorEffects implements OnInitEffects {
     { dispatch: false },
   );
 
-  // public outletBoard$ = createEffect(
-  //   () =>
-  //     this.action$.pipe(
-  //       ofType(RouterActions.outletBoard),
-  //       // map((action) => action.outlet),
-  //       tap(() => {
-  //         // return this.router.navigate([{ outlets: { name: route } }]);
-  //         return this.router.navigate(['board', { outlets: { 'bottom-control': ['board'] } }], {
-  //           relativeTo: this.route,
-  //         });
-  //         //return this.router.navigate(path, { queryParams, ...extras });
-  //       }),
-  //     ),
-  //   { dispatch: false },
-  // );
+  public outletBoard$ = createEffect(
+    () =>
+      this.action$.pipe(
+        ofType(RouterActions.outletBoard),
+        // map((action) => action.outlet),
+        tap(() => {
+          // return this.router.navigate([{ outlets: { name: route } }]);
+          this.router.navigateByUrl('board/(aux-nested:aux-nested)');
+          return this.router.navigate(['board', { outlets: { 'bottom-control': ['board'] } }], {
+            relativeTo: this.route,
+          });
+          //return this.router.navigate(path, { queryParams, ...extras });
+        }),
+      ),
+    { dispatch: false },
+  );
   //
   // public outletSettings$ = createEffect(
   //   () =>
