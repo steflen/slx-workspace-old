@@ -26,8 +26,6 @@ async function bootstrApp(): Promise<Logger> {
   app.enableShutdownHooks();
   app.setGlobalPrefix(prefix);
 
-  await app.listen(port, hostname, () => log.log(`Listening at http://${hostname}:${port}/${prefix}`));
-
   const documentBuilder = new DocumentBuilder()
     .setTitle(cfg.get<string>('project.package.name', 'api-app'))
     .setDescription(cfg.get<string>('project.package.name', 'super duper api app'))
@@ -35,7 +33,9 @@ async function bootstrApp(): Promise<Logger> {
   // .addBearerAuth({ name: 'Authorization' }, 'header');
   SwaggerModule.setup('/swagger', app, SwaggerModule.createDocument(app, documentBuilder.build()));
 
-  log.debug(`Swagger-UI serverd at http://${hostname}:${port}/${prefix}/swagger`);
+  log.log(`Swagger-UI serverd at http://${hostname}:${port}/swagger`);
+  await app.listen(port, hostname, () => log.log(`Listening at http://${hostname}:${port}/${prefix}`));
+
   return log;
 }
 

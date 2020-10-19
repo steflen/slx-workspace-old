@@ -4,6 +4,10 @@ import { CORE_CONTROLLERS } from './controllers';
 import { CORE_ENTITIES } from './entities';
 import { CORE_SERVICES } from './services';
 
+export interface ICoreRootOptions {
+  providers: Provider[];
+}
+
 @Module({})
 export class SlxApiCoreModule {
   static forFeature(options?: { providers: Provider[] }): DynamicModule {
@@ -16,7 +20,7 @@ export class SlxApiCoreModule {
     };
   }
 
-  static forRoot(options?: { providers: Provider[] }): DynamicModule {
+  static forRoot(options?: ICoreRootOptions): DynamicModule {
     const providers = options && options.providers ? options.providers : [];
     return {
       module: SlxApiCoreModule,

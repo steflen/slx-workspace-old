@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { PassportModule } from '@nestjs/passport';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { SlxApiCoreModule } from '@slx/api-core';
 import { LoggerModule } from 'nestjs-pino';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -29,6 +30,7 @@ import cfgs from './config';
       inject: [ConfigService],
       useFactory: (cfg: ConfigService) => cfg.get('passport'),
     }),
+    SlxApiCoreModule.forRoot({}),
   ],
   controllers: [AppController],
   providers: [AppService],

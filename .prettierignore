@@ -3,3 +3,4 @@
 /dist
 /coverage
 /api-database.sqlite
+/libs/api/core/src/lib/configs/core.config.ts
