@@ -1,5 +1,6 @@
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as dotenv from 'dotenv';
 import * as rateLimit from 'express-rate-limit';
 import * as helmet from 'helmet';
@@ -7,52 +8,46 @@ import { Logger } from 'nestjs-pino';
 import { resolve } from 'path';
 import { AppModule } from './app/app.module';
 
-const cfg = dotenv.config({ path: resolve(__dirname, 'assets', '.env') });
-console.log(cfg);
+const dotConfig = dotenv.config({ path: resolve(__dirname, 'assets', '.env') });
 
-async function bootstrap() {
+async function bootstrApp(): Promise<Logger> {
   const app = await NestFactory.create(AppModule, { logger: true });
+  const cfg: ConfigService<Record<string, any>> = app.get(ConfigService);
+  const log: Logger = app.get(Logger);
 
-  const logger = app.get(Logger);
-  app.useLogger(logger);
+  const prefix: string = cfg.get<string>('env.globalPrefix', 'api-app');
+  const port: number = cfg.get<number>('http.port', 8888);
+  const hostname: string = cfg.get<string>('http.host', '127.0.0.1');
 
-  const cfg = app.get(ConfigService);
-  //
-  // const globalPrefix = cfg.get('system.globalPrefix');
-  // const host = cfg.get('system.host');
-  // const port = cfg.get('system.port');
-  const systemConfig = cfg.get('system');
-  const corsConfig = cfg.get('cors');
-  const rateLimitConfig = cfg.get('rateLimit');
-  const sequelizeConfig = cfg.get('sequelize');
-
-  logger.debug('Server root', __dirname);
-  logger.debug('Process cwd', process.cwd());
-  logger.debug('System Config', systemConfig);
-  logger.debug('Cors Config', corsConfig);
-  logger.debug('Rate Limit Config', rateLimitConfig);
-  logger.debug('Sequelize Config', sequelizeConfig);
-
-  app.enableCors(corsConfig);
+  app.useLogger(log);
+  app.enableCors(cfg.get('cors'));
   app.use(helmet());
-  app.use(rateLimit(rateLimitConfig));
+  app.use(rateLimit(cfg.get('ratelimit')));
   app.enableShutdownHooks();
-  app.setGlobalPrefix(systemConfig.globalPrefix);
+  app.setGlobalPrefix(prefix);
 
-  await app.listen(systemConfig.port, systemConfig.host, () => {
-    logger.log(`Listening at http://${systemConfig.host}:${systemConfig.port}/${systemConfig.globalPrefix}`);
-  });
+  await app.listen(port, hostname, () => log.log(`Listening at http://${hostname}:${port}/${prefix}`));
 
-  process.on('SIGINT', function () {
-    // db.stop(function(err) {
-    //   process.exit(err ? 1 : 0);
-    // });
-    logger.log('>>>> bye bye');
-  });
+  const documentBuilder = new DocumentBuilder()
+    .setTitle(cfg.get<string>('project.package.name', 'api-app'))
+    .setDescription(cfg.get<string>('project.package.name', 'super duper api app'))
+    .setVersion(cfg.get<string>('project.package.name', 'beta'));
+  // .addBearerAuth({ name: 'Authorization' }, 'header');
+  SwaggerModule.setup('/swagger', app, SwaggerModule.createDocument(app, documentBuilder.build()));
 
-  return logger;
+  log.debug(`Swagger-UI serverd at http://${hostname}:${port}/${prefix}/swagger`);
+  return log;
 }
 
-bootstrap()
-  .then((logger) => logger.log('App initialization successful'))
-  .catch((err) => console.error('ERROR ' + err));
+bootstrApp()
+  .then((log) => {
+    log.log('App initialization successful');
+    process.on('SIGINT', function () {
+      log.log('>>>> bye bye');
+    });
+  })
+  .catch((err) => {
+    console.log('ERROR');
+    console.log(err);
+    console.error(err);
+  });

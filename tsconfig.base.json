@@ -16,8 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@slx/api-core": ["libs/api/core/src/index.ts"],
       "@slx/api-auth": ["libs/api/auth/src/index.ts"],
-      "@slx/api-user": ["libs/api/user/src/index.ts"],
       "@slx/core": ["libs/core/src/index.ts"],
       "@slx/shared-common": ["libs/shared/common/src/index.ts"],
       "@slx/shared-material": ["libs/shared/material/src/index.ts"],

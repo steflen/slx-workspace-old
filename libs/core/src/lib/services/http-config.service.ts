@@ -13,7 +13,7 @@ export class HttpConfigService {
 
   public loadConfig() {
     return this.http
-      .get('./assets/config.json')
+      .get('./assets/configs.json')
       .toPromise()
       .then((config: any) => {
         this.config = config;

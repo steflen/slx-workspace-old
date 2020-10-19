@@ -11,7 +11,7 @@ export class ErrorHandlerService extends ErrorHandler {
   }
 
   handleError(error: Error | HttpErrorResponse): void {
-    // in case the user is recognized as a user the backend responds NOT with an error
+    // in case the core is recognized as a core the backend responds NOT with an error
     // instead it is a correct error which has wrong UserRole, this comparison has do be done there
     // the notification is triggered from auth.effects
     if (error instanceof TimeoutError) {

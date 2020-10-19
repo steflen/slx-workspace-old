@@ -1,22 +1,35 @@
-import { Module } from '@nestjs/common';
-import { JwtModule } from '@nestjs/jwt';
-import { PassportModule } from '@nestjs/passport';
-import { UserModule } from '@slx/api-user';
-import { AuthService } from './auth.service';
-import { jwtConstants } from './constants';
-import { JwtStrategy } from './strategies/jwt.strategy';
-import { LocalStrategy } from './strategies/local.strategy';
+import { DynamicModule, HttpModule, MiddlewareConsumer, Module, NestModule, Provider } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { SlxApiCoreModule } from '@slx/api-core';
+import { authenticate } from 'passport';
+import { AUTH_CONTROLLERS } from './controllers';
+import { AUTH_ENTITIES } from './entities';
+import { AUTH_SERVICES } from './services';
 
-@Module({
-  imports: [
-    UserModule,
-    PassportModule,
-    JwtModule.register({
-      secret: jwtConstants.secret,
-      signOptions: { expiresIn: '60s' },
-    }),
-  ],
-  providers: [AuthService, LocalStrategy, JwtStrategy],
-  exports: [AuthService],
-})
-export class AuthModule {}
+@Module({})
+export class SlxApiAuthModule implements NestModule {
+  static forFeature(options?: { providers: Provider[] }): DynamicModule {
+    const providers = options && options.providers ? options.providers : [];
+    return {
+      module: SlxApiAuthModule,
+      imports: [HttpModule, SlxApiCoreModule.forFeature(options), TypeOrmModule.forFeature([...AUTH_ENTITIES])],
+      providers: [...providers, ...AUTH_SERVICES],
+      exports: [...AUTH_SERVICES],
+    };
+  }
+  static forRoot(options?: { providers: Provider[] }): DynamicModule {
+    const providers = options && options.providers ? options.providers : [];
+    return {
+      module: SlxApiAuthModule,
+      imports: [HttpModule, SlxApiCoreModule.forFeature(options), TypeOrmModule.forFeature([...AUTH_ENTITIES])],
+      controllers: [...AUTH_CONTROLLERS],
+      providers: [...providers, ...AUTH_SERVICES],
+      exports: [...AUTH_SERVICES],
+    };
+  }
+
+  public configure(consumer: MiddlewareConsumer) {
+    consumer.apply(authenticate('signup', { session: false, passReqToCallback: true })).forRoutes('api/auth/signup');
+    consumer.apply(authenticate('signin', { session: false, passReqToCallback: true })).forRoutes('api/auth/signin');
+  }
+}

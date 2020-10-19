@@ -26,7 +26,7 @@ import { AppComponent } from './app.component';
         },
       ],
       {
-        //router config
+        //router configs
       },
     ),
   ],

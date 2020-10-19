@@ -5,7 +5,7 @@ module.exports = {
     '<rootDir>/apps/playground-mobile',
     '<rootDir>/apps/api',
     '<rootDir>/libs/api/auth',
-    '<rootDir>/libs/api/user',
+    '<rootDir>/libs/api/core',
     '<rootDir>/libs/core',
     '<rootDir>/libs/shared/common',
     '<rootDir>/libs/shared/translation',

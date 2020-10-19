@@ -6,7 +6,8 @@
     "target": "ES2020",
     "module": "CommonJS",
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "resolveJsonModule": true
   },
   "exclude": ["**/*.spec.ts"],
   "include": ["**/*.ts"]
