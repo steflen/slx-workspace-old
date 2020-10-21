@@ -38,5 +38,7 @@ module.exports = {
     '<rootDir>/libs/mux/_feature/top',
     '<rootDir>/libs/mux/_feature/bottom',
     '<rootDir>/libs/bla',
+    '<rootDir>/libs/api/user',
+    '<rootDir>/libs/api/database',
   ],
 };

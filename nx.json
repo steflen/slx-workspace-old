@@ -27,115 +27,118 @@
       "tags": ["project:tool"]
     },
     "playground-web": {
-      "tags": ["project:app"]
+      "tags": ["project:app", "scope:ui"]
     },
     "playground-desktop": {
-      "tags": ["project:app"]
+      "tags": ["project:app", "scope:ui"]
     },
     "playground-mobile": {
-      "tags": ["project:app"]
+      "tags": ["project:app", "scope:ui"]
     },
     "api": {
-      "tags": ["project:app", "scope:api", "app"]
+      "tags": ["project:app", "scope:api"]
     },
-    "api-auth": {
-      "tags": ["project:lib", "scope:api"]
+    "api-core": {
+      "tags": ["project:lib", "scope:api", "domain:core"]
     },
     "api-user": {
-      "tags": ["project:lib", "scope:api"]
+      "tags": ["project:lib", "scope:api", "domain:user"]
+    },
+    "api-auth": {
+      "tags": ["project:lib", "scope:api", "domain:auth"]
     },
     "core": {
-      "tags": ["project:lib", "scope:core"]
+      "tags": ["project:lib", "scope:ui", "domain:core"]
     },
     "shared-common": {
-      "tags": ["project:lib", "scope:shared"]
+      "tags": ["project:lib", "scope:ui", "domain:shared"]
     },
     "shared-translation": {
-      "tags": ["project:lib", "scope:shared"]
+      "tags": ["project:lib", "scope:shared", "domain:shared"]
     },
     "shared-material": {
-      "tags": ["project:lib", "scope:shared"]
+      "tags": ["project:lib", "scope:shared", "domain:shared"]
     },
     "shared-fontawesome": {
-      "tags": ["project:lib", "scope:shared"]
+      "tags": ["project:lib", "scope:shared", "domain:shared"]
     },
     "board-web-shell": {
-      "tags": ["project:lib", "scope:board", "type:shell", "platform:web"]
+      "tags": ["project:lib", "scope:ui", "domain:board", "type:shell", "platform:web"]
     },
     "board-desktop-shell": {
-      "tags": ["project:lib", "scope:board", "type:shell", "platform:desktop"]
+      "tags": ["project:lib", "scope:ui", "domain:board", "type:shell", "platform:desktop"]
     },
     "board-mobile-shell": {
-      "tags": ["project:lib", "scope:board", "type:shell", "platform:mobile"]
+      "tags": ["project:lib", "scope:ui", "domain:board", "type:shell", "platform:mobile"]
     },
     "board-domain": {
-      "tags": ["project:lib", "scope:board", "layer:domain"]
+      "tags": ["project:lib", "scope:ui", "domain:board", "layer:domain"]
     },
     "board-feature-dyna-grid": {
-      "tags": ["project:lib", "scope:board", "type:feature"]
+      "tags": ["project:lib", "scope:ui", "domain:board", "type:feature"]
     },
     "board-feature-hoverlay": {
-      "tags": ["project:lib", "scope:board", "type:feature"]
+      "tags": ["project:lib", "scope:ui", "domain:board", "type:feature"]
     },
     "settings-web-shell": {
-      "tags": ["project:lib", "scope:settings", "type:shell", "platform:web"]
+      "tags": ["project:lib", "scope:ui", "domain:settings", "type:shell", "platform:web"]
     },
     "settings-desktop-shell": {
-      "tags": ["project:lib", "scope:settings", "type:shell", "platform:desktop"]
+      "tags": ["project:lib", "scope:ui", "domain:settings", "type:shell", "platform:desktop"]
     },
     "settings-mobile-shell": {
-      "tags": ["project:lib", "scope:settings", "type:shell", "platform:mobile"]
+      "tags": ["project:lib", "scope:ui", "domain:settings", "type:shell", "platform:mobile"]
     },
     "settings-domain": {
-      "tags": ["project:lib", "scope:settings", "layer:domain"]
+      "tags": ["project:lib", "scope:ui", "domain:settings", "layer:domain"]
     },
     "settings-feature-language": {
-      "tags": ["project:lib", "scope:settings", "type:feature"]
+      "tags": ["project:lib", "scope:ui", "domain:settings", "type:feature"]
     },
     "settings-feature-locale": {
-      "tags": ["project:lib", "scope:settings", "type:feature"]
+      "tags": ["project:lib", "scope:ui", "domain:settings", "type:feature"]
     },
     "settings-feature-look-and-feel": {
-      "tags": ["project:lib", "scope:settings", "type:feature"]
+      "tags": ["project:lib", "scope:ui", "domain:settings", "type:feature"]
     },
     "settings-feature-time-and-date": {
-      "tags": ["project:lib", "scope:settings", "type:feature"]
+      "tags": ["project:lib", "scope:ui", "domain:settings", "type:feature"]
     },
     "extra-web-shell": {
-      "tags": ["project:lib", "scope:extra", "type:shell", "platform:web"]
+      "tags": ["project:lib", "scope:ui", "domain:extra", "type:shell", "platform:web"]
     },
     "extra-desktop-shell": {
-      "tags": ["project:lib", "scope:extra", "type:shell", "platform:desktop"]
+      "tags": ["project:lib", "scope:ui", "domain:extra", "type:shell", "platform:desktop"]
     },
     "extra-mobile-shell": {
-      "tags": ["project:lib", "scope:extra", "type:shell", "platform:mobile"]
+      "tags": ["project:lib", "scope:ui", "domain:extra", "type:shell", "platform:mobile"]
     },
     "extra-domain": {
-      "tags": ["project:lib", "scope:extra", "layer:domain"]
+      "tags": ["project:lib", "scope:ui", "domain:extra", "layer:domain"]
     },
     "extra-feature-error-overview": {
-      "tags": ["project:lib", "scope:extra", "type:feature"]
+      "tags": ["project:lib", "scope:ui", "domain:extra", "type:feature"]
     },
     "extra-feature-navigator": {
-      "tags": ["project:lib", "scope:extra", "type:feature"]
+      "tags": ["project:lib", "scope:ui", "domain:extra", "type:feature"]
     },
     "mux-web-shell": {
-      "tags": ["project:lib", "scope:mux", "type:shell", "platform:web"]
+      "tags": ["project:lib", "scope:ui", "domain:mux", "type:shell", "platform:web"]
     },
     "mux-desktop-shell": {
-      "tags": ["project:lib", "scope:mux", "type:shell", "platform:desktop"]
+      "tags": ["project:lib", "scope:ui", "domain:mux", "type:shell", "platform:desktop"]
     },
     "mux-mobile-shell": {
-      "tags": ["project:lib", "scope:mux", "type:shell", "platform:mobile"]
+      "tags": ["project:lib", "scope:ui", "domain:mux", "type:shell", "platform:mobile"]
     },
     "mux-domain": {
-      "tags": ["project:lib", "scope:mux", "layer:domain"]
+      "tags": ["project:lib", "scope:ui", "domain:mux", "layer:domain"]
     },
     "mux-feature-bottom": {
-      "tags": ["project:lib", "scope:mux", "type:feature"]
+      "tags": ["project:lib", "scope:ui", "domain:mux", "type:feature"]
     },
     "mux-feature-top": {
-      "tags": ["project:lib", "scope:mux", "type:feature"]
+      "tags": ["project:lib", "scope:ui", "domain:mux", "type:feature"]
     }
   }
 }

@@ -14,7 +14,7 @@ export class SharedCommonModule {
   // static forRoot(): ModuleWithProviders<any> {
   //   return {
   //     ngModule: SharedModule,
-  //     providers: [],
+  //     services: [],
   //   };
   // }
 }

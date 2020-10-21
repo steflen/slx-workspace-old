@@ -1,5 +1,6 @@
+import { ClassSerializerInterceptor } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { NestFactory } from '@nestjs/core';
+import { NestFactory, Reflector } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as dotenv from 'dotenv';
 import * as rateLimit from 'express-rate-limit';
@@ -8,12 +9,19 @@ import { Logger } from 'nestjs-pino';
 import { resolve } from 'path';
 import { AppModule } from './app/app.module';
 
-const dotConfig = dotenv.config({ path: resolve(__dirname, 'assets', '.env') });
+const dotConfig = dotenv.config({ path: resolve(__dirname, 'assets', '.env.api.example') });
 
 async function bootstrApp(): Promise<Logger> {
   const app = await NestFactory.create(AppModule, { logger: true });
   const cfg: ConfigService<Record<string, any>> = app.get(ConfigService);
   const log: Logger = app.get(Logger);
+  const reflector = app.get(Reflector);
+  // reflector.app.useGlobalFilters(
+  //   new HttpExceptionFilter(reflector),
+  //   new QueryFailedFilter(reflector),
+  // );
+
+  app.useGlobalInterceptors(new ClassSerializerInterceptor(reflector));
 
   const prefix: string = cfg.get<string>('env.globalPrefix', 'api-app');
   const port: number = cfg.get<number>('http.port', 8888);
