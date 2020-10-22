@@ -13,7 +13,7 @@ export default registerAs(
           //Display the log level name before the logged date and time.
           levelFirst: true,
           //https://www.npmjs.com/package/dateformat
-          translateTime: 'UTC:mm/dd/yyyy, hh:MM:ss TT Z',
+          translateTime: 'UTC:H:MM:ss mm/dd/yyyy ',
         },
         // useLevel: 'trace',
         // useLevel: 'trace',

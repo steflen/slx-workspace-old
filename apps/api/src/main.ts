@@ -46,8 +46,8 @@ process.on('SIGINT', () => {
 });
 
 bootstrap()
-  .then((app: INestApplication) => setupHttp(app))
   .then((app: INestApplication) => setupSwagger(app))
+  .then((app: INestApplication) => setupHttp(app))
   .then((app) => {
     logger.log('App initialization successful');
   })
