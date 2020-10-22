@@ -1,14 +1,17 @@
-import { forwardRef, Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { ApiAuthModule } from '@slx/api-auth';
-import { UserController } from './api-user.controller';
-import { ApiUserService } from './api-user.service';
-import { UserRepository } from './repositories/user.repository';
+import { Module } from '@nestjs/common';
+import { SequelizeModule } from '@nestjs/sequelize';
+import { UserController } from './controllers/user.controller';
+import { User } from './entities/user';
+import { UserService } from './services/user.service';
 
 @Module({
-  imports: [forwardRef(() => ApiAuthModule), TypeOrmModule.forFeature([UserRepository])],
+  imports: [SequelizeModule.forFeature([User])],
   controllers: [UserController],
-  exports: [ApiUserService],
-  providers: [ApiUserService],
+  providers: [UserService],
+  exports: [UserService],
 })
-export class ApiUserModule {}
+export class UserModule {
+  constructor() {
+    console.log('Constructor user module');
+  }
+}

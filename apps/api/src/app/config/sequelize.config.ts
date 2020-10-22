@@ -10,6 +10,8 @@ export default registerAs(
       dialect: 'sqlite',
       autoLoadModels: true,
       synchronize: true,
+      logQueryParameters: false,
+      logging: false,
       storage: resolve(process.cwd(), 'api-database.sqlite'),
     } as SequelizeModuleOptions),
 );

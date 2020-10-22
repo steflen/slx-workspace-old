@@ -20,8 +20,8 @@ import cfgs from './config';
       useFactory: async (cfg: ConfigService) => cfg.get('logger'),
     }),
     // I18nModule.forRootAsync({
+    //   imports: [ConfigModule],
     //   useFactory: (configService: ConfigService) => configService.get('i18n'),
-    //   imports: [ApiCoreModule],
     //   parser: I18nJsonParser,
     //   inject: [ConfigService],
     // }),

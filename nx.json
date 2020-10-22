@@ -134,9 +134,7 @@
     "api-user": {
       "tags": ["project:lib", "scope:api"]
     },
-    "api-shared": {
-      "tags": ["project:app", "scope:lib"]
-    },
+
     "api-auth": {
       "tags": ["project:lib", "scope:api"]
     }

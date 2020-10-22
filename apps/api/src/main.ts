@@ -1,33 +1,36 @@
-import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
+import { ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { NestFactory, Reflector } from '@nestjs/core';
+import { NestFactory } from '@nestjs/core';
 import * as dotenv from 'dotenv';
 import * as rateLimit from 'express-rate-limit';
 import * as helmet from 'helmet';
 import { Logger } from 'nestjs-pino';
 import { resolve } from 'path';
-import {
-  initializeTransactionalContext,
-  patchTypeORMRepositoryWithBaseRepository,
-} from 'typeorm-transactional-cls-hooked';
+import * as pino from 'pino';
 import { AppModule } from './app/app.module';
 import { setupSwagger } from './swagger';
-const dotConfig = dotenv.config({ path: resolve(__dirname, 'assets', '.env.api.example') });
+
+const logger = pino();
+const dotfiles = resolve(__dirname, '..', '.env.api.development');
+logger.info(dotfiles);
+const dotConfig = dotenv.config({ path: dotfiles });
+logger.info(dotConfig);
 
 async function bootstrApp(): Promise<Logger> {
-  initializeTransactionalContext();
-  patchTypeORMRepositoryWithBaseRepository();
-
-  const app = await NestFactory.create(AppModule, { logger: true });
+  const app = await NestFactory.create(AppModule, {
+    // https://www.npmjs.com/package/nestjs-pino#usage-as-nestjs-app-logger
+    logger: false,
+  });
   const cfg: ConfigService<Record<string, any>> = app.get(ConfigService);
   const log: Logger = app.get(Logger);
-  const reflector = app.get(Reflector);
-  // reflector.app.useGlobalFilters(
-  //   new HttpExceptionFilter(reflector),
-  //   new QueryFailedFilter(reflector),
-  // );
-
-  app.useGlobalInterceptors(new ClassSerializerInterceptor(reflector));
+  log.log('App module initialized');
+  // const reflector = app.get(Reflector);
+  // // reflector.app.useGlobalFilters(
+  // //   new HttpExceptionFilter(reflector),
+  // //   new QueryFailedFilter(reflector),
+  // // );
+  //
+  // app.useGlobalInterceptors(new ClassSerializerInterceptor(reflector));
 
   const prefix: string = cfg.get<string>('env.globalPrefix', 'api-app');
   const port: number = cfg.get<number>('http.port', 8888);
