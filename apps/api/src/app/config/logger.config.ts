@@ -7,12 +7,15 @@ export default registerAs(
   () =>
     ({
       pinoHttp: {
+        // https://github.com/pinojs/pino-pretty
         prettyPrint: {
           colorize: true,
+          //Display the log level name before the logged date and time.
           levelFirst: true,
-          translateTime: 'UTC:dd.mm.yyy, h:MM:ss TT Z',
+          //https://www.npmjs.com/package/dateformat
+          translateTime: 'UTC:mm/dd/yyyy, hh:MM:ss TT Z',
         },
-        useLevel: 'trace',
+        // useLevel: 'trace',
         // useLevel: 'trace',
         // autoLogging: true,
         // genReqId: uuid,
@@ -55,7 +58,7 @@ export default registerAs(
        * Fastify adapter, and already configuring it on adapter level.
        * Pros and cons of this approach are descibed in the last section.
        */
-      // useExisting?: true;
+      // useExisting: false,
       /**
        * Optional parameter to change property name `context` in resulted logs,
        * so logs will be like:

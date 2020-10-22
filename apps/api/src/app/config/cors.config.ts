@@ -1,7 +1,7 @@
 import { registerAs } from '@nestjs/config';
 
 export default registerAs('cors', () => ({
-  origin: [process.env.SERVER_URI, process.env.CLIENT_URI, 'http://localhost'],
+  origin: [`http://${process.env.HTTP_ADDRESS}:${process.env.HTTP_PORT}`, process.env.SERVER_URI, 'http://localhost'],
   credentials: true,
   // origin: [process.env.SERVER_URI, process.env.CLIENT_URI, 'http://localhost', '*'],
   // methods: 'GET, HEAD, PUT, PATCH, POST, DELETE, OPTIONS',

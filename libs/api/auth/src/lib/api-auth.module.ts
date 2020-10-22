@@ -16,8 +16,8 @@ import { LocalStrategy } from './strategies/local.strategy';
     JwtModule.registerAsync({
       imports: [ConfigModule],
       useFactory: async (log: PinoLogger, cfg: ConfigService) => {
-        const jwtConfig = await cfg.get('jwt');
-        log.info({ context: jwtConfig }, '[%s] Initializing JwtModule', AuthModule.name);
+        const jwtConfig = cfg.get('jwt');
+        log.info({ jwtConfig: jwtConfig }, '[%s] Initializing JwtModule', AuthModule.name);
         return jwtConfig;
       },
       inject: [PinoLogger, ConfigService],

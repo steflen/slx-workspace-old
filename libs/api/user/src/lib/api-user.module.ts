@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
+import { PinoLogger } from 'nestjs-pino';
 import { UserController } from './controllers/user.controller';
 import { User } from './entities/user';
 import { UserService } from './services/user.service';
@@ -11,7 +12,7 @@ import { UserService } from './services/user.service';
   exports: [UserService],
 })
 export class UserModule {
-  constructor() {
-    console.log('Constructor user module');
+  constructor(private readonly log: PinoLogger) {
+    log.info('Constructor user module');
   }
 }

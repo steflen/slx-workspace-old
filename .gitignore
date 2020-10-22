@@ -131,5 +131,5 @@ api-database.sqlite
 /libs/shared/assets/i18n/platformFeatureBottom
 /libs/shared/assets/i18n/homeFeatureTop
 /libs/shared/assets/i18n/homeFeatureBottom
-!/apps/api/.env.api.production
+!/apps/api/.env.api.production.disabled
 !/apps/api/.env.api.development
