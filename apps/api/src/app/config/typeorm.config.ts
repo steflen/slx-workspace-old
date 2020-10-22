@@ -1,12 +1,15 @@
 import { registerAs } from '@nestjs/config';
-import { TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { SequelizeModuleOptions } from '@nestjs/sequelize';
+import { resolve } from 'path';
 
 export default registerAs(
-  'typeorm',
+  'sequelize',
   () =>
     ({
-      uri: 'mongodb://localhost:27017/slx-workspace',
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    } as TypeOrmModuleOptions),
+      database: 'api-database',
+      dialect: 'sqlite',
+      autoLoadModels: true,
+      synchronize: true,
+      storage: resolve(process.cwd(), 'api-database.sqlite'),
+    } as SequelizeModuleOptions),
 );

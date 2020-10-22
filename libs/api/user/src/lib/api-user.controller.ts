@@ -15,14 +15,14 @@ import { ApiUserService, UserEntity, UsersPageDto } from '@slx/api-user';
 import { I18nService } from 'nestjs-i18n';
 import { AuthUser } from '../../../auth/src/lib/decorators/auth-user.decorator';
 import { Roles } from '../../../auth/src/lib/decorators/roles.decorator';
-import { AuthGuard } from '../../../auth/src/lib/guards/auth.guard';
+import { JwtAuthGuard } from '../../../auth/src/lib/guards/jwt-auth.guard';
 import { RolesGuard } from '../../../auth/src/lib/guards/roles.guard';
 import { AuthUserInterceptor } from '../../../auth/src/lib/interceptors/auth-user.interceptor.service';
 import { UsersPageOptionsDto } from './dto/users-page-options';
 
 @Controller('users')
 @ApiTags('users')
-@UseGuards(AuthGuard, RolesGuard)
+@UseGuards(JwtAuthGuard, RolesGuard)
 @UseInterceptors(AuthUserInterceptor)
 @ApiBearerAuth()
 export class UserController {

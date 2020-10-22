@@ -1,5 +1,4 @@
-'use strict';
-
+import * as _ from 'lodash';
 import { CreateDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 import { AbstractDto } from '../dto/abstract.dto';
 import { UtilsService } from '../services/utils.service';
@@ -24,5 +23,12 @@ export abstract class AbstractEntity<T extends AbstractDto = AbstractDto> {
 
   toDto(options?: any) {
     return UtilsService.toDto(this.dtoClass, this, options);
+  }
+
+  toDtos(options?: any): B[] {
+    return _(this)
+      .map((item) => item.toDto(options))
+      .compact()
+      .value() as B[];
   }
 }

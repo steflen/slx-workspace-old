@@ -2146,6 +2146,13 @@
     fs-extra "9.0.1"
     pluralize "8.0.0"
 
+"@nestjs/sequelize@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.npmjs.org/@nestjs/sequelize/-/sequelize-0.1.1.tgz#1e4c7280eee4cb6f5265054bb929b4736d42edf6"
+  integrity sha512-WWClzAQx8LuCz8w608v+mLWT6vkq8AE1eMy62ra6BA7E+UzF0A5WKqwNjEpfIYRqQycANdiVHM6iS6uMHC4y7w==
+  dependencies:
+    uuid "8.3.0"
+
 "@nestjs/swagger@^4.6.1":
   version "4.6.1"
   resolved "http://ninja-npm-verdaccio.barco.com:4873/@nestjs%2fswagger/-/swagger-4.6.1.tgz#dab7d09ed2579b05b42d1a724de6008745d1d36c"
@@ -3428,6 +3435,13 @@
   resolved "http://ninja-npm-verdaccio.barco.com:4873/@types%2fbraces/-/braces-3.0.0.tgz#7da1c0d44ff1c7eb660a36ec078ea61ba7eb42cb"
   integrity sha512-TbH79tcyi9FHwbyboOKeRachRq63mSuWYXOflsNO9ZyE5ClQ/JaozNKl+aWUq87qPNsXasXxi2AbgfwIJ+8GQw==
 
+"@types/cls-hooked@^4.2.1":
+  version "4.3.1"
+  resolved "https://registry.npmjs.org/@types/cls-hooked/-/cls-hooked-4.3.1.tgz#0fdfd38f827aa77d15120871e9ca5c593840b2e1"
+  integrity sha512-nMjNjQAk9vAYnDEXRUxGSACarjPDRKVaZ8xrwKzRy1BmzG5tN3JUkuvdVwE8P2GBkSRokxVw+QUpuvFzvOsKpA==
+  dependencies:
+    "@types/node" "*"
+
 "@types/connect@*":
   version "3.4.33"
   resolved "http://ninja-npm-verdaccio.barco.com:4873/@types%2fconnect/-/connect-3.4.33.tgz#31610c901eca573b8713c3330abc6e6b9f588546"
@@ -4641,7 +4655,7 @@ any-observable@^0.3.0:
   resolved "http://ninja-npm-verdaccio.barco.com:4873/any-observable/-/any-observable-0.3.0.tgz#af933475e5806a67d0d7df090dd5e8bef65d119b"
   integrity sha512-/FQM1EDkTsf63Ub2C6O7GuYFDsSXUwsaZDurV0np41ocwq0jthUAYCmhBX9f+KwlaCgIuWyr/4WlUQUBfKfZog==
 
-any-promise@^1.0.0, any-promise@^1.1.0:
+any-promise@^1.0.0, any-promise@^1.1.0, any-promise@^1.3.0:
   version "1.3.0"
   resolved "http://ninja-npm-verdaccio.barco.com:4873/any-promise/-/any-promise-1.3.0.tgz#abc6afeedcea52e809cdc0376aed3ce39635d17f"
   integrity sha1-q8av7tzqUugJzcA3au0845Y10X8=
@@ -7897,6 +7911,11 @@ dotenv@6.2.0, dotenv@^6.2.0:
   resolved "http://ninja-npm-verdaccio.barco.com:4873/dotenv/-/dotenv-6.2.0.tgz#941c0410535d942c8becf28d3f357dbd9d476064"
   integrity sha512-HygQCKUBSFl8wKQZBSemMywRWcEDNidvNbjGVyZu3nbZ8qq9ubiPoGLMdRDpfSrpkkm9BXYFkpKxxFX38o/76w==
 
+dottie@^2.0.0:
+  version "2.0.2"
+  resolved "https://registry.npmjs.org/dottie/-/dottie-2.0.2.tgz#cc91c0726ce3a054ebf11c55fbc92a7f266dd154"
+  integrity sha512-fmrwR04lsniq/uSr8yikThDTrM7epXHBAAjH9TbeH3rEA8tdCO7mRzB9hdmdGyJCxF8KERo9CITcm3kGuoyMhg==
+
 duplexer2@~0.1.4:
   version "0.1.4"
   resolved "http://ninja-npm-verdaccio.barco.com:4873/duplexer2/-/duplexer2-0.1.4.tgz#8b12dab878c0d69e3e7891051662a32fc6bddcc1"
@@ -10443,6 +10462,11 @@ infer-owner@^1.0.3, infer-owner@^1.0.4:
   resolved "http://ninja-npm-verdaccio.barco.com:4873/infer-owner/-/infer-owner-1.0.4.tgz#c4cefcaa8e51051c2a40ba2ce8a3d27295af9467"
   integrity sha512-IClj+Xz94+d7irH5qRyfJonOdfTzuDaifE6ZPWfx0N0+/ATZCbuTPq2prFl526urkQd90WyUKIh1DfBQ2hMz9A==
 
+inflection@1.12.0:
+  version "1.12.0"
+  resolved "https://registry.npmjs.org/inflection/-/inflection-1.12.0.tgz#a200935656d6f5f6bc4dc7502e1aecb703228416"
+  integrity sha1-ogCTVlbW9fa8TcdQLhrstwMihBY=
+
 inflight@^1.0.4:
   version "1.0.6"
   resolved "http://ninja-npm-verdaccio.barco.com:4873/inflight/-/inflight-1.0.6.tgz#49bd6331d7d02d0c09bc910a1075ba8165b56df9"
@@ -12959,14 +12983,14 @@ module-details-from-path@^1.0.3:
   resolved "http://ninja-npm-verdaccio.barco.com:4873/module-details-from-path/-/module-details-from-path-1.0.3.tgz#114c949673e2a8a35e9d35788527aa37b679da2b"
   integrity sha1-EUyUlnPiqKNenTV4hSeqN7Z52is=
 
-moment-timezone@^0.5.x:
+moment-timezone@^0.5.31, moment-timezone@^0.5.x:
   version "0.5.31"
   resolved "http://ninja-npm-verdaccio.barco.com:4873/moment-timezone/-/moment-timezone-0.5.31.tgz#9c40d8c5026f0c7ab46eda3d63e49c155148de05"
   integrity sha512-+GgHNg8xRhMXfEbv81iDtrVeTcWt0kWmTEY1XQK14dICTXnWJnT0dxdlPspwqF3keKMVPXwayEsk1DI0AA/jdA==
   dependencies:
     moment ">= 2.9.0"
 
-"moment@>= 2.9.0", moment@^2.27.0:
+"moment@>= 2.9.0", moment@^2.26.0, moment@^2.27.0:
   version "2.29.1"
   resolved "http://ninja-npm-verdaccio.barco.com:4873/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
   integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
@@ -15966,7 +15990,7 @@ ref-struct-di@^1.1.0:
 
 reflect-metadata@^0.1.13, reflect-metadata@^0.1.2:
   version "0.1.13"
-  resolved "http://ninja-npm-verdaccio.barco.com:4873/reflect-metadata/-/reflect-metadata-0.1.13.tgz#67ae3ca57c972a2aa1642b10fe363fe32d49dc08"
+  resolved "https://registry.npmjs.org/reflect-metadata/-/reflect-metadata-0.1.13.tgz#67ae3ca57c972a2aa1642b10fe363fe32d49dc08"
   integrity sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg==
 
 refractor@^2.4.1:
@@ -16408,6 +16432,13 @@ ret@~0.1.10:
   resolved "http://ninja-npm-verdaccio.barco.com:4873/ret/-/ret-0.1.15.tgz#b8a4825d5bdb1fc3f6f53c2bc33f81388681c7bc"
   integrity sha512-TTlYpa+OL+vMMNG24xSlQGEJ3B/RzEfUlLct7b5G/ytav+wPrplCpVMFuwzXbkecJrb6IYo1iFb0S9v37754mg==
 
+retry-as-promised@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.npmjs.org/retry-as-promised/-/retry-as-promised-3.2.0.tgz#769f63d536bec4783549db0777cb56dadd9d8543"
+  integrity sha512-CybGs60B7oYU/qSQ6kuaFmRd9sTZ6oXSc0toqePvV74Ac6/IFZSI1ReFQmtCN+uvW1Mtqdwpvt/LGOiCBAY2Mg==
+  dependencies:
+    any-promise "^1.3.0"
+
 retry@^0.10.0:
   version "0.10.1"
   resolved "http://ninja-npm-verdaccio.barco.com:4873/retry/-/retry-0.10.1.tgz#e76388d217992c252750241d3d3956fed98d8ff4"
@@ -16783,6 +16814,37 @@ send@0.17.1, send@latest:
     on-finished "~2.3.0"
     range-parser "~1.2.1"
     statuses "~1.5.0"
+
+sequelize-pool@^6.0.0:
+  version "6.1.0"
+  resolved "https://registry.npmjs.org/sequelize-pool/-/sequelize-pool-6.1.0.tgz#caaa0c1e324d3c2c3a399fed2c7998970925d668"
+  integrity sha512-4YwEw3ZgK/tY/so+GfnSgXkdwIJJ1I32uZJztIEgZeAO6HMgj64OzySbWLgxj+tXhZCJnzRfkY9gINw8Ft8ZMg==
+
+sequelize-typescript@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/sequelize-typescript/-/sequelize-typescript-1.1.0.tgz#d5c2945e7fbfe55a934917b27d84589858d79123"
+  integrity sha512-FAPEQPeAhIaFQNLAcf9Q2IWcqWhNcvn5OZZ7BzGB0CJMtImIsGg4E/EAb7huMmPaPwDArxJUWGqk1KurphTNRA==
+  dependencies:
+    glob "7.1.2"
+
+sequelize@^6.3.5:
+  version "6.3.5"
+  resolved "https://registry.npmjs.org/sequelize/-/sequelize-6.3.5.tgz#80e3db7ac8b76d98c45ca93334197eb6e2335158"
+  integrity sha512-MiwiPkYSA8NWttRKAXdU9h0TxP6HAc1fl7qZmMO/VQqQOND83G4nZLXd0kWILtAoT9cxtZgFqeb/MPYgEeXwsw==
+  dependencies:
+    debug "^4.1.1"
+    dottie "^2.0.0"
+    inflection "1.12.0"
+    lodash "^4.17.15"
+    moment "^2.26.0"
+    moment-timezone "^0.5.31"
+    retry-as-promised "^3.2.0"
+    semver "^7.3.2"
+    sequelize-pool "^6.0.0"
+    toposort-class "^1.0.1"
+    uuid "^8.1.0"
+    validator "^10.11.0"
+    wkx "^0.5.0"
 
 serialize-javascript@^4.0.0:
   version "4.0.0"
@@ -17317,7 +17379,7 @@ sprintf-js@~1.0.2:
 
 sqlite3@^5.0.0:
   version "5.0.0"
-  resolved "http://ninja-npm-verdaccio.barco.com:4873/sqlite3/-/sqlite3-5.0.0.tgz#1bfef2151c6bc48a3ab1a6c126088bb8dd233566"
+  resolved "https://registry.npmjs.org/sqlite3/-/sqlite3-5.0.0.tgz#1bfef2151c6bc48a3ab1a6c126088bb8dd233566"
   integrity sha512-rjvqHFUaSGnzxDy2AHCwhHy6Zp6MNJzCPGYju4kD8yi6bze4d1/zMTg6C7JI49b7/EM7jKMTvyfN/4ylBKdwfw==
   dependencies:
     node-addon-api "2.0.0"
@@ -18320,6 +18382,11 @@ toidentifier@1.0.0:
   resolved "http://ninja-npm-verdaccio.barco.com:4873/toidentifier/-/toidentifier-1.0.0.tgz#7e1be3470f1e77948bc43d94a3c8f4d7752ba553"
   integrity sha512-yaOH/Pk/VEhBWWTlhI+qXxDFXlejDGcQipMlyxda9nthulaxLZUNcUqFxokp0vcYnvteJln5FNQDRrxj3YcbVw==
 
+toposort-class@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/toposort-class/-/toposort-class-1.0.1.tgz#7ffd1f78c8be28c3ba45cd4e1a3f5ee193bd9988"
+  integrity sha1-f/0feMi+KMO6Rc1OGj9e4ZO9mYg=
+
 tough-cookie@^2.3.3, tough-cookie@~2.5.0:
   version "2.5.0"
   resolved "http://ninja-npm-verdaccio.barco.com:4873/tough-cookie/-/tough-cookie-2.5.0.tgz#cd9fb2a0aa1d5a12b473bd9fb96fa3dcff65ade2"
@@ -18668,6 +18735,14 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "http://ninja-npm-verdaccio.barco.com:4873/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+
+typeorm-transactional-cls-hooked@^0.1.12:
+  version "0.1.12"
+  resolved "https://registry.npmjs.org/typeorm-transactional-cls-hooked/-/typeorm-transactional-cls-hooked-0.1.12.tgz#30f6985655505475922da0bcd88a04ee72073760"
+  integrity sha512-kCKYVzmE+re8AbMCUR2hgXYFjhsTUo2L0r2ypo1mU8KY7WG+7S5o2LDhONX3OYJ12V81SOWHHmxGRwU82nYtWg==
+  dependencies:
+    "@types/cls-hooked" "^4.2.1"
+    cls-hooked "^4.2.2"
 
 typeorm@^0.2.28:
   version "0.2.28"
@@ -19120,7 +19195,7 @@ uuid@8.3.0:
   resolved "http://ninja-npm-verdaccio.barco.com:4873/uuid/-/uuid-8.3.0.tgz#ab738085ca22dc9a8c92725e459b1d507df5d6ea"
   integrity sha512-fX6Z5o4m6XsXBdli9g7DtWgAx+osMsRRZFKma1mIUsLCz6vRvv+pz5VNbyu9UEDzpMWulZfvpgb/cmDXVulYFQ==
 
-uuid@8.3.1, uuid@^8.0.0, uuid@^8.3.0, uuid@^8.3.1:
+uuid@8.3.1, uuid@^8.0.0, uuid@^8.1.0, uuid@^8.3.0, uuid@^8.3.1:
   version "8.3.1"
   resolved "http://ninja-npm-verdaccio.barco.com:4873/uuid/-/uuid-8.3.1.tgz#2ba2e6ca000da60fce5a196954ab241131e05a31"
   integrity sha512-FOmRr+FmWEIG8uhZv6C2bTgEVXsHk08kE7mPlrBbEe+c3r9pjceVPgupIfNIhc4yx55H69OXANrUaSuu9eInKg==
@@ -19171,6 +19246,11 @@ validator@13.0.0:
   version "13.0.0"
   resolved "http://ninja-npm-verdaccio.barco.com:4873/validator/-/validator-13.0.0.tgz#0fb6c6bb5218ea23d368a8347e6d0f5a70e3bcab"
   integrity sha512-anYx5fURbgF04lQV18nEQWZ/3wHGnxiKdG4aL8J+jEDsm98n/sU/bey+tYk6tnGJzm7ioh5FoqrAiQ6m03IgaA==
+
+validator@^10.11.0:
+  version "10.11.0"
+  resolved "https://registry.npmjs.org/validator/-/validator-10.11.0.tgz#003108ea6e9a9874d31ccc9e5006856ccd76b228"
+  integrity sha512-X/p3UZerAIsbBfN/IwahhYaBbY68EN/UQBWHtsbXGT5bfrH/p4NQzUCG1kF/rtKaNpnJ7jAu6NGTdSNtyNIXMw==
 
 vary@^1, vary@~1.1.2:
   version "1.1.2"
@@ -19640,6 +19720,13 @@ windows-release@^3.1.0:
   integrity sha512-OSOGH1QYiW5yVor9TtmXKQvt2vjQqbYS+DqmsZw+r7xDwLXEeT3JGW0ZppFmHx4diyXmxt238KFR3N9jzevBRg==
   dependencies:
     execa "^1.0.0"
+
+wkx@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.npmjs.org/wkx/-/wkx-0.5.0.tgz#c6c37019acf40e517cc6b94657a25a3d4aa33e8c"
+  integrity sha512-Xng/d4Ichh8uN4l0FToV/258EjMGU9MGcA0HV2d9B/ZpZB3lqQm7nkOdZdm5GhKtLLhAE7PiVQwN4eN+2YJJUg==
+  dependencies:
+    "@types/node" "*"
 
 word-wrap@^1.2.3, word-wrap@~1.2.3:
   version "1.2.3"

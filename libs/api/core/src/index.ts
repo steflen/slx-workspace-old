@@ -6,7 +6,7 @@ export * from './lib/dto/abstract-search.dto';
 export * from './lib/dto/abstract.dto';
 export * from './lib/dto/page-meta.dto';
 export * from './lib/dto/page-options.dto';
-export * from './lib/entities/abstract.entity';
+export * from './lib/entities';
 export * from './lib/services/context.service';
 export * from './lib/services/generator.service';
 export * from './lib/services/utils.service';

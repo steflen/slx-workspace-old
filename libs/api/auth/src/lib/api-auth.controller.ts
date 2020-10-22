@@ -1,7 +1,6 @@
 import { Body, Controller, Get, HttpCode, HttpStatus, Post, UseGuards, UseInterceptors } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ApiBearerAuth, ApiConsumes, ApiOkResponse, ApiTags } from '@nestjs/swagger';
-import { AuthGuard } from '@slx/api-auth';
 import { ApiSpecification } from '@slx/api-core';
 import { ApiUserService, UserDto, UserEntity } from '@slx/api-user';
 import { ApiAuthService } from './api-auth.service';
@@ -9,6 +8,7 @@ import { AuthUser } from './decorators/auth-user.decorator';
 import { LoginPayloadDto } from './dto/login-payload.dto';
 import { UserLoginDto } from './dto/user-login.dto';
 import { UserRegisterDto } from './dto/user-register.dto';
+import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { AuthUserInterceptor } from './interceptors/auth-user.interceptor.service';
 
 @Controller('auth')
@@ -43,7 +43,7 @@ export class ApiAuthController {
 
   @Get('me')
   @HttpCode(HttpStatus.OK)
-  @UseGuards(AuthGuard)
+  @UseGuards(JwtAuthGuard)
   @UseInterceptors(AuthUserInterceptor)
   @ApiBearerAuth()
   @ApiOkResponse({ type: UserDto, description: 'current user info' })

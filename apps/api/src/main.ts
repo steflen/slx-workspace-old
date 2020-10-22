@@ -7,11 +7,17 @@ import * as rateLimit from 'express-rate-limit';
 import * as helmet from 'helmet';
 import { Logger } from 'nestjs-pino';
 import { resolve } from 'path';
+import {
+  initializeTransactionalContext,
+  patchTypeORMRepositoryWithBaseRepository,
+} from 'typeorm-transactional-cls-hooked';
 import { AppModule } from './app/app.module';
-
 const dotConfig = dotenv.config({ path: resolve(__dirname, 'assets', '.env.api.example') });
 
 async function bootstrApp(): Promise<Logger> {
+  initializeTransactionalContext();
+  patchTypeORMRepositoryWithBaseRepository();
+
   const app = await NestFactory.create(AppModule, { logger: true });
   const cfg: ConfigService<Record<string, any>> = app.get(ConfigService);
   const log: Logger = app.get(Logger);
@@ -35,10 +41,11 @@ async function bootstrApp(): Promise<Logger> {
   app.setGlobalPrefix(prefix);
 
   const documentBuilder = new DocumentBuilder()
-    .setTitle(cfg.get<string>('project.package.name', 'api-app'))
-    .setDescription(cfg.get<string>('project.package.name', 'super duper api app'))
-    .setVersion(cfg.get<string>('project.package.name', 'beta'));
-  // .addBearerAuth({ name: 'Authorization' }, 'header');
+    .setTitle(cfg.get<string>('api-app', 'api-app'))
+    .setDescription(cfg.get<string>('super duper api', 'super duper api app'))
+    .setVersion(cfg.get<string>('beta', 'beta'))
+    .setBasePath('/api')
+    .addBearerAuth({ name: 'Authorization', type: 'apiKey' }, 'header');
   SwaggerModule.setup('/swagger', app, SwaggerModule.createDocument(app, documentBuilder.build()));
 
   log.log(`Swagger-UI serverd at http://${hostname}:${port}/swagger`);

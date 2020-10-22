@@ -1,45 +1,40 @@
 import { Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import { JwtService } from '@nestjs/jwt';
-import { ContextService, UtilsService } from '@slx/api-core';
-import { ApiUserService, UserDto, UserEntity, UserNotFoundException } from '@slx/api-user';
-import { TokenPayloadDto } from './dto/token-payload.dto';
-import { UserLoginDto } from './dto/user-login.dto';
+import * as crypto from 'crypto';
+import * as jwt from 'jsonwebtoken';
+import { MessageCodeError } from '../../shared/index';
+import { User } from '../users/user.entity';
+import { IAuthService, IJwtOptions } from './interfaces/auth-service.interface';
 
 @Injectable()
-export class ApiAuthService {
-  private static _authUserKey = 'user_key';
+export class AuthService implements IAuthService {
+  private _options: IJwtOptions = {
+    algorithm: 'HS256',
+    expiresIn: '2 days',
+    jwtid: process.env.JWT_ID || '',
+  };
 
-  constructor(
-    public readonly jwtService: JwtService,
-    public readonly configService: ConfigService,
-    public readonly apiUuserService: ApiUserService,
-  ) {}
+  get options(): IJwtOptions {
+    return this._options;
+  }
 
-  async createToken(user: UserEntity | UserDto): Promise<TokenPayloadDto> {
-    return new TokenPayloadDto({
-      // expiresIn: this.configService.get<number>('JWT_EXPIRATION_TIME'),
-      expiresIn: 123123,
-      accessToken: await this.jwtService.signAsync({ id: user.id }),
+  set options(value: IJwtOptions) {
+    this._options.algorithm = value.algorithm;
+  }
+
+  public async sign(credentials: { email: string; password: string }): Promise<string> {
+    const user = await User.findOne<User>({
+      where: {
+        email: credentials.email,
+        password: crypto.createHmac('sha256', credentials.password).digest('hex'),
+      },
     });
-  }
+    if (!user) throw new MessageCodeError('user:notFound');
 
-  async validateUser(userLoginDto: UserLoginDto): Promise<UserEntity> {
-    const user = await this.apiUuserService.findOne({
-      email: userLoginDto.email,
-    });
-    const isPasswordValid = await UtilsService.validateHash(userLoginDto.password, user && user.password);
-    if (!user || !isPasswordValid) {
-      throw new UserNotFoundException();
-    }
-    return user;
-  }
+    const payload = {
+      id: user.id,
+      email: user.email,
+    };
 
-  static setAuthUser(user: UserEntity) {
-    ContextService.set(ApiAuthService._authUserKey, user);
-  }
-
-  static getAuthUser(): UserEntity {
-    return ContextService.get(ApiAuthService._authUserKey);
+    return await jwt.sign(payload, process.env.JWT_KEY || '', this._options);
   }
 }

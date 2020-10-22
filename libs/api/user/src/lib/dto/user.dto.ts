@@ -1,7 +1,6 @@
 'use strict';
 
 import { ApiPropertyOptional } from '@nestjs/swagger';
-import { RoleType } from '@slx/api-auth';
 import { AbstractDto } from '@slx/api-core';
 import { UserEntity } from '../entities/user.entity';
 
@@ -15,8 +14,8 @@ export class UserDto extends AbstractDto {
   @ApiPropertyOptional()
   username: string;
 
-  @ApiPropertyOptional({ enum: RoleType })
-  role: RoleType;
+  @ApiPropertyOptional()
+  role: string;
 
   @ApiPropertyOptional()
   email: string;

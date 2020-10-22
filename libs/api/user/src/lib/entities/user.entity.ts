@@ -1,4 +1,3 @@
-import { RoleType } from '@slx/api-auth';
 import { AbstractEntity } from '@slx/api-core';
 import { Column, Entity } from 'typeorm';
 import { UserDto } from '../dto/user.dto';
@@ -11,8 +10,8 @@ export class UserEntity extends AbstractEntity<UserDto> {
   @Column({ nullable: true })
   lastName: string;
 
-  @Column({ type: 'enum', enum: RoleType, default: RoleType.USER })
-  role: RoleType;
+  @Column({ nullable: false })
+  role: string;
 
   @Column({ unique: true, nullable: true })
   email: string;

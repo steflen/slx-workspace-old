@@ -1,12 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { UserRegisterDto } from '@slx/api-auth';
 import { ValidatorService } from '@slx/api-core';
-import { FindConditions, SelectQueryBuilder } from 'typeorm';
+import { FindConditions } from 'typeorm';
 import { UsersPageOptionsDto } from './dto/users-page-options';
 import { UsersPageDto } from './dto/users-page.dto';
 import { UserEntity } from './entities/user.entity';
 import { UserRepository } from './repositories/user.repository';
-
 @Injectable()
 export class ApiUserService {
   constructor(public readonly userRepository: UserRepository, public readonly validatorService: ValidatorService) {}
@@ -44,8 +43,9 @@ export class ApiUserService {
   }
 
   async getUsers(pageOptionsDto: UsersPageOptionsDto): Promise<UsersPageDto> {
-    const queryBuilder: SelectQueryBuilder<UserEntity> = this.userRepository.createQueryBuilder('user');
+    const queryBuilder = this.userRepository.createQueryBuilder('user');
     const [users, pageMetaDto] = await queryBuilder.paginate(pageOptionsDto);
+    // users = await queryBuilder.getMany();
 
     return new UsersPageDto(users.toDtos(), pageMetaDto);
   }

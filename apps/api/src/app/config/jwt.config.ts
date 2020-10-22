@@ -2,7 +2,7 @@ import { registerAs } from '@nestjs/config';
 import { JwtModuleOptions } from '@nestjs/jwt';
 
 export default registerAs(
-  'jsonwebtoken',
+  'jwt',
   () =>
     ({
       secretOrPrivateKey: process.env.JWT_SECRET_KEY, //'JWT_SECRET_KEY',
