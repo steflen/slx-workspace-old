@@ -10,8 +10,13 @@ export default registerAs(
       dialect: 'sqlite',
       autoLoadModels: true,
       synchronize: true,
-      logQueryParameters: false,
-      logging: false,
+      logQueryParameters: true,
+      logging: true,
       storage: resolve(process.cwd(), 'api-database.sqlite'),
+      // https://github.com/RobinBuschmann/sequelize-typescript#model-path-resolving
+      models: [resolve(process.cwd(), 'libs', 'api') + '/**/*.model.ts'],
+      modelMatch: (filename, member) => {
+        return filename.substring(0, filename.indexOf('.model')) === member.toLowerCase();
+      },
     } as SequelizeModuleOptions),
 );

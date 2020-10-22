@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { User } from '../entities/user';
+import { User } from '../models/user.model';
 
 export class UserDto {
   @ApiProperty()
@@ -9,19 +9,11 @@ export class UserDto {
   readonly email: string;
 
   @ApiProperty()
-  readonly firstName: string;
-
-  @ApiProperty()
-  readonly lastName: string;
-
-  @ApiProperty()
-  readonly birthday: string;
+  readonly username: string;
 
   constructor(user: User) {
     this.id = user.id;
     this.email = user.email;
-    this.firstName = user.firstName;
-    this.lastName = user.lastName;
-    this.birthday = user.birthday;
+    this.username = user.username;
   }
 }

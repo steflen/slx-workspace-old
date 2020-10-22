@@ -1,8 +1,6 @@
 import { Column, CreatedAt, DataType, DeletedAt, IsEmail, Model, Table, Unique, UpdatedAt } from 'sequelize-typescript';
 
-@Table({
-  tableName: 'user',
-})
+@Table
 export class User extends Model<User> {
   @Column({
     type: DataType.UUID,
@@ -23,15 +21,6 @@ export class User extends Model<User> {
   @Column
   password: string;
 
-  @Column({ field: 'first_name' })
-  firstName: string;
-
-  @Column({ field: 'last_name' })
-  lastName: string;
-
-  @Column(DataType.DATEONLY)
-  birthday: string;
-
   @CreatedAt
   @Column({ field: 'created_at' })
   createdAt: Date;
@@ -43,4 +32,11 @@ export class User extends Model<User> {
   @DeletedAt
   @Column({ field: 'deleted_at' })
   deletedAt: Date;
+
+  // @HasOne(() => Profile)
+  // profile: Profile;
+
+  //
+  // @HasMany(() => Post)
+  // posts: Post[];
 }

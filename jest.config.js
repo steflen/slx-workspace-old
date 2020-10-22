@@ -41,5 +41,7 @@ module.exports = {
     '<rootDir>/libs/api/user',
     '<rootDir>/libs/api/database',
     '<rootDir>/libs/api/shared',
+    '<rootDir>/libs/api/post',
+    '<rootDir>/libs/api/profile',
   ],
 };

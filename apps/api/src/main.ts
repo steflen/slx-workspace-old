@@ -1,4 +1,5 @@
 import { INestApplication, ValidationPipe } from '@nestjs/common';
+import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.interface';
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import * as rateLimit from 'express-rate-limit';
@@ -29,9 +30,9 @@ async function bootstrap(): Promise<INestApplication> {
   // app.useGlobalInterceptors(new ClassSerializerInterceptor(reflector));
 
   app.useGlobalPipes(new ValidationPipe());
-  const corsConfig = cfg.get('cors');
+  const corsConfig = cfg.get<CorsOptions>('cors');
   logger.log('Setting cors configuration %o', 'main.bootstrap', corsConfig);
-  app.enableCors();
+  app.enableCors(corsConfig);
   app.use(helmet());
   app.use(rateLimit(cfg.get('ratelimit')));
   app.enableShutdownHooks();

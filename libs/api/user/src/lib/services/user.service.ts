@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/sequelize';
 import { PinoLogger } from 'nestjs-pino';
 import { Sequelize } from 'sequelize-typescript';
 import { CreateUserDto } from '../dto/create-user.dto';
-import { User } from '../entities/user';
+import { User } from '../models/user.model';
 
 @Injectable()
 export class UserService {
@@ -22,8 +22,8 @@ export class UserService {
       await this.sequelize.transaction(async (t) => {
         const transactionHost = { transaction: t };
 
-        await this.userModel.create({ firstName: 'Abraham', lastName: 'Lincoln' }, transactionHost);
-        await this.userModel.create({ firstName: 'John', lastName: 'Boothe' }, transactionHost);
+        await this.userModel.create({ usernam: 'bob', email: 'bob@abcde.fg' }, transactionHost);
+        await this.userModel.create({ username: 'klaus', email: 'klausi@xyz.de' }, transactionHost);
       });
     } catch (err) {
       // Transaction has been rolled back
@@ -35,8 +35,8 @@ export class UserService {
   create(createUserDto: CreateUserDto): Promise<User> {
     this.logger.info('Creating user %o', createUserDto);
     const user = new User();
-    user.firstName = createUserDto.firstName;
-    user.lastName = createUserDto.lastName;
+    user.username = createUserDto.email;
+    user.email = createUserDto.email;
 
     return user.save();
   }

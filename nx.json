@@ -134,8 +134,13 @@
     "api-user": {
       "tags": ["project:lib", "scope:api"]
     },
-
     "api-auth": {
+      "tags": ["project:lib", "scope:api"]
+    },
+    "api-post": {
+      "tags": ["project:lib", "scope:api"]
+    },
+    "api-profile": {
       "tags": ["project:lib", "scope:api"]
     }
   }

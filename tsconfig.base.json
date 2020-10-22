@@ -48,8 +48,13 @@
       "@slx/board-feature-dyna-grid": ["libs/board/_feature/dyna-grid/src/index.ts"],
       "@slx/board-feature-hoverlay": ["libs/board/_feature/hoverlay/src/index.ts"],
       "@slx/api-user": ["libs/api/user/src/index.ts"],
-      "@slx/api-shared": ["libs/api/shared/src/index.ts"],
-      "@slx/api-auth": ["libs/api/auth/src/index.ts"]
+      "@slx/api-user/*": ["libs/api/user/src/lib/*"],
+      "@slx/api-auth": ["libs/api/auth/src/index.ts"],
+      "@slx/api-auth/*": ["libs/api/auth/src/lib/*"],
+      "@slx/api-post": ["libs/api/post/src/index.ts"],
+      "@slx/api-post/*": ["libs/api/post/src/lib/*"],
+      "@slx/api-profile": ["libs/api/profile/src/index.ts"],
+      "@slx/api-profile/*": ["libs/api/profile/src/lib/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

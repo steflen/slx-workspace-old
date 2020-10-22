@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { PinoLogger } from 'nestjs-pino';
 import { UserController } from './controllers/user.controller';
-import { User } from './entities/user';
+import { User } from './models/user.model';
 import { UserService } from './services/user.service';
 
 @Module({
