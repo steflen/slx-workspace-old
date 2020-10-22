@@ -1,38 +1,27 @@
-'use strict';
+import { ApiProperty } from '@nestjs/swagger';
+import { User } from '@slx/api-user';
 
-import { ApiPropertyOptional } from '@nestjs/swagger';
-import { AbstractDto } from '@slx/api-core';
-import { UserEntity } from '../entities/user.entity';
+export class UserDto {
+  @ApiProperty()
+  id: string;
 
-export class UserDto extends AbstractDto {
-  @ApiPropertyOptional()
-  firstName: string;
+  @ApiProperty()
+  readonly email: string;
 
-  @ApiPropertyOptional()
-  lastName: string;
+  @ApiProperty()
+  readonly firstName: string;
 
-  @ApiPropertyOptional()
-  username: string;
+  @ApiProperty()
+  readonly lastName: string;
 
-  @ApiPropertyOptional()
-  role: string;
+  @ApiProperty()
+  readonly birthday: string;
 
-  @ApiPropertyOptional()
-  email: string;
-
-  @ApiPropertyOptional()
-  avatar: string;
-
-  @ApiPropertyOptional()
-  phone: string;
-
-  constructor(user: UserEntity) {
-    super(user);
+  constructor(user: User) {
+    this.id = user.id;
+    this.email = user.email;
     this.firstName = user.firstName;
     this.lastName = user.lastName;
-    this.role = user.role;
-    this.email = user.email;
-    this.avatar = user.avatar;
-    this.phone = user.phone;
+    this.birthday = user.birthday;
   }
 }

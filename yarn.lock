@@ -3417,7 +3417,7 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
-"@types/bluebird@^3.5.32":
+"@types/bluebird@*", "@types/bluebird@^3.5.32":
   version "3.5.32"
   resolved "http://ninja-npm-verdaccio.barco.com:4873/@types%2fbluebird/-/bluebird-3.5.32.tgz#381e7b59e39f010d20bbf7e044e48f5caf1ab620"
   integrity sha512-dIOxFfI0C+jz89g6lQ+TqhGgPQ0MxSnh/E4xuC0blhFtyW269+mPG5QeLgbdwst/LvdP8o1y0o/Gz5EHXLec/g==
@@ -3446,6 +3446,13 @@
   version "3.4.33"
   resolved "http://ninja-npm-verdaccio.barco.com:4873/@types%2fconnect/-/connect-3.4.33.tgz#31610c901eca573b8713c3330abc6e6b9f588546"
   integrity sha512-2+FrkXY4zllzTNfJth7jOqEHC+enpLeGslEhpnTAkg21GkRrWV4SsAtqchtT4YS9/nODBU2/ZfsBY2X4J/dX7A==
+  dependencies:
+    "@types/node" "*"
+
+"@types/continuation-local-storage@*":
+  version "3.2.2"
+  resolved "https://registry.npmjs.org/@types/continuation-local-storage/-/continuation-local-storage-3.2.2.tgz#7cbf177a6206ece87bc4b808784772ad2aa5f6db"
+  integrity sha512-aItm+aYPJ4rT1cHmAxO+OdWjSviQ9iB5UKb5f0Uvgln0N4hS2mcDodHtPiqicYBXViUYhqyBjhA5uyOcT+S34Q==
   dependencies:
     "@types/node" "*"
 
@@ -3615,6 +3622,11 @@
   integrity sha512-9bVao7LvyorRGZCw0VmH/dr7Og+NdjYSsKAxB43OQoComFbBgsEpoR9JW6+qSq/ogwVBg8GI2MfAlk4SYI4OLg==
   dependencies:
     "@types/node" "*"
+
+"@types/lodash@*":
+  version "4.14.162"
+  resolved "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.162.tgz#65d78c397e0d883f44afbf1f7ba9867022411470"
+  integrity sha512-alvcho1kRUnnD1Gcl4J+hK0eencvzq9rmzvFPRmP5rPHx9VVsJj6bKLTATPVf9ktgv4ujzh7T+XWKp+jhuODig==
 
 "@types/luxon@1.11.1":
   version "1.11.1"
@@ -3798,6 +3810,16 @@
   dependencies:
     "@types/node" "*"
 
+"@types/sequelize@^4.28.9":
+  version "4.28.9"
+  resolved "https://registry.npmjs.org/@types/sequelize/-/sequelize-4.28.9.tgz#64d0fad07de2f30ef11003a8c2ef5ac0321de115"
+  integrity sha512-QqYgkw/2fEc0FyEQejnxM7cHKB8XBV3Y69k7GSFOToQBOXos0PJVqNpgROXZddXIkl2d6zicYssHuy75ws84sw==
+  dependencies:
+    "@types/bluebird" "*"
+    "@types/continuation-local-storage" "*"
+    "@types/lodash" "*"
+    "@types/validator" "*"
+
 "@types/serve-static@*":
   version "1.13.5"
   resolved "http://ninja-npm-verdaccio.barco.com:4873/@types%2fserve-static/-/serve-static-1.13.5.tgz#3d25d941a18415d3ab092def846e135a08bbcf53"
@@ -3873,15 +3895,15 @@
   resolved "http://ninja-npm-verdaccio.barco.com:4873/@types%2fuuid/-/uuid-8.3.0.tgz#215c231dff736d5ba92410e6d602050cce7e273f"
   integrity sha512-eQ9qFW/fhfGJF8WKHGEHZEyVWfZxrT+6CLIJGBcZPfxUh/+BnEj+UCGYMlr9qZuX/2AltsvwrGqp0LhEW8D0zQ==
 
+"@types/validator@*", "@types/validator@^13.1.0":
+  version "13.1.0"
+  resolved "http://ninja-npm-verdaccio.barco.com:4873/@types%2fvalidator/-/validator-13.1.0.tgz#3d776127dbce7dd31fc06f86d3428b072e631eba"
+  integrity sha512-gHUHI6pJaANIO2r6WcbT7+WMgbL9GZooR4tWpuBOETpDIqFNxwaJluE+6rj6VGYe8k6OkfhbHz2Fkm8kl06Igw==
+
 "@types/validator@13.0.0":
   version "13.0.0"
   resolved "http://ninja-npm-verdaccio.barco.com:4873/@types%2fvalidator/-/validator-13.0.0.tgz#365f1bf936aeaddd0856fc41aa1d6f82d88ee5b3"
   integrity sha512-WAy5txG7aFX8Vw3sloEKp5p/t/Xt8jD3GRD9DacnFv6Vo8ubudAsRTXgxpQwU0mpzY/H8U4db3roDuCMjShBmw==
-
-"@types/validator@^13.1.0":
-  version "13.1.0"
-  resolved "http://ninja-npm-verdaccio.barco.com:4873/@types%2fvalidator/-/validator-13.1.0.tgz#3d776127dbce7dd31fc06f86d3428b072e631eba"
-  integrity sha512-gHUHI6pJaANIO2r6WcbT7+WMgbL9GZooR4tWpuBOETpDIqFNxwaJluE+6rj6VGYe8k6OkfhbHz2Fkm8kl06Igw==
 
 "@types/webpack-env@^1.15.2":
   version "1.15.3"
@@ -14295,7 +14317,7 @@ pascalcase@^0.1.1:
 
 passport-jwt@^4.0.0:
   version "4.0.0"
-  resolved "http://ninja-npm-verdaccio.barco.com:4873/passport-jwt/-/passport-jwt-4.0.0.tgz#7f0be7ba942e28b9f5d22c2ebbb8ce96ef7cf065"
+  resolved "https://registry.npmjs.org/passport-jwt/-/passport-jwt-4.0.0.tgz#7f0be7ba942e28b9f5d22c2ebbb8ce96ef7cf065"
   integrity sha512-BwC0n2GP/1hMVjR4QpnvqA61TxenUMlmfNjYNgK0ZAs0HK4SOQkHcSv4L328blNTLtHq7DbmvyNJiH+bn6C5Mg==
   dependencies:
     jsonwebtoken "^8.2.0"
@@ -14303,7 +14325,7 @@ passport-jwt@^4.0.0:
 
 passport-local@^1.0.0:
   version "1.0.0"
-  resolved "http://ninja-npm-verdaccio.barco.com:4873/passport-local/-/passport-local-1.0.0.tgz#1fe63268c92e75606626437e3b906662c15ba6ee"
+  resolved "https://registry.npmjs.org/passport-local/-/passport-local-1.0.0.tgz#1fe63268c92e75606626437e3b906662c15ba6ee"
   integrity sha1-H+YyaMkudWBmJkN+O5BmYsFbpu4=
   dependencies:
     passport-strategy "1.x.x"
@@ -16820,10 +16842,10 @@ sequelize-pool@^6.0.0:
   resolved "https://registry.npmjs.org/sequelize-pool/-/sequelize-pool-6.1.0.tgz#caaa0c1e324d3c2c3a399fed2c7998970925d668"
   integrity sha512-4YwEw3ZgK/tY/so+GfnSgXkdwIJJ1I32uZJztIEgZeAO6HMgj64OzySbWLgxj+tXhZCJnzRfkY9gINw8Ft8ZMg==
 
-sequelize-typescript@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.npmjs.org/sequelize-typescript/-/sequelize-typescript-1.1.0.tgz#d5c2945e7fbfe55a934917b27d84589858d79123"
-  integrity sha512-FAPEQPeAhIaFQNLAcf9Q2IWcqWhNcvn5OZZ7BzGB0CJMtImIsGg4E/EAb7huMmPaPwDArxJUWGqk1KurphTNRA==
+sequelize-typescript@^2.0.0-beta.0:
+  version "2.0.0-beta.0"
+  resolved "https://registry.npmjs.org/sequelize-typescript/-/sequelize-typescript-2.0.0-beta.0.tgz#3e3740d411654a2f0d2fccdf7b708751dc4521bf"
+  integrity sha512-xsKz2XdTzwcxcmk3CifrLcJoSuUzASqzOKCt1tKTg2OGZd+Hzasr6Rdl5Jhkx3hW9hZ3ScQQWpJkkXItlOhp5g==
   dependencies:
     glob "7.1.2"
 

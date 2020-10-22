@@ -1,7 +1,6 @@
-import { ClassSerializerInterceptor } from '@nestjs/common';
+import { ClassSerializerInterceptor, ValidationPipe } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { NestFactory, Reflector } from '@nestjs/core';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as dotenv from 'dotenv';
 import * as rateLimit from 'express-rate-limit';
 import * as helmet from 'helmet';
@@ -12,6 +11,7 @@ import {
   patchTypeORMRepositoryWithBaseRepository,
 } from 'typeorm-transactional-cls-hooked';
 import { AppModule } from './app/app.module';
+import { setupSwagger } from './swagger';
 const dotConfig = dotenv.config({ path: resolve(__dirname, 'assets', '.env.api.example') });
 
 async function bootstrApp(): Promise<Logger> {
@@ -32,7 +32,7 @@ async function bootstrApp(): Promise<Logger> {
   const prefix: string = cfg.get<string>('env.globalPrefix', 'api-app');
   const port: number = cfg.get<number>('http.port', 8888);
   const hostname: string = cfg.get<string>('http.host', '127.0.0.1');
-
+  app.useGlobalPipes(new ValidationPipe());
   app.useLogger(log);
   app.enableCors(cfg.get('cors'));
   app.use(helmet());
@@ -40,14 +40,7 @@ async function bootstrApp(): Promise<Logger> {
   app.enableShutdownHooks();
   app.setGlobalPrefix(prefix);
 
-  const documentBuilder = new DocumentBuilder()
-    .setTitle(cfg.get<string>('api-app', 'api-app'))
-    .setDescription(cfg.get<string>('super duper api', 'super duper api app'))
-    .setVersion(cfg.get<string>('beta', 'beta'))
-    .setBasePath('/api')
-    .addBearerAuth({ name: 'Authorization', type: 'apiKey' }, 'header');
-  SwaggerModule.setup('/swagger', app, SwaggerModule.createDocument(app, documentBuilder.build()));
-
+  setupSwagger(app);
   log.log(`Swagger-UI serverd at http://${hostname}:${port}/swagger`);
   await app.listen(port, hostname, () => log.log(`Listening at http://${hostname}:${port}/${prefix}`));
 

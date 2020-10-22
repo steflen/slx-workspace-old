@@ -47,10 +47,9 @@
       "@slx/board-domain": ["libs/board/_domain/src/index.ts"],
       "@slx/board-feature-dyna-grid": ["libs/board/_feature/dyna-grid/src/index.ts"],
       "@slx/board-feature-hoverlay": ["libs/board/_feature/hoverlay/src/index.ts"],
-      "@slx/api-core": ["libs/api/core/src/index.ts"],
       "@slx/api-user": ["libs/api/user/src/index.ts"],
-      "@slx/api-auth": ["libs/api/auth/src/index.ts"],
-      "@slx/api-database": ["libs/api/database/src/index.ts"]
+      "@slx/api-shared": ["libs/api/shared/src/index.ts"],
+      "@slx/api-auth": ["libs/api/auth/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -40,5 +40,6 @@ module.exports = {
     '<rootDir>/libs/bla',
     '<rootDir>/libs/api/user',
     '<rootDir>/libs/api/database',
+    '<rootDir>/libs/api/shared',
   ],
 };

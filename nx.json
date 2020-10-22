@@ -38,15 +38,6 @@
     "api": {
       "tags": ["project:app", "scope:api"]
     },
-    "api-core": {
-      "tags": ["project:lib", "scope:api", "domain:core"]
-    },
-    "api-user": {
-      "tags": ["project:lib", "scope:api", "domain:user"]
-    },
-    "api-auth": {
-      "tags": ["project:lib", "scope:api", "domain:auth"]
-    },
     "core": {
       "tags": ["project:lib", "scope:ui", "domain:core"]
     },
@@ -139,6 +130,15 @@
     },
     "mux-feature-top": {
       "tags": ["project:lib", "scope:ui", "domain:mux", "type:feature"]
+    },
+    "api-user": {
+      "tags": ["project:lib", "scope:api"]
+    },
+    "api-shared": {
+      "tags": ["project:app", "scope:lib"]
+    },
+    "api-auth": {
+      "tags": ["project:lib", "scope:api"]
     }
   }
 }
