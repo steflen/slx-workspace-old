@@ -5,7 +5,7 @@ import { AuthModule } from '@slx/api-auth';
 import { PostModule } from '@slx/api-post';
 import { ProfileModule } from '@slx/api-profile';
 import { UserModule } from '@slx/api-user';
-import { Logger, LoggerModule, Params, PinoLogger } from 'nestjs-pino';
+import { Logger, LoggerModule, Params } from 'nestjs-pino';
 import { resolve } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -44,7 +44,7 @@ console.log(resolve(__dirname, '..', '..', '.env.api.production'));
         autoLoadModels: true,
         synchronize: true,
         logQueryParameters: true,
-        logging: (sql) => logger.log(sql, 'SEQUELIZE'),
+        logging: (sql) => logger.verbose(sql, 'SEQUELIZE'),
         storage: resolve(process.cwd(), 'api-database.sqlite'),
       }),
       inject: [Logger],
@@ -74,8 +74,4 @@ console.log(resolve(__dirname, '..', '..', '.env.api.production'));
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {
-  constructor(private readonly log: PinoLogger) {
-    log.info('Constructor app module');
-  }
-}
+export class AppModule {}

@@ -1,14 +1,20 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { UserService } from '@slx/api-user';
+import { InjectPinoLogger, PinoLogger } from 'nestjs-pino';
 
 @Injectable()
 export class AuthService {
-  constructor(private readonly usersService: UserService, private readonly jwtService: JwtService) {}
+  constructor(
+    @InjectPinoLogger(AuthService.name) private readonly log: PinoLogger,
+    private readonly usersService: UserService,
+    private readonly jwtService: JwtService,
+  ) {}
 
-  async validateUser(username: string, pass: string): Promise<any> {
-    const user = await this.usersService.findOne(username);
-    if (user && user.password === pass) {
+  async validateUser(username: string, password: string): Promise<any> {
+    this.log.info('Validating User %o', username);
+    const user = await this.usersService.findByUsername(username);
+    if (user && user.password === password) {
       const { password, ...result } = user;
       return result;
     }
@@ -16,6 +22,7 @@ export class AuthService {
   }
 
   async login(user: any) {
+    this.log.info('Login User %o', user);
     const payload = { username: user.username, sub: user.userId };
     return {
       access_token: this.jwtService.sign(payload),

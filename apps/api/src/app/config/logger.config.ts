@@ -15,6 +15,7 @@ export default registerAs(
           //https://www.npmjs.com/package/dateformat
           translateTime: 'UTC:H:MM:ss mm/dd/yyyy ',
         },
+        level: process.env.LOG_LEVEL || 'trace',
         // useLevel: 'trace',
         // useLevel: 'trace',
         // autoLogging: true,

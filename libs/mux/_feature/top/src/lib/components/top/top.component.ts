@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NavigatorFacade } from '@slx/extra-domain';
-import { MuxTopFacade } from '@slx/mux-domain';
-import { MuxFeatureBottomComponent } from '@slx/mux-feature-bottom';
+import { MuxBottomFacade, MuxTopFacade } from '@slx/mux-domain';
 
 @Component({
   selector: 'slx-mux-feature-top',
@@ -17,7 +15,7 @@ export class MuxFeatureTopComponent {
     private router: Router,
     private route: ActivatedRoute,
     private homeTopFacade: MuxTopFacade,
-    private bottomSheet: MatBottomSheet,
+    private bottomFacade: MuxBottomFacade,
     private navigatorFacade: NavigatorFacade,
   ) {}
 
@@ -33,27 +31,39 @@ export class MuxFeatureTopComponent {
     this.navigatorFacade.outletClose('error-overview');
   }
 
-  openControls(): void {
-    // https://material.angular.io/components/bottom-sheet/api
-    console.log('OPEN BOTTOM');
-    console.log(this.bottomSheet);
-    if (this.isControlsOpened) {
-      this.bottomSheet.dismiss();
-      this.isControlsOpened = false;
-    } else {
-      this.isControlsOpened = true;
-      // todo make this happen over an NGRX ACTION instead of a import dependency
-      this.bottomSheet.open(MuxFeatureBottomComponent, {
-        ariaLabel: 'Control',
-        autoFocus: true,
-        hasBackdrop: false,
-        closeOnNavigation: false,
-        restoreFocus: true,
-        // direction: 'ltr', //"rtl"
-        // panelClass: 'slx-board-control-panel',
-        data: {},
-        disableClose: true,
-      });
-    }
+  // openControls(): void {
+  //   // https://material.angular.io/components/bottom-sheet/api
+  //   console.log('OPEN BOTTOM');
+  //   console.log(this.bottomSheet);
+  //   if (this.isControlsOpened) {
+  //     this.bottomSheet.dismiss();
+  //     this.isControlsOpened = false;
+  //   } else {
+  //     this.isControlsOpened = true;
+  //     // todo make this happen over an NGRX ACTION instead of a import dependency
+  //     this.bottomSheet.open(MuxFeatureBottomComponent, {
+  //       ariaLabel: 'Control',
+  //       autoFocus: true,
+  //       hasBackdrop: false,
+  //       closeOnNavigation: false,
+  //       restoreFocus: true,
+  //       // direction: 'ltr', //"rtl"
+  //       // panelClass: 'slx-board-control-panel',
+  //       data: {},
+  //       disableClose: true,
+  //     });
+  //   }
+  // }
+
+  toggleBottom() {
+    this.bottomFacade.toggleBottom();
+  }
+
+  openBottom() {
+    this.bottomFacade.openBottom();
+  }
+
+  closeBottom() {
+    this.bottomFacade.closeBottom();
   }
 }

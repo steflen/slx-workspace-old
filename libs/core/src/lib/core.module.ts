@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { APP_INITIALIZER, ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
@@ -13,6 +14,7 @@ import { HttpConfigService, initHttpConfig } from './services/http-config.servic
 @NgModule({
   imports: [
     CommonModule,
+    BrowserModule,
     HttpClientModule,
     //SharedCommonModule,
     // CORE ROOT STORE

@@ -5,3 +5,5 @@ import { BottomModel } from '@slx/shared-common';
 
 export const selectBottomFeature = createFeatureSelector<BottomModel>(MUX_FEATURE_BOTTOM);
 export const selectBottomState = createSelector(selectBottomFeature, (state: BottomModel) => state);
+
+export const selectIsBottomOpen = createSelector(selectBottomState, ({ isBottomOpen }) => isBottomOpen);

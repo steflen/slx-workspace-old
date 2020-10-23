@@ -1,25 +1,12 @@
-import { ApiProperty } from '@nestjs/swagger';
-import { IsEmail, IsOptional, IsString, MinLength } from 'class-validator';
+import { OmitType, PartialType } from '@nestjs/swagger';
+import { CreateUserDto } from './create-user.dto';
 
-export class UpdateUserDto {
-  @ApiProperty()
-  @IsOptional()
-  @IsString()
-  readonly username?: string;
+// https://trilon.io/blog/introducing-mapped-types-for-nestjs
+export class UpdateUserDto extends PartialType(OmitType(CreateUserDto, ['username', 'email'] as const)) {}
 
-  @ApiProperty()
-  @IsOptional()
-  @IsEmail()
-  readonly email?: string;
-
-  @ApiProperty()
-  @IsOptional()
-  @IsString()
-  @MinLength(6)
-  readonly password?: string;
-
-  // @ApiProperty()
-  // @IsOptional()
-  // @IsISO8601()
-  // readonly birthday?: string;
-}
+//
+// @ApiProperty()
+// @IsOptional()
+// @IsString()
+// @MinLength(6)
+// readonly password?: string;

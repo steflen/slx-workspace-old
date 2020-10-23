@@ -1,6 +1,6 @@
 import { ActionReducer } from '@ngrx/store';
 
-export function metaReducer(actionReducer: ActionReducer<any>): ActionReducer<any> {
+export function loggerReducer(actionReducer: ActionReducer<any>): ActionReducer<any> {
   return (state: any, action: any): any => {
     switch (action.type) {
       case '@ngrx/store/init':

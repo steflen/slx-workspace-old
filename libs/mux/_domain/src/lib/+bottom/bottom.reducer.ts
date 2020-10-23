@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { BottomModel } from '@slx/shared-common';
-import { initBottom } from './bottom.actions';
+import { doCloseBottom, doOpenBottom, initBottom, toggleBottom } from './bottom.actions';
 
 export const initialState: BottomModel = {
   isBottomOpen: false,
@@ -10,9 +10,26 @@ const reducer = createReducer(
   initialState,
   on(
     initBottom,
-    (state, action): BottomModel => ({
+    (state): BottomModel => ({
       ...state,
-      ...action.bottom,
+    }),
+  ),
+  on(
+    toggleBottom,
+    (state): BottomModel => ({
+      isBottomOpen: !state.isBottomOpen,
+    }),
+  ),
+  on(
+    doOpenBottom,
+    (state): BottomModel => ({
+      isBottomOpen: true,
+    }),
+  ),
+  on(
+    doCloseBottom,
+    (state): BottomModel => ({
+      isBottomOpen: false,
     }),
   ),
 );

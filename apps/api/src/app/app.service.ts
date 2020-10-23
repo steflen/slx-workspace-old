@@ -1,13 +1,19 @@
-import { Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import { Logger } from 'nestjs-pino';
+import { BeforeApplicationShutdown, Injectable, OnApplicationBootstrap, OnApplicationShutdown } from '@nestjs/common';
+import { InjectPinoLogger, PinoLogger } from 'nestjs-pino';
 
 @Injectable()
-export class AppService {
-  constructor(private readonly log: Logger, private configService: ConfigService) {}
+export class AppService implements OnApplicationBootstrap, OnApplicationShutdown, BeforeApplicationShutdown {
+  constructor(@InjectPinoLogger(AppService.name) private readonly log: PinoLogger) {}
 
-  getHello(): string {
-    this.log.debug('GET HELLO');
-    return 'Hello World!';
+  beforeApplicationShutdown(signal?: string): any {
+    this.log.info('API Shutdown Detected %o', signal);
+  }
+
+  onApplicationBootstrap(): any {
+    this.log.info('API Startup complete');
+  }
+
+  onApplicationShutdown(signal?: string): any {
+    this.log.info('API application shutting down now %o', signal);
   }
 }
