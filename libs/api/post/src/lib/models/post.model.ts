@@ -1,8 +1,11 @@
+import { User } from '@slx/api-user/models/user.model';
 import {
-  AutoIncrement,
+  BelongsTo,
   Column,
   CreatedAt,
+  DataType,
   DeletedAt,
+  ForeignKey,
   Length,
   Model,
   PrimaryKey,
@@ -13,9 +16,11 @@ import {
 @Table
 export class Post extends Model<Post> {
   @PrimaryKey
-  @AutoIncrement
-  @Column /*(DataType.BIGINT)*/
-  id: number;
+  @Column({
+    type: DataType.UUID,
+    defaultValue: DataType.UUIDV4,
+  })
+  id: string;
 
   @Length({
     min: 3,
@@ -40,20 +45,13 @@ export class Post extends Model<Post> {
   @Column({ field: 'deleted_at' })
   deletedAt: Date;
 
-  // @ForeignKey(() => User)
-  // @Column({
-  //   type: DataType.UUID,
-  //   field: 'user_id',
-  // })
-  // userId: string;
-  //
-  // @BelongsTo(() => User, 'id')
-  // author: User;
+  @ForeignKey(() => User)
+  @Column({
+    type: DataType.UUID,
+    field: 'author_id',
+  })
+  authorId: string;
 
-  // @ForeignKey(() => User)
-  // @Column
-  // authorId: number;
-  //
-  // @BelongsTo(() => User)
-  // author: User;
+  @BelongsTo(() => User)
+  author: User;
 }

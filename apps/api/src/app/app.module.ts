@@ -67,9 +67,9 @@ console.log(resolve(__dirname, '..', '..', '.env.api.production'));
 
     // DatabaseModule,
     AuthModule,
+    UserModule,
     PostModule,
     ProfileModule,
-    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -1,2 +1,2 @@
+export * from '@slx/api-post/models/post.model';
 export * from './lib/api-post.module';
-export * from './lib/models/post.model';

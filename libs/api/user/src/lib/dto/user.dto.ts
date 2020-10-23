@@ -3,17 +3,17 @@ import { User } from '../models/user.model';
 
 export class UserDto {
   @ApiProperty()
-  id: string;
-
-  @ApiProperty()
-  readonly email: string;
+  readonly id: string;
 
   @ApiProperty()
   readonly username: string;
 
+  @ApiProperty()
+  readonly email: string;
+
   constructor(user: User) {
     this.id = user.id;
-    this.email = user.email;
     this.username = user.username;
+    this.email = user.email;
   }
 }

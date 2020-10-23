@@ -1,11 +1,28 @@
-import { Column, CreatedAt, DataType, DeletedAt, IsEmail, Model, Table, Unique, UpdatedAt } from 'sequelize-typescript';
+import { Post } from '@slx/api-post/models/post.model';
+import { Profile } from '@slx/api-profile/models/profile.model';
+import {
+  Column,
+  CreatedAt,
+  DataType,
+  DeletedAt,
+  HasMany,
+  HasOne,
+  IsEmail,
+  Model,
+  PrimaryKey,
+  Table,
+  Unique,
+  UpdatedAt,
+} from 'sequelize-typescript';
 
-@Table
+@Table({
+  tableName: 'user',
+})
 export class User extends Model<User> {
+  @PrimaryKey
   @Column({
     type: DataType.UUID,
     defaultValue: DataType.UUIDV4,
-    primaryKey: true,
   })
   id: string;
 
@@ -33,10 +50,9 @@ export class User extends Model<User> {
   @Column({ field: 'deleted_at' })
   deletedAt: Date;
 
-  // @HasOne(() => Profile)
-  // profile: Profile;
+  @HasOne(() => Profile)
+  profile: Profile;
 
-  //
-  // @HasMany(() => Post)
-  // posts: Post[];
+  @HasMany(() => Post)
+  posts: Post[];
 }

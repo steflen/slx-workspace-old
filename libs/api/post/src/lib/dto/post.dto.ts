@@ -3,7 +3,7 @@ import { Post } from '../models/post.model';
 
 export class PostDto {
   @ApiProperty()
-  readonly id: number;
+  readonly id: string;
 
   // @ApiProperty()
   // readonly userId: string;

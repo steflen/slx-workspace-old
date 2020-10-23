@@ -32,13 +32,23 @@ export class UserService {
     return this.userModel.findAll();
   }
 
-  create(createUserDto: CreateUserDto): Promise<User> {
-    this.logger.info('Creating user %o', createUserDto);
-    const user = new User();
-    user.username = createUserDto.email;
-    user.email = createUserDto.email;
+  async create(createUserDto: CreateUserDto): Promise<void> {
+    try {
+      this.logger.info('Creating dummy users');
+      await this.sequelize.transaction(async (t) => {
+        const transactionHost = { transaction: t };
+        this.logger.info('Creating user %o', createUserDto);
 
-    return user.save();
+        await this.userModel.create(
+          { username: createUserDto.username, email: createUserDto.email, password: createUserDto.password },
+          transactionHost,
+        );
+      });
+    } catch (err) {
+      // Transaction has been rolled back
+      // err is lazy-whatever rejected the promise chain returned to the transaction callback
+      this.logger.warn(err);
+    }
   }
 
   async findAll(): Promise<User[]> {

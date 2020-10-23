@@ -3,11 +3,12 @@ import { CorsOptions } from '@nestjs/common/interfaces/external/cors-options.int
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import * as rateLimit from 'express-rate-limit';
-import * as helmet from 'helmet';
 import { Logger } from 'nestjs-pino';
 import { AppModule } from './app/app.module';
 import { setupHttp } from './http';
+import { setupRedoc } from './redoc';
 import { setupSwagger } from './swagger';
+import helmet = require('helmet');
 
 // const dotfiles = resolve(__dirname, '..', '.env.api.development');
 // const dotConfig = dotenv.config({ path: dotfiles });
@@ -32,9 +33,11 @@ async function bootstrap(): Promise<INestApplication> {
   app.useGlobalPipes(new ValidationPipe());
   const corsConfig = cfg.get<CorsOptions>('cors');
   logger.log('Setting cors configuration %o', 'main.bootstrap', corsConfig);
-  app.enableCors(corsConfig);
-  app.use(helmet());
-  app.use(rateLimit(cfg.get('ratelimit')));
+  if (process.env.NODE_ENV !== 'development') {
+    app.enableCors(corsConfig);
+    app.use(helmet());
+    app.use(rateLimit(cfg.get('ratelimit')));
+  }
   app.enableShutdownHooks();
 
   app.setGlobalPrefix(cfg.get<string>('app.globalPrefix', 'api'));
@@ -48,6 +51,7 @@ process.on('SIGINT', () => {
 
 bootstrap()
   .then((app: INestApplication) => setupSwagger(app))
+  .then(({ app, spec }) => setupRedoc(app, spec))
   .then((app: INestApplication) => setupHttp(app))
   .then((app) => {
     logger.log('App initialization successful');

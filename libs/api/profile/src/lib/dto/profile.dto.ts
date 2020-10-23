@@ -3,7 +3,7 @@ import { Profile } from '../models/profile.model';
 
 export class ProfileDto {
   @ApiProperty()
-  readonly id: number;
+  readonly id: string;
 
   // @ApiProperty()
   // readonly userId: string;
