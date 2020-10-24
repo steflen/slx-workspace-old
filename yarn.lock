@@ -2229,13 +2229,6 @@
     fs-extra "9.0.1"
     pluralize "8.0.0"
 
-"@nestjs/sequelize@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.npmjs.org/@nestjs/sequelize/-/sequelize-0.1.1.tgz#1e4c7280eee4cb6f5265054bb929b4736d42edf6"
-  integrity sha512-WWClzAQx8LuCz8w608v+mLWT6vkq8AE1eMy62ra6BA7E+UzF0A5WKqwNjEpfIYRqQycANdiVHM6iS6uMHC4y7w==
-  dependencies:
-    uuid "8.3.0"
-
 "@nestjs/swagger@^4.5.12", "@nestjs/swagger@^4.6.1":
   version "4.6.1"
   resolved "http://ninja-npm-verdaccio.barco.com:4873/@nestjs%2fswagger/-/swagger-4.6.1.tgz#dab7d09ed2579b05b42d1a724de6008745d1d36c"
@@ -3495,7 +3488,7 @@
 
 "@types/bluebird@*", "@types/bluebird@^3.5.32":
   version "3.5.32"
-  resolved "http://ninja-npm-verdaccio.barco.com:4873/@types%2fbluebird/-/bluebird-3.5.32.tgz#381e7b59e39f010d20bbf7e044e48f5caf1ab620"
+  resolved "https://registry.npmjs.org/@types/bluebird/-/bluebird-3.5.32.tgz#381e7b59e39f010d20bbf7e044e48f5caf1ab620"
   integrity sha512-dIOxFfI0C+jz89g6lQ+TqhGgPQ0MxSnh/E4xuC0blhFtyW269+mPG5QeLgbdwst/LvdP8o1y0o/Gz5EHXLec/g==
 
 "@types/body-parser@*":
@@ -3769,10 +3762,10 @@
   resolved "https://registry.npmjs.org/@types/node/-/node-13.13.28.tgz#b6d0628b0371d6c629d729c98322de314b640219"
   integrity sha512-EM/qFeRH8ZCD+TlsaIPULyyFm9vOhFIvgskY2JmHbEsWsOPgN+rtjSXrcHGgJpob4Nu17VfO95FKewr0XY7iOQ==
 
-"@types/node@~8.10.64":
-  version "8.10.64"
-  resolved "http://ninja-npm-verdaccio.barco.com:4873/@types%2fnode/-/node-8.10.64.tgz#0dddc4c53ca4819a32b7478232d8b446ca90e1c6"
-  integrity sha512-/EwBIb+imu8Qi/A3NF9sJ9iuKo7yV+pryqjmeRqaU0C4wBAOhas5mdvoYeJ5PCKrh6thRSJHdoasFqh3BQGILA==
+"@types/node@^14.14.2":
+  version "14.14.2"
+  resolved "https://registry.npmjs.org/@types/node/-/node-14.14.2.tgz#d25295f9e4ca5989a2c610754dc02a9721235eeb"
+  integrity sha512-jeYJU2kl7hL9U5xuI/BhKPZ4vqGM/OmK6whiFAXVhlstzZhVamWhDSmHyGLIp+RVyuF9/d0dqr2P85aFj4BvJg==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"

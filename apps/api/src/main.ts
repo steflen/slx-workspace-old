@@ -11,10 +11,12 @@ import { setupRedoc } from './redoc';
 import { setupSwagger } from './swagger';
 import helmet = require('helmet');
 
+// const log: Logger = new Logger(, { pinoHttp: { level: 'debug', prettyPrint: true } });
+
 async function bootstrap(): Promise<INestApplication> {
   const app = await NestFactory.create(AppModule, {
     // https://www.npmjs.com/package/nestjs-pino#usage-as-nestjs-app-logger
-    logger: false,
+    // logger: false,
   });
   const logger = app.get(Logger);
   app.useLogger(logger);

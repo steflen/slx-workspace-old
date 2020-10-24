@@ -1,11 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { SequelizeModule } from '@nestjs/sequelize';
-import { AuthModule } from '@slx/api-auth';
-import { PostModule } from '@slx/api-post';
-import { ProfileModule } from '@slx/api-profile';
 import { UserModule } from '@slx/api-user';
-import { Logger, LoggerModule, Params } from 'nestjs-pino';
+import { LoggerModule, Params } from 'nestjs-pino';
 import { resolve } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -36,19 +32,20 @@ console.log(resolve(__dirname, '..', '..', '.env.api.production'));
     //   parser: I18nJsonParser,
     //   inject: [ConfigService],
     // }),
-    SequelizeModule.forRootAsync({
-      imports: [LoggerModule],
-      useFactory: (logger: Logger) => ({
-        database: 'api-database',
-        dialect: 'sqlite',
-        autoLoadModels: true,
-        synchronize: true,
-        logQueryParameters: true,
-        logging: (sql) => logger.verbose(sql, 'SEQUELIZE'),
-        storage: resolve(process.cwd(), 'api-database.sqlite'),
-      }),
-      inject: [Logger],
-    }),
+    // SequelizeModule.forRootAsync({
+    //   imports: [LoggerModule],
+    //   useFactory: (logger: Logger) => ({
+    //     database: 'api-database',
+    //     dialect: 'sqlite',
+    //     autoLoadModels: true,
+    //     synchronize: true,
+    //     logQueryParameters: true,
+    //     repositoryMode: true,
+    //     logging: (sql) => logger.verbose(sql, 'SEQUELIZE'),
+    //     storage: resolve(process.cwd(), 'api-database.sqlite'),
+    //   }),
+    //   inject: [Logger],
+    // }),
 
     // SequelizeModule.forRootAsync({
     //   database: 'api-database',
@@ -65,11 +62,10 @@ console.log(resolve(__dirname, '..', '..', '.env.api.production'));
     //   // },
     // }),
 
-    // DatabaseModule,
-    AuthModule,
+    // ApiDatabaseModule,
+    // AuthModule,
     UserModule,
-    PostModule,
-    ProfileModule,
+    // PostModule,
   ],
   controllers: [AppController],
   providers: [AppService],

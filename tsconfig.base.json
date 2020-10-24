@@ -54,7 +54,9 @@
       "@slx/api-post": ["libs/api/post/src/index.ts"],
       "@slx/api-post/*": ["libs/api/post/src/lib/*"],
       "@slx/api-profile": ["libs/api/profile/src/index.ts"],
-      "@slx/api-profile/*": ["libs/api/profile/src/lib/*"]
+      "@slx/api-profile/*": ["libs/api/profile/src/lib/*"],
+      "@slx/api-database": ["libs/api/database/src/index.ts"],
+      "@slx/api-database/*": ["libs/api/database/src/lib/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

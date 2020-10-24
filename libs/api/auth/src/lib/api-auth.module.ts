@@ -1,33 +1,27 @@
-import { Module } from '@nestjs/common';
+import { forwardRef, Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { JwtModule } from '@nestjs/jwt';
+import { JwtModule, JwtModuleOptions } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { UserModule } from '@slx/api-user';
-import { PinoLogger } from 'nestjs-pino';
 import { AuthService } from './auth.service';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { LocalStrategy } from './strategies/local.strategy';
 
 @Module({
   imports: [
-    // forwardRef(() => UserModule),
-    UserModule,
+    forwardRef(() => UserModule),
     PassportModule,
     JwtModule.registerAsync({
       imports: [ConfigModule],
-      useFactory: async (log: PinoLogger, cfg: ConfigService) => {
-        const jwtConfig = cfg.get('jwt');
-        log.info({ jwtConfig: jwtConfig }, '[%s] Initializing JwtModule', AuthModule.name);
-        return jwtConfig;
-      },
-      inject: [PinoLogger, ConfigService],
+      useFactory: async (cfg: ConfigService) => cfg.get<JwtModuleOptions>('jwt'),
+      // useFactory: async (log: PinoLogger, cfg: ConfigService) => {
+      //   const jwtConfig =
+      //   log.info('Initializing JWT with options %o', jwtConfig);
+      //   return jwtConfig;
+      inject: [ConfigService],
     }),
   ],
   providers: [AuthService, LocalStrategy, JwtStrategy],
   exports: [AuthService],
 })
-export class AuthModule {
-  constructor(private readonly log: PinoLogger) {
-    log.info('Constructor auth module');
-  }
-}
+export class AuthModule {}

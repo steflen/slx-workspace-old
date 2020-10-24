@@ -1,14 +1,13 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, Req, UseGuards } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
-import { ApiBearerAuth, ApiCreatedResponse, ApiOkResponse, ApiParam, ApiTags } from '@nestjs/swagger';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, Req } from '@nestjs/common';
+import { ApiCreatedResponse, ApiOkResponse, ApiParam, ApiTags } from '@nestjs/swagger';
 import { CreateProfileDto } from '../dto/create-profile.dto';
 import { ProfileDto } from '../dto/profile.dto';
 import { UpdateProfileDto } from '../dto/update-profile.dto';
-import { Profile as ProfileModel } from '../models/profile.model';
+import { Profile } from '../models/profile.model';
 import { ProfileService } from '../services/profile.service';
 
-@Controller('profile')
 @ApiTags('profile')
+@Controller('profile')
 export class ProfileController {
   constructor(private readonly profileService: ProfileService) {}
 
@@ -26,32 +25,32 @@ export class ProfileController {
   }
 
   @Post()
-  @ApiCreatedResponse({ type: ProfileModel })
-  @ApiBearerAuth()
-  @UseGuards(AuthGuard('jwt'))
-  create(@Body() createPostDto: CreateProfileDto, @Req() request): Promise<ProfileModel> {
+  @ApiCreatedResponse({ type: Profile })
+  // @ApiBearerAuth()
+  // @UseGuards(AuthGuard('jwt'))
+  create(@Body() createPostDto: CreateProfileDto, @Req() request): Promise<Profile> {
     return this.profileService.create(request.user.id, createPostDto);
   }
 
   @Put(':id')
-  @ApiOkResponse({ type: ProfileModel })
+  @ApiOkResponse({ type: Profile })
   @ApiParam({ name: 'id', required: true })
-  @ApiBearerAuth()
-  @UseGuards(AuthGuard('jwt'))
+  // @ApiBearerAuth()
+  // @UseGuards(AuthGuard('jwt'))
   update(
     @Param('id', new ParseIntPipe()) id: number,
     @Req() request,
     @Body() updatePostDto: UpdateProfileDto,
-  ): Promise<ProfileModel> {
+  ): Promise<Profile> {
     return this.profileService.update(id, request.user.id, updatePostDto);
   }
 
   @Delete(':id')
-  @ApiOkResponse({ type: ProfileModel })
+  @ApiOkResponse({ type: Profile })
   @ApiParam({ name: 'id', required: true })
-  @ApiBearerAuth()
-  @UseGuards(AuthGuard('jwt'))
-  delete(@Param('id', new ParseIntPipe()) id: number, @Req() request): Promise<ProfileModel> {
+  // @ApiBearerAuth()
+  // @UseGuards(AuthGuard('jwt'))
+  delete(@Param('id', new ParseIntPipe()) id: number, @Req() request): Promise<Profile> {
     return this.profileService.delete(id, request.user.id);
   }
 }

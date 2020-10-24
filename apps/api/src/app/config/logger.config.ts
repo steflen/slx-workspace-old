@@ -59,7 +59,7 @@ export default registerAs(
        * Fastify adapter, and already configuring it on adapter level.
        * Pros and cons of this approach are descibed in the last section.
        */
-      // useExisting: false,
+      // useExisting: true,
       /**
        * Optional parameter to change property name `context` in resulted logs,
        * so logs will be like:

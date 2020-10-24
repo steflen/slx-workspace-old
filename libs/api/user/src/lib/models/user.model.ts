@@ -1,12 +1,9 @@
-import { Post } from '@slx/api-post/models/post.model';
-import { Profile } from '@slx/api-profile/models/profile.model';
+// import { Post } from '@slx/api-post/models/post.model';
 import {
   Column,
   CreatedAt,
   DataType,
   DeletedAt,
-  HasMany,
-  HasOne,
   IsEmail,
   Model,
   PrimaryKey,
@@ -18,6 +15,7 @@ import {
 @Table({
   tableName: 'user',
 })
+@Table
 export class User extends Model<User> {
   @PrimaryKey
   @Column({
@@ -31,7 +29,7 @@ export class User extends Model<User> {
   @Column
   email: string;
 
-  @Unique
+  // @Unique
   @Column
   username: string;
 
@@ -50,9 +48,9 @@ export class User extends Model<User> {
   @Column({ field: 'deleted_at' })
   deletedAt: Date;
 
-  @HasOne(() => Profile)
-  profile: Profile;
-
-  @HasMany(() => Post)
-  posts: Post[];
+  // @HasOne(() => Profile)
+  // profile: Profile;
+  //
+  // @HasMany(() => Post)
+  // posts: Post[];
 }

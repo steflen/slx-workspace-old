@@ -142,6 +142,9 @@
     },
     "api-profile": {
       "tags": ["project:lib", "scope:api"]
+    },
+    "api-database": {
+      "tags": []
     }
   }
 }
