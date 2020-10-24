@@ -1,14 +1,14 @@
 import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
-// import { User } from '../../../../user/src/lib/models/user.model';
-import { CreateProfileDto } from '@slx/api-user/dto/create-profile.dto';
-import { ProfileDto } from '@slx/api-user/dto/profile.dto';
-import { UpdateProfileDto } from '@slx/api-user/dto/update-profile.dto';
-import { Profile } from '@slx/api-user/models/profile.model';
+import { CreateProfileDto } from '../dto/create-profile.dto';
+import { ProfileDto } from '../dto/profile.dto';
+import { UpdateProfileDto } from '../dto/update-profile.dto';
+import { Profile } from '../models/profile.model';
+import { PROFILE_REPOSITORY } from '../providers/profile.providers';
 
 @Injectable()
 export class ProfileService {
   constructor(
-    @Inject('ProfileRepository')
+    @Inject(PROFILE_REPOSITORY)
     private readonly profileRepository: typeof Profile,
   ) {}
 

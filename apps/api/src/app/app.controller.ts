@@ -1,11 +1,14 @@
 import { Controller, Get, Req, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { Logger } from 'nestjs-pino';
+import { InjectPinoLogger, PinoLogger } from 'nestjs-pino';
 import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService, private readonly log: Logger) {}
+  constructor(
+    private readonly appService: AppService,
+    @InjectPinoLogger(AppController.name) private readonly log: PinoLogger,
+  ) {}
   @UseGuards(AuthGuard('jwt'))
   @Get('protected')
   getProtected(@Req() req) {

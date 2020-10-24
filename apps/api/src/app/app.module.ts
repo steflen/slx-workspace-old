@@ -21,6 +21,7 @@ console.log(resolve(__dirname, '..', '..', '.env.api.production'));
       expandVariables: true,
       isGlobal: true,
     }),
+
     LoggerModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],

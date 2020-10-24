@@ -10,10 +10,12 @@ export default registerAs(
         // https://github.com/pinojs/pino-pretty
         prettyPrint: {
           colorize: true,
+          crlf: false,
+          translateTime: true,
           //Display the log level name before the logged date and time.
-          levelFirst: true,
+          levelFirst: false,
           //https://www.npmjs.com/package/dateformat
-          translateTime: 'UTC:H:MM:ss mm/dd/yyyy ',
+          //translateTime: 'UTC:H:MM:ss mm/dd/yyyy ',
         },
         level: process.env.LOG_LEVEL || 'trace',
         // useLevel: 'trace',
