@@ -20,7 +20,7 @@ export abstract class CrudController<T> {
     return this.crudService.update(id, entity);
   }
 
-  @ApiOperation({ summary: 'Find all of ' })
+  @ApiOperation({ summary: 'Find all with optional paginate' })
   @Get()
   async findAll(filter?: PaginationParams<T>): Promise<IPagination<T>> {
     return this.crudService.findAll(filter);
@@ -35,7 +35,7 @@ export abstract class CrudController<T> {
   @ApiOperation({ summary: 'Delete by id' })
   @HttpCode(HttpStatus.ACCEPTED)
   @Delete(':id')
-  async delete(@Param('id') id: string, ...options: any[]): Promise<any> {
+  async delete(@Param('id') id: string, ...options: any[]): Promise<number> {
     return this.crudService.delete(id);
   }
 }

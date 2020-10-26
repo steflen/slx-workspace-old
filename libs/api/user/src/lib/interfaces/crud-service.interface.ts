@@ -1,7 +1,7 @@
 /**
  * Same as Partial<T> but goes deeper and makes Partial<T> all its properties and sub-properties.
  */
-import { IPagination } from '@slx/api-user/interfaces/pagination.interface';
+import { IPagination, PaginationParams } from '@slx/api-user/interfaces/pagination.interface';
 
 export type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends Array<infer U>
@@ -33,8 +33,8 @@ export type QueryDeepPartialEntity<T> = {
 
 export interface ICrudService<T> {
   create(entity: DeepPartial<T>): Promise<T>;
-  update(id: any, entity: QueryDeepPartialEntity<T>, ...options: any[]): Promise<T>;
-  findAll(): Promise<IPagination<T>>;
-  findOne(id: string | number): Promise<T>;
-  delete(id: any): Promise<void>;
+  update(id: any, entity: QueryDeepPartialEntity<T>): Promise<T>;
+  findAll(filter?: PaginationParams<T>): Promise<IPagination<T>>;
+  findOne(id: string): Promise<T>;
+  delete(id: string): Promise<number>;
 }

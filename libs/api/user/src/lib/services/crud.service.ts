@@ -1,3 +1,4 @@
+import { PaginationParams } from '@slx/api-user/interfaces/pagination.interface';
 import { PinoLogger } from 'nestjs-pino';
 import { Model, Repository, Sequelize } from 'sequelize-typescript';
 import { DeepPartial, ICrudService, QueryDeepPartialEntity } from '../interfaces/crud-service.interface';
@@ -21,7 +22,7 @@ export abstract class CrudService<T> implements ICrudService<T> {
     }
   }
 
-  public async update(id: string | number, partialEntity: QueryDeepPartialEntity<T>): Promise<T> {
+  public async update(id: string, partialEntity: QueryDeepPartialEntity<T>): Promise<T> {
     try {
       await this.sequelize.transaction(async (transaction) => {
         this.log.info('Update record at id %o ==> %o', partialEntity, id);
@@ -33,19 +34,25 @@ export abstract class CrudService<T> implements ICrudService<T> {
     }
   }
 
-  // delete(id: any): Promise<void> {
-  //   return Promise.resolve(undefined);
-  // }
-  //
-  // findAll(): Promise<IPagination<T>> {
-  //   return Promise.resolve(undefined);
-  // }
-  //
-  // findOne(id: string | number): Promise<T> {
-  //   return Promise.resolve(undefined);
-  // }
-  //
-  // update(id: any, dto: T): Promise<T> {
-  //   return Promise.resolve(undefined);
-  // }
+  public async findAll(pagination?: PaginationParams<T>): Promise<{ rows: Model<any, any>[]; count: number }> {
+    const { rows, count } = await this.repository.findAndCountAll(/*pagination paramss....*/);
+    this.log.info('Found %o items', count);
+    return { rows, count };
+  }
+
+  public async findOne(id: string): Promise<T> {
+    const record: any = await this.repository.findOne({ where: { id: id } });
+    // if (!record) {
+    //   throw new NotFoundException(`The requested record was not found`);
+    // }
+    return record;
+  }
+
+  public async delete(id: string): Promise<number> {
+    // try {
+    return this.repository.destroy({ where: { id: id } });
+    // } catch (err) {
+    //   throw new NotFoundException(`The record was not found`, err);
+    // }
+  }
 }
