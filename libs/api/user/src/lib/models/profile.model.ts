@@ -30,8 +30,8 @@ export class Profile extends Model<Profile> {
   lastName: string;
 
   @AllowNull
-  @Column({ field: 'date_of_birth', type: DataType.DATEONLY })
-  dateOfBirth: string;
+  @Column({ field: 'birthday', type: DataType.DATEONLY })
+  birthday: string;
 
   @AllowNull
   @Column({ field: 'mobile_phone' })

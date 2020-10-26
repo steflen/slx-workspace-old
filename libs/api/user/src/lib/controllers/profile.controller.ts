@@ -20,7 +20,8 @@ export class ProfileController extends CrudController<Profile> {
   @ApiOperation({ summary: 'Create a new profile' })
   @Post()
   async create(@Body() profile: CreateProfileDto, @CurrentUser() user: User): Promise<Profile> {
-    return super.create(profile);
+    return super.create(profile, user);
+    // return this.profileService.create(entity, file, user);
   }
 
   @ApiOperation({ summary: 'Update an existing user' })
