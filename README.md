@@ -5,6 +5,8 @@
 overall:
 
 - @nrwl monorepository
+- https://github.com/angular-architects/ddd-demo/blob/master/nx.json
+- https://www.npmjs.com/package/@angular-architects/ddd
 
 frontend:
 
@@ -13,13 +15,16 @@ frontend:
 
 backend:
 
-- @nestjs backend
+- nestjs (express)
 - pm2 process manager
 - helmet
 - rate limit
 - cors
 - pino logger
+- jwt
+- sequelize
+- user-model + profile-model (1:1)
 
-ddd, see
-https://www.npmjs.com/package/@angular-architects/ddd
-https://github.com/angular-architects/ddd-demo/blob/master/nx.json
+tools:
+
+- sqlitebrowser

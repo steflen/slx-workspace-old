@@ -1,58 +1,37 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, Req } from '@nestjs/common';
-import { ApiCreatedResponse, ApiOkResponse, ApiParam, ApiTags } from '@nestjs/swagger';
+// @UseGuards(AuthGuard("jwt"))
+// @ApiBearerAuth()
+import { Body, Controller, Param, Post, Put } from '@nestjs/common';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { CrudController } from '@slx/api-database/crud/crud.controller';
 import { CurrentUser } from '@slx/api-user/decorators/current-user.decorator';
 import { User } from '@slx/api-user/models/user.model';
 import { CreateProfileDto } from '../dto/create-profile.dto';
-import { ProfileDto } from '../dto/profile.dto';
 import { UpdateProfileDto } from '../dto/update-profile.dto';
 import { Profile } from '../models/profile.model';
 import { ProfileService } from '../services/profile.service';
 
-@ApiTags('profile')
+@ApiTags('Profile')
 @Controller('profile')
-export class ProfileController {
-  constructor(private readonly profileService: ProfileService) {}
-
-  @Get()
-  @ApiOkResponse({ type: [ProfileDto] })
-  findAll(): Promise<ProfileDto[]> {
-    return this.profileService.findAll();
+export class ProfileController extends CrudController<Profile> {
+  constructor(private readonly profileService: ProfileService) {
+    super(profileService);
   }
 
-  @Get(':id')
-  @ApiOkResponse({ type: ProfileDto })
-  @ApiParam({ name: 'id', required: true })
-  findOne(@Param('id', new ParseIntPipe()) id: number): Promise<ProfileDto> {
-    return this.profileService.findOne(id);
-  }
-
+  @ApiOperation({ summary: 'Create a new profile' })
   @Post()
-  @ApiCreatedResponse({ type: Profile })
-  // @ApiBearerAuth()
-  // @UseGuards(AuthGuard('jwt'))
-  create(@Body() profile: CreateProfileDto, @CurrentUser() user: User): Promise<void> {
-    return this.profileService.create(profile, user);
+  async create(@Body() profile: CreateProfileDto, @CurrentUser() user: User): Promise<Profile> {
+    return super.create(profile);
   }
 
+  @ApiOperation({ summary: 'Update an existing user' })
   @Put(':id')
-  @ApiOkResponse({ type: Profile })
-  @ApiParam({ name: 'id', required: true })
-  // @ApiBearerAuth()
-  // @UseGuards(AuthGuard('jwt'))
-  update(
-    @Param('id', new ParseIntPipe()) id: number,
-    @Req() request,
-    @Body() updatePostDto: UpdateProfileDto,
-  ): Promise<Profile> {
-    return this.profileService.update(id, request.user.id, updatePostDto);
+  async update(@Param('id') id: string, @Body() entity: UpdateProfileDto): Promise<Profile> {
+    return super.update(id, entity);
   }
 
-  @Delete(':id')
-  @ApiOkResponse({ type: Profile })
-  @ApiParam({ name: 'id', required: true })
-  // @ApiBearerAuth()
-  // @UseGuards(AuthGuard('jwt'))
-  delete(@Param('id', new ParseIntPipe()) id: number, @Req() request): Promise<Profile> {
-    return this.profileService.delete(id, request.user.id);
-  }
+  // @ApiOperation({ summary: 'Returns currently logged in user data.' })
+  // @Get('me')
+  // getCurrentUserData(@Request() req: ApiRequest) {
+  //   return req.user;
+  // }
 }

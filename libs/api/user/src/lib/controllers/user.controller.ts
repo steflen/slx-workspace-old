@@ -17,8 +17,8 @@ export class UserController extends CrudController<User> {
 
   @ApiOperation({ summary: 'Create a new user' })
   @Post()
-  async create(@Body() createUserDto: CreateUserDto): Promise<User> {
-    return super.create(createUserDto);
+  async create(@Body() user: CreateUserDto): Promise<User> {
+    return super.create(user);
   }
 
   @ApiOperation({ summary: 'Update an existing user' })

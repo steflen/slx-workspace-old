@@ -34,8 +34,8 @@ export class Profile extends Model<Profile> {
   dateOfBirth: string;
 
   @AllowNull
-  @Column({ field: 'mobile_number' })
-  mobileNumber?: string;
+  @Column({ field: 'mobile_phone' })
+  mobilePhone?: string;
 
   @Column({ field: 'about_me' })
   aboutMe: string;

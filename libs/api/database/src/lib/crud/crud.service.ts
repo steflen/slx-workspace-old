@@ -11,7 +11,7 @@ export abstract class CrudService<T> implements ICrudService<T> {
     protected readonly log: PinoLogger,
   ) {}
 
-  public async create(entity: DeepPartial<T>): Promise<T> {
+  public async create(entity: DeepPartial<T>, ...args: any[]): Promise<T> {
     try {
       await this.sequelize.transaction(async (transaction) => {
         this.log.info('Create record %o', entity);
@@ -23,11 +23,11 @@ export abstract class CrudService<T> implements ICrudService<T> {
     }
   }
 
-  public async update(id: string, partialEntity: QueryDeepPartialEntity<T>): Promise<T> {
+  public async update(id: string, data: QueryDeepPartialEntity<T>, ...args: any[]): Promise<T> {
     try {
       await this.sequelize.transaction(async (transaction) => {
-        this.log.info('Update record at id %o ==> %o', partialEntity, id);
-        await this.repository.update(partialEntity, { where: { id } });
+        this.log.info('Update record at id %o ==> %o', data, id);
+        await this.repository.update(data, { where: { id } });
       });
     } catch (err) {
       this.log.warn('Failed to update record. %o', err);
@@ -49,7 +49,7 @@ export abstract class CrudService<T> implements ICrudService<T> {
     return record;
   }
 
-  public async delete(id: string): Promise<number> {
+  public async delete(id: string, ...args: any[]): Promise<number> {
     // try {
     return this.repository.destroy({ where: { id: id } });
     // } catch (err) {

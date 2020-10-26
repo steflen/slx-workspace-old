@@ -11,14 +11,14 @@ export abstract class CrudController<T> {
   @ApiOperation({ summary: 'Create new record' })
   @HttpCode(HttpStatus.CREATED)
   @Post()
-  async create(@Body() entity: DeepPartial<T>): Promise<T> {
+  async create(@Body() entity: DeepPartial<T>, ...args: any[]): Promise<T> {
     return this.crudService.create(entity);
   }
 
   @ApiOperation({ summary: 'Update an existing record' })
   @HttpCode(HttpStatus.ACCEPTED)
   @Put(':id')
-  async update(@Param('id') id: string, @Body() entity: QueryDeepPartialEntity<T>): Promise<T> {
+  async update(@Param('id') id: string, @Body() entity: QueryDeepPartialEntity<T>, ...args: any[]): Promise<T> {
     return this.crudService.update(id, entity);
   }
 
@@ -37,7 +37,7 @@ export abstract class CrudController<T> {
   @ApiOperation({ summary: 'Delete by id' })
   @HttpCode(HttpStatus.ACCEPTED)
   @Delete(':id')
-  async delete(@Param('id') id: string, ...options: any[]): Promise<number> {
+  async delete(@Param('id') id: string, ...args: any[]): Promise<number> {
     return this.crudService.delete(id);
   }
 }
