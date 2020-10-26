@@ -1,6 +1,6 @@
 import { Body, Controller, Param, Post, Put } from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
-import { CrudController } from '../controllers/crud.controller';
+import { CrudController } from '@slx/api-database/crud/crud.controller';
 import { CreateUserDto } from '../dto/create-user.dto';
 import { UpdateUserDto } from '../dto/update-user.dto';
 import { User } from '../models/user.model';

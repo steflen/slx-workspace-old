@@ -1,21 +1,21 @@
 import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
-import { User } from '@slx/api-user/models/user.model';
-import { USER_REPOSITORY } from '@slx/api-user/providers/user.providers';
+import { DATABASE_TOKEN } from '@slx/api-database/providers/database.providers';
 import { InjectPinoLogger, PinoLogger } from 'nestjs-pino';
 import { Sequelize } from 'sequelize-typescript';
 import { CreateProfileDto } from '../dto/create-profile.dto';
 import { ProfileDto } from '../dto/profile.dto';
 import { UpdateProfileDto } from '../dto/update-profile.dto';
 import { Profile } from '../models/profile.model';
-import { PROFILE_REPOSITORY } from '../providers/profile.providers';
+import { User } from '../models/user.model';
+import { PROFILE_REPO_TOKEN } from '../providers/profile.providers';
+import { USER_REPO_TOKEN } from '../providers/user.providers';
 
 @Injectable()
 export class ProfileService {
   constructor(
-    @Inject('SEQUELIZE')
-    private readonly sequelize: Sequelize,
-    @Inject(PROFILE_REPOSITORY) private readonly profileRepository: typeof Profile,
-    @Inject(USER_REPOSITORY) private readonly userRepository: typeof Profile,
+    @Inject(DATABASE_TOKEN) private readonly sequelize: Sequelize,
+    @Inject(PROFILE_REPO_TOKEN) private readonly profileRepository: typeof Profile,
+    @Inject(USER_REPO_TOKEN) private readonly userRepository: typeof Profile,
     @InjectPinoLogger(ProfileService.name) private readonly log: PinoLogger,
   ) {}
 

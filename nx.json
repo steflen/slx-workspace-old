@@ -144,7 +144,7 @@
       "tags": ["project:lib", "scope:api"]
     },
     "api-database": {
-      "tags": []
+      "tags": ["project:lib", "scope:api"]
     }
   }
 }

@@ -1,7 +1,7 @@
 import { Body, Delete, Get, HttpCode, HttpStatus, Param, Post, Put } from '@nestjs/common';
 import { ApiOperation } from '@nestjs/swagger';
-import { IPagination, PaginationParams } from '@slx/api-user/interfaces/pagination.interface';
-import { DeepPartial, ICrudService, QueryDeepPartialEntity } from '../interfaces/crud-service.interface';
+import { IPagination, PaginationParams } from '@slx/api-database/pagination/pagination.interface';
+import { DeepPartial, ICrudService, QueryDeepPartialEntity } from './crud-service.interface';
 
 export abstract class CrudController<T> {
   protected constructor(private readonly crudService: ICrudService<T>) {}

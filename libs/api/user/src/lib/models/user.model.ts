@@ -1,4 +1,5 @@
 // import { Post } from '@slx/api-post/models/post.model';
+import { IUser } from '@slx/api-user/interfaces/user.interface';
 import {
   Column,
   CreatedAt,
@@ -16,7 +17,7 @@ import {
   tableName: 'user',
 })
 @Table
-export class User extends Model<User> {
+export class User extends Model<User> implements IUser {
   @PrimaryKey
   @Column({
     type: DataType.UUID,

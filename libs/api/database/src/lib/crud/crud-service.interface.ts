@@ -1,7 +1,7 @@
 /**
  * Same as Partial<T> but goes deeper and makes Partial<T> all its properties and sub-properties.
  */
-import { IPagination, PaginationParams } from '@slx/api-user/interfaces/pagination.interface';
+import { IPagination, PaginationParams } from '@slx/api-database/pagination/pagination.interface';
 
 export type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends Array<infer U>

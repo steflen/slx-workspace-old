@@ -2,9 +2,11 @@ import { Logger, LoggerModule } from 'nestjs-pino';
 import { Sequelize } from 'sequelize-typescript';
 import path = require('path');
 
+export const DATABASE_TOKEN = 'SEQUELIZE';
+
 export const databaseProviders = [
   {
-    provide: 'SEQUELIZE',
+    provide: DATABASE_TOKEN,
     imports: [LoggerModule],
     inject: [Logger],
     useFactory: async (logger: Logger) => {

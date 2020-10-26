@@ -1,7 +1,7 @@
-import { PaginationParams } from '@slx/api-user/interfaces/pagination.interface';
+import { PaginationParams } from '@slx/api-database/pagination/pagination.interface';
 import { PinoLogger } from 'nestjs-pino';
 import { Model, Repository, Sequelize } from 'sequelize-typescript';
-import { DeepPartial, ICrudService, QueryDeepPartialEntity } from '../interfaces/crud-service.interface';
+import { DeepPartial, ICrudService, QueryDeepPartialEntity } from './crud-service.interface';
 
 export abstract class CrudService<T> implements ICrudService<T> {
   protected constructor(
