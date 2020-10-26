@@ -1,22 +1,12 @@
-import { ApiProperty } from '@nestjs/swagger';
-import { IsISO8601, IsOptional, IsString } from 'class-validator';
+import { OmitType, PartialType } from '@nestjs/swagger';
+import { CreateProfileDto } from '@slx/api-user/dto/create-profile.dto';
 
-export class UpdateProfileDto {
-  @ApiProperty()
-  @IsString()
-  readonly firstName: string;
+// https://trilon.io/blog/introducing-mapped-types-for-nestjs
 
-  @ApiProperty()
-  @IsString()
-  readonly lastName: string;
-
-  @ApiProperty()
-  @IsOptional()
-  @IsString()
-  readonly aboutMe?: string;
-
-  @ApiProperty()
-  @IsOptional()
-  @IsISO8601()
-  readonly birthday?: string;
-}
+export class UpdateProfileDto extends PartialType(
+  OmitType(
+    CreateProfileDto,
+    // everything from profile creation is updatable
+    [] as const,
+  ),
+) {}

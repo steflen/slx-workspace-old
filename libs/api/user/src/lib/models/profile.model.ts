@@ -21,18 +21,21 @@ export class Profile extends Model<Profile> {
   })
   id: string;
 
+  @AllowNull
   @Column({ field: 'first_name' })
   firstName: string;
 
+  @AllowNull
   @Column({ field: 'last_name' })
   lastName: string;
 
-  @Column(DataType.DATEONLY)
-  birthday: string;
+  @AllowNull
+  @Column({ field: 'date_of_birth', type: DataType.DATEONLY })
+  dateOfBirth: string;
 
   @AllowNull
-  @Column
-  mobilePhone?: string;
+  @Column({ field: 'mobile_number' })
+  mobileNumber?: string;
 
   @Column({ field: 'about_me' })
   aboutMe: string;
