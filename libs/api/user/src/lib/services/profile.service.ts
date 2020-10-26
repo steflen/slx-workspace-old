@@ -1,4 +1,8 @@
 import { HttpException, HttpStatus, Inject, Injectable } from '@nestjs/common';
+import { User } from '@slx/api-user/models/user.model';
+import { USER_REPOSITORY } from '@slx/api-user/providers/user.providers';
+import { InjectPinoLogger, PinoLogger } from 'nestjs-pino';
+import { Sequelize } from 'sequelize-typescript';
 import { CreateProfileDto } from '../dto/create-profile.dto';
 import { ProfileDto } from '../dto/profile.dto';
 import { UpdateProfileDto } from '../dto/update-profile.dto';
@@ -8,8 +12,11 @@ import { PROFILE_REPOSITORY } from '../providers/profile.providers';
 @Injectable()
 export class ProfileService {
   constructor(
-    @Inject(PROFILE_REPOSITORY)
-    private readonly profileRepository: typeof Profile,
+    @Inject('SEQUELIZE')
+    private readonly sequelize: Sequelize,
+    @Inject(PROFILE_REPOSITORY) private readonly profileRepository: typeof Profile,
+    @Inject(USER_REPOSITORY) private readonly userRepository: typeof Profile,
+    @InjectPinoLogger(ProfileService.name) private readonly log: PinoLogger,
   ) {}
 
   async findAll() {
@@ -29,14 +36,33 @@ export class ProfileService {
     return new ProfileDto(profile);
   }
 
-  async create(userId: string, createProfileDto: CreateProfileDto) {
-    const profile = new Profile();
+  async create(profile: CreateProfileDto, user: User): Promise<void> {
+    // const profile = new Profile();
     // profile.userId = userId;
-    profile.firstName = createProfileDto.firstName;
-    profile.lastName = createProfileDto.lastName;
-    profile.birthday = createProfileDto.birthday;
-    profile.aboutMe = createProfileDto.aboutMe;
-    return profile.save();
+    // profile.firstName = profile.firstName;
+    // profile.lastName = profile.lastName;
+    // profile.birthday = profile.birthday;
+    // profile.aboutMe = profile.aboutMe;
+    // return profile.save();
+    try {
+      await this.sequelize.transaction(async (transaction) => {
+        this.log.info('Try to create profile %o at user %o', profile, user);
+        // https://github.com/RobinBuschmann/sequelize-typescript#how-to-use-associations-with-repository-mode
+        // This will change in the future: One will be able to refer the model classes instead of the repositories.
+        const foundUser = await this.userRepository.findOne({ where: { username: user.username } });
+        const createdProfile = await this.profileRepository.create<Profile>(profile, {
+          include: this.userRepository,
+          transaction,
+        });
+        this.log.info('User %s created profile %o', foundUser, profile);
+        return createdProfile;
+      });
+    } catch (err) {
+      this.log.warn('Rollback -> Failed to create profile %o for user %o', profile, user);
+      if (err) {
+        this.log.warn(err);
+      }
+    }
   }
 
   private async getUserProfile(id: number, userId: string) {

@@ -1,5 +1,7 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, Req } from '@nestjs/common';
 import { ApiCreatedResponse, ApiOkResponse, ApiParam, ApiTags } from '@nestjs/swagger';
+import { CurrentUser } from '@slx/api-user/decorators/current-user.decorator';
+import { User } from '@slx/api-user/models/user.model';
 import { CreateProfileDto } from '../dto/create-profile.dto';
 import { ProfileDto } from '../dto/profile.dto';
 import { UpdateProfileDto } from '../dto/update-profile.dto';
@@ -28,8 +30,8 @@ export class ProfileController {
   @ApiCreatedResponse({ type: Profile })
   // @ApiBearerAuth()
   // @UseGuards(AuthGuard('jwt'))
-  create(@Body() createPostDto: CreateProfileDto, @Req() request): Promise<Profile> {
-    return this.profileService.create(request.user.id, createPostDto);
+  create(@Body() profile: CreateProfileDto, @CurrentUser() user: User): Promise<void> {
+    return this.profileService.create(profile, user);
   }
 
   @Put(':id')

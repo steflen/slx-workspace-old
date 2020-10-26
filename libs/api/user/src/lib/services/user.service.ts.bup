@@ -1,0 +1,68 @@
+import { Inject, Injectable } from '@nestjs/common';
+import { InjectPinoLogger, PinoLogger } from 'nestjs-pino';
+import { Repository, Sequelize } from 'sequelize-typescript';
+import { CreateUserDto } from '../dto/create-user.dto';
+import { User } from '../models/user.model';
+import { USER_REPOSITORY } from '../providers/user.providers';
+
+@Injectable()
+export class UserService {
+  constructor(
+    @Inject('SEQUELIZE')
+    private readonly sequelize: Sequelize,
+    @Inject(USER_REPOSITORY)
+    private readonly usersRepository: Repository<User>,
+    @InjectPinoLogger(UserService.name) private readonly log: PinoLogger,
+  ) {}
+
+  async create(createUserDto: CreateUserDto): Promise<void> {
+    try {
+      await this.sequelize.transaction(async (transaction) => {
+        this.log.info('Try to create user %o', createUserDto);
+        await this.usersRepository.create<User>(createUserDto, { transaction });
+        this.log.info('Created user %o', createUserDto);
+      });
+    } catch (err) {
+      this.log.warn('Rollback -> Failed to create user %o', createUserDto);
+      if (err) {
+        this.log.warn(err);
+      }
+    }
+  }
+
+  async findAll(): Promise<User[]> {
+    const users = await this.usersRepository.findAll();
+    this.log.info('Users found: %o', users);
+    return users;
+  }
+
+  async findByUsername(username: string): Promise<User> {
+    this.log.info('Find User By Username %o', username);
+    const user = await this.usersRepository.findOne({
+      where: {
+        username,
+      },
+    });
+    this.log.info('Found user %o', user);
+    return user;
+  }
+
+  async findByEmail(email: string): Promise<User> {
+    this.log.info('Find User By Email %o', email);
+    const user = await this.usersRepository.findOne({
+      where: {
+        email,
+      },
+    });
+
+    this.log.info('Found user %o', user);
+    return user;
+  }
+
+  async removeByUsername(username: string): Promise<void> {
+    this.log.info('Remove User By Username %o', username);
+    const user = await this.findByUsername(username);
+    await user.destroy();
+    this.log.info('User "%s" was removed', username);
+  }
+}

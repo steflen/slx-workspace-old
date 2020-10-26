@@ -21,7 +21,6 @@ async function bootstrap(): Promise<INestApplication> {
   const logger = app.get(Logger);
   app.useLogger(logger);
   const cfg = app.get(ConfigService);
-  logger.log('App module initialized');
 
   // const reflector = app.get(Reflector);
   // // reflector.app.useGlobalFilters(
@@ -57,9 +56,6 @@ async function bootstrap(): Promise<INestApplication> {
   useContainer(app.select(AppModule), { fallbackOnErrors: true });
 
   app.enableShutdownHooks();
-  process.on('SIGINT', () => {
-    logger.log('SIGINT detected');
-  });
 
   return app;
 }
