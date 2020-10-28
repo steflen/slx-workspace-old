@@ -17,6 +17,7 @@ export default registerAs(
           //https://www.npmjs.com/package/dateformat
           //translateTime: 'UTC:H:MM:ss mm/dd/yyyy ',
         },
+
         level: process.env.LOG_LEVEL || 'trace',
         // useLevel: 'trace',
         // useLevel: 'trace',
@@ -47,6 +48,12 @@ export default registerAs(
           path: 'auth',
         },
       ],
+      // exclude: [
+      //   {
+      //     method: RequestMethod.ALL,
+      //     path: 'api/auth',
+      //   },
+      // ],
       /**
        * Optional parameter for routing. It should implement interface of
        * parameters of NestJS buil-in `MiddlewareConfigProxy['exclude']`.

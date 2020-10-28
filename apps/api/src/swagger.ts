@@ -10,6 +10,7 @@ export async function setupSwagger(app: INestApplication): Promise<{ app: INestA
     .setTitle(cfg.get('swagger.title', 'super title'))
     .setDescription(cfg.get('swagger.description', 'super description'))
     .setVersion(cfg.get('swagger.version', 'beta'))
+    .addBasicAuth()
     .addBearerAuth()
     .build();
 

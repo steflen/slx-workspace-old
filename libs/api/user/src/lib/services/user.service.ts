@@ -15,4 +15,16 @@ export class UserService extends CrudService<User> {
   ) {
     super(sequelize, usersRepository, log);
   }
+
+  async findByUsername(username: string) {
+    return await this.usersRepository.findOne<User>({
+      where: { username },
+    });
+  }
+
+  async findByEmail(email: string) {
+    return await this.usersRepository.findOne<User>({
+      where: { email },
+    });
+  }
 }

@@ -1,9 +1,12 @@
+import { User } from '@slx/api-user/models/user.model';
 import {
   AllowNull,
+  BelongsTo,
   Column,
   CreatedAt,
   DataType,
   DeletedAt,
+  ForeignKey,
   Model,
   PrimaryKey,
   Table,
@@ -59,6 +62,13 @@ export class Profile extends Model<Profile> {
   // })
   // userId: string;
   //
-  // @BelongsTo(() => User, 'id')
-  // user: User;
+  @ForeignKey(() => User)
+  @Column({
+    type: DataType.UUID,
+    field: 'user_id',
+  })
+  userId: string;
+
+  @BelongsTo(() => User)
+  user: User;
 }

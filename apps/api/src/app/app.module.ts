@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { AuthModule } from '@slx/api-auth';
 import { UserModule } from '@slx/api-user';
 import { LoggerModule, Params } from 'nestjs-pino';
 import { resolve } from 'path';
-import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import cfgs from './config';
 
@@ -64,11 +64,10 @@ console.log(resolve(__dirname, '..', '..', '.env.api.production'));
     // }),
 
     // ApiDatabaseModule,
-    // AuthModule,
+    AuthModule,
     UserModule,
     // PostModule,
   ],
-  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}

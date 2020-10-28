@@ -4,13 +4,13 @@ import { IsEmail, IsNotEmpty, IsString, Length, MinLength } from 'class-validato
 export class CreateUserDto {
   @ApiProperty({ description: 'Unique email address of the user', minLength: 8, maxLength: 50 })
   @IsEmail()
-  @Length(8, 50)
+  @Length(8, 254)
   @IsNotEmpty()
   readonly email: string;
 
   @ApiProperty({ description: 'Unique username' })
   @IsString()
-  @Length(3, 30)
+  @Length(3, 50)
   @IsNotEmpty()
   readonly username: string;
 
@@ -19,4 +19,8 @@ export class CreateUserDto {
   @MinLength(10)
   @IsNotEmpty()
   readonly password: string;
+
+  readonly status;
+
+  readonly role;
 }

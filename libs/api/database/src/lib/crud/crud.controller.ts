@@ -30,6 +30,12 @@ export abstract class CrudController<T> {
 
   @ApiOperation({ summary: 'Find by id' })
   @Get(':id')
+  async findOne(@Param('id') id: string): Promise<T> {
+    return this.crudService.findOne(id);
+  }
+
+  @ApiOperation({ summary: 'Find by id' })
+  @Get(':id')
   async findById(@Param('id') id: string): Promise<T> {
     return this.crudService.findOne(id);
   }
