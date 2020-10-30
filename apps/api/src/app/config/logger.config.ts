@@ -10,14 +10,14 @@ export default registerAs(
         // https://github.com/pinojs/pino-pretty
         prettyPrint: {
           colorize: true,
-          crlf: false,
+          crlf: true,
           translateTime: true,
           //Display the log level name before the logged date and time.
-          levelFirst: false,
+          levelFirst: true,
           //https://www.npmjs.com/package/dateformat
           //translateTime: 'UTC:H:MM:ss mm/dd/yyyy ',
         },
-
+        autoLogging: true,
         level: process.env.LOG_LEVEL || 'trace',
         // useLevel: 'trace',
         // useLevel: 'trace',
@@ -43,17 +43,17 @@ export default registerAs(
        */
       // forRoutes?: Parameters<MiddlewareConfigProxy["forRoutes"]>;
       forRoutes: [
+        // {
+        //   method: RequestMethod.ALL,
+        //   path: 'auth',
+        // },
+      ],
+      exclude: [
         {
           method: RequestMethod.ALL,
           path: 'auth',
         },
       ],
-      // exclude: [
-      //   {
-      //     method: RequestMethod.ALL,
-      //     path: 'api/auth',
-      //   },
-      // ],
       /**
        * Optional parameter for routing. It should implement interface of
        * parameters of NestJS buil-in `MiddlewareConfigProxy['exclude']`.

@@ -1,5 +1,6 @@
 import { Body, Controller, Get, HttpCode, HttpStatus, Post, Request, UseGuards } from '@nestjs/common';
-import { ApiBearerAuth, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiConflictResponse, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { HttpUserExistsException } from '@slx/api-auth/exceptions/http-user-exists.exception';
 import { InjectPinoLogger, PinoLogger } from 'nestjs-pino';
 import { SignInDto } from './dto/sign-in.dto';
 import { SignUpDto } from './dto/sign-up.dto';
@@ -25,10 +26,23 @@ export class AuthController {
     type: UserTokenDto,
     description: 'Sign up guest user, creates and returns user access token',
   })
+  @ApiConflictResponse({
+    status: HttpStatus.CONFLICT,
+    type: HttpUserExistsException,
+    description: 'Sign up fails because user already exists',
+  })
   @Post('sign-up')
-  async signUp(@Body() signUpDto: SignUpDto) {
-    this.log.info('Sign up with credentials: %o', signUpDto);
-    return this.authService.signUp(signUpDto);
+  async signUp(@Body() signUpDto: SignUpDto): Promise<UserTokenDto> {
+    try {
+      this.log.info('Sign up with credentials: %o', signUpDto);
+      const userToken = await this.authService.signUp(signUpDto);
+      this.log.info({ userToken }, 'Sign up successful');
+      return userToken;
+    } catch (error) {
+      console.log(error);
+      this.log.error({ error }, 'Sign up failed');
+      throw new HttpUserExistsException(error, HttpStatus.CONFLICT);
+    }
   }
 
   // @ApiBasicAuth()

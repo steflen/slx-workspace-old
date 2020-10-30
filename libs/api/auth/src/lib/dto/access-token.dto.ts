@@ -3,10 +3,10 @@ import { IsNotEmpty } from 'class-validator';
 
 export class AccessTokenDto {
   @ApiProperty()
-  @IsNotEmpty()
+  @IsNotEmpty({ message: 'Expiration time required' })
   expiresIn: string;
 
   @ApiProperty()
-  @IsNotEmpty()
+  @IsNotEmpty({ message: 'Access token required' })
   accessToken: string;
 }

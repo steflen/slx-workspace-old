@@ -1,4 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { UserRole } from '@slx/api-user/dto/user-role.enum';
+import { UserStatus } from '@slx/api-user/dto/user-status.enum';
 import { IsEmail, IsNotEmpty, IsString, Length, MinLength } from 'class-validator';
 
 export class CreateUserDto {
@@ -20,7 +22,11 @@ export class CreateUserDto {
   @IsNotEmpty()
   readonly password: string;
 
-  readonly status;
+  @ApiProperty({ description: 'Status of user authentication', default: 'PENDING' })
+  @IsNotEmpty()
+  readonly status: UserStatus;
 
-  readonly role;
+  @ApiProperty({ description: 'User role', default: 'PENDING' })
+  @IsNotEmpty()
+  readonly role: UserRole;
 }

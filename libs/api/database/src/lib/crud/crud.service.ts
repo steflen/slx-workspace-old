@@ -13,13 +13,14 @@ export abstract class CrudService<T> implements ICrudService<T> {
 
   public async create(entity: DeepPartial<T>, ...args: any[]): Promise<T> {
     try {
-      await this.sequelize.transaction(async (transaction) => {
-        this.log.info('Create record %o', entity);
-        return await this.repository.create(entity); //create<T>(dto, { transaction });
-      });
-    } catch (err) {
-      this.log.warn('Failed to create record %o', entity);
-      return Promise.resolve(err);
+      // await this.sequelize.transaction(async (transaction) => {
+      //   this.log.info({ entity }, 'Creating transactional record');
+      //   return await this.repository.create(entity, { transaction }); //create<T>(dto, { transaction });
+      // });
+      return await this.repository.create(entity).then();
+    } catch (error) {
+      this.log.error({ entity, error }, 'Failed to create record');
+      return Promise.reject(error);
     }
   }
 

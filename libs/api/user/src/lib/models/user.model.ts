@@ -1,6 +1,4 @@
 // import { Post } from '@slx/api-post/models/post.model';
-import { UserRole } from '@slx/api-user/dto/user-role.enum';
-import { UserStatus } from '@slx/api-user/dto/user-status.enum';
 import {
   Column,
   CreatedAt,
@@ -14,6 +12,8 @@ import {
   Unique,
   UpdatedAt,
 } from 'sequelize-typescript';
+import { UserRole } from '../dto/user-role.enum';
+import { UserStatus } from '../dto/user-status.enum';
 import { IUser } from '../interfaces/user.interface';
 import { Profile } from '../models/profile.model';
 
@@ -42,14 +42,14 @@ export class User extends Model<User> implements IUser {
   password: string;
 
   @Column({
-    type: DataType.ENUM,
-    defaultValue: UserRole.USER,
+    type: DataType.ENUM('GUEST', 'USER', 'ADMIN'),
+    defaultValue: 'GUEST',
   })
   role: UserRole;
 
   @Column({
-    type: DataType.ENUM,
-    defaultValue: UserStatus.PENDING,
+    type: DataType.ENUM('PENDING', 'CONFIRMED'),
+    defaultValue: 'PENDING',
   })
   status: UserStatus;
 

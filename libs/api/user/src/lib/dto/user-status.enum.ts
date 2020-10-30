@@ -1,4 +1,1 @@
-export enum UserStatus {
-  PENDING = 'pending',
-  CONFIRMED = 'confirmed',
-}
+export type UserStatus = 'CONFIRMED' | 'PENDING';
